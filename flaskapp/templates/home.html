@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<title>SGR Application Home</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h5 {font-family: "Open Sans", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('/static/img/SURCOM_Zoom_2.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+  filter: grayscale(50%);
+}
+</style>
+<body>
+
+<div class="bgimg w3-display-container w3-text-white">
+  <div class="w3-display-middle">
+    <div class="w3-jumbo">
+      <p style="font-size:125%;"><b>Welcome to SURCOM's Transit State of Good Repair Website!</b></p>
+    </div>
+    <div class="w3-xxlarge w3-center">
+      <div class="w3-bar">
+        <a href="/dashapp/" class="w3-button w3-black w3-round-xxlarge" style="width:350px">dashboard</a>
+        <button onclick="document.getElementById('contact').style.display='block'" class="w3-button w3-black w3-round-xxlarge" style="width:350px">contact</button>
+      </div>
+    </div>
+  </div>
+  <div class="w3-display-bottomleft w3-container">
+    <p class="w3-large"><b>&copy 2021 Upper Great Plains Transportation Institute is a research and education center at North Dakota State University</b></p>
+  </div>
+</div>
+
+<!-- Contact Modal -->
+<div id="contact" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black">
+      <span onclick="document.getElementById('contact').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      <h1>Contact</h1>
+    </div>
+    <div class="w3-container">
+      <div class="w3-section">
+        <p><i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Fargo, North Dakota, US</p>
+        <p><i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: (701)231-1064</p>
+        <p><i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: ndsu.ugpti@ndsu.edu</p>
+      </div><br>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
