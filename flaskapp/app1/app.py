@@ -144,7 +144,23 @@ def init_dashboard(server):
                                             dcc.Graph(
                                                 id='backlog-cost-vehicles')
                                         ]
-                                        )
+                                        ),
+                                dcc.Tab(
+                                    label=' Report Name ',
+                                    style=tab_style,
+                                    selected_style=tab_selected_style,
+                                    children=[
+                                        html.H2(
+                                            'Heading 2'),
+                                        html.P(
+                                            'Description',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        dcc.Graph(id='vehicle-revenue-miles'),
+                                        dcc.Graph(
+                                            id='vehicle-revenue-hours')
+                                    ]
+                                )
                             ],
                                 style=tabs_styles)
                         ],

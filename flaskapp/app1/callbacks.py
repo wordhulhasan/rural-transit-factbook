@@ -4,14 +4,15 @@ import plotly.graph_objects as go
 import plotly.express as px
 from util import vehicle_colors, revenue_vehicles, fleet_composition, \
     generate_stats, \
-    replacement_cost, backlog, backlog_cost, make_state_agency_dict
+    replacement_cost, backlog, backlog_cost, make_state_agency_dict, vehicle_revenue_miles, mode_colors, \
+    vehicle_revenue_hours
 
 from .data import init_data
 
 
 def init_callbacks(dash_app):
     # callbacks
-    data1, data2 = init_data()
+    data1, data2, data3 = init_data()
 
     res = make_state_agency_dict()
 
@@ -37,6 +38,54 @@ def init_callbacks(dash_app):
                      color='vehicle_type',
                      color_discrete_map=vehicle_colors, title='Number of Revenue Vehicles',
                      labels={"vehicle_type": "Vehicle Type", "active_fleet_vehicles": "Number of Revenue Vehicles"},
+                     template='simple_white',
+                     )
+
+        fig.update_traces(textposition='outside')
+        fig.update_layout(
+            font_color="black",
+            title_font_color="black",
+            legend_title_font_color="black",
+            margin=dict(l=100, r=50, t=150, b=50),
+            height=600,
+            hovermode='x',
+            autosize=True
+        )
+        return fig
+
+    @dash_app.callback(Output('vehicle-revenue-miles', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def vrm(state, agency):
+        df = vehicle_revenue_miles(data3, state, agency)
+        fig = px.bar(df, x='mode', y='vehicle_revenue_miles', text='vehicle_revenue_miles',
+                     color='mode',
+                     color_discrete_map=mode_colors, title='Vehicle Revenue Miles',
+                     labels={"mode": "mode", "vehicle_revenue_miles": "Vehicle Revenue Miles"},
+                     template='simple_white',
+                     )
+
+        fig.update_traces(textposition='outside')
+        fig.update_layout(
+            font_color="black",
+            title_font_color="black",
+            legend_title_font_color="black",
+            margin=dict(l=100, r=50, t=150, b=50),
+            height=600,
+            hovermode='x',
+            autosize=True
+        )
+        return fig
+
+    @dash_app.callback(Output('vehicle-revenue-hours', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def vrm(state, agency):
+        df = vehicle_revenue_hours(data3, state, agency)
+        fig = px.bar(df, x='mode', y='vehicle_revenue_hours', text='vehicle_revenue_hours',
+                     color='mode',
+                     color_discrete_map=mode_colors, title='Vehicle Revenue Hours',
+                     labels={"mode": "mode", "vehicle_revenue_hours": "Vehicle Revenue Hours"},
                      template='simple_white',
                      )
 

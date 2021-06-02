@@ -39,6 +39,38 @@ def revenue_vehicles(dataframe, state='All', agency=None):
     return df
 
 
+def vehicle_revenue_miles(dataframe, state='All', agency=None):
+    if state == 'All':
+        df = dataframe[['mode', 'vehicle_revenue_miles', "ntd_reporter_type"]]. \
+            groupby(['mode']).sum().reset_index()
+        index_names = df[(df['ntd_reporter_type'] == "Full Reporter")].index
+        df.drop(index_names, inplace=True)
+    else:
+        df = dataframe[['state', 'mode', 'vehicle_revenue_miles', "ntd_reporter_type"]]. \
+            groupby(['state', 'mode']).sum().reset_index()
+        index_names = df[(df['ntd_reporter_type'] == "Full Reporter")].index
+        df.drop(index_names, inplace=True)
+        df = df.query("state == @state").reset_index()
+
+    return df
+
+
+def vehicle_revenue_hours(dataframe, state='All', agency=None):
+    if state == 'All':
+        df = dataframe[['mode', 'vehicle_revenue_hours', "ntd_reporter_type"]]. \
+            groupby(['mode']).sum().reset_index()
+        index_names = df[(df['ntd_reporter_type'] == "Full Reporter")].index
+        df.drop(index_names, inplace=True)
+    else:
+        df = dataframe[['state', 'mode', 'vehicle_revenue_hours', "ntd_reporter_type"]]. \
+            groupby(['state', 'mode']).sum().reset_index()
+        index_names = df[(df['ntd_reporter_type'] == "Full Reporter")].index
+        df.drop(index_names, inplace=True)
+        df = df.query("state == @state").reset_index()
+
+    return df
+
+
 def fleet_composition(dataframe, state='All', agency=None):
     """
     computes number of fleets by state
@@ -265,3 +297,25 @@ vehicle_colors = {
     "Sports Utility Vehicle": "#ea784d",
     "Streetcar Rail": "#e15b4e",
     "Van": "#d43d51"}
+
+mode_colors = {
+    "RB": "#00876c",
+    "MB": "#3c986d",
+    "HR": "#61a96e",
+    "DR": "#85b96f",
+    "CB": "#aac872",
+    "YR": "#f7e382",
+    "VP": "#f7c96c",
+    "LR": "#f5af5c",
+    "CR": "#f19452",
+    "DT": "#ea784d",
+    "FB": "#ea784d",
+    "TB": "#ea784d",
+    "SR": "#ea784d",
+    "AR": "#ea784d",
+    "CC": "#ea784d",
+    "MG": "#ea784d",
+    "IP": "#ea784d",
+    "PB": "#ea784d",
+
+}
