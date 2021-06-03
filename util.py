@@ -25,6 +25,7 @@ def revenue_vehicles(dataframe, state='All', agency=None):
     if state == 'All':
         df = dataframe[['vehicle_type', 'active_fleet_vehicles']]. \
             groupby(['vehicle_type']).sum().reset_index()
+        print(df)
     else:
         if agency == ' All ':
             df = dataframe[['state', 'vehicle_type', 'active_fleet_vehicles']]. \
@@ -40,32 +41,45 @@ def revenue_vehicles(dataframe, state='All', agency=None):
 
 
 def vehicle_revenue_miles(dataframe, state='All', agency=None):
+    odf = dataframe[['state', 'mode', 'vehicle_revenue_miles', 'ntd_reporter_type']]
+    index_names = odf[(odf['ntd_reporter_type'] == "Full Reporter")].index
+    odf.drop(index_names, inplace=True)
     if state == 'All':
-        df = dataframe[['mode', 'vehicle_revenue_miles', "ntd_reporter_type"]]. \
+        df = odf[['mode', 'vehicle_revenue_miles']]. \
             groupby(['mode']).sum().reset_index()
-        index_names = df[(df['ntd_reporter_type'] == "Full Reporter")].index
-        df.drop(index_names, inplace=True)
     else:
-        df = dataframe[['state', 'mode', 'vehicle_revenue_miles', "ntd_reporter_type"]]. \
+        df = odf[['state', 'mode', 'vehicle_revenue_miles']]. \
             groupby(['state', 'mode']).sum().reset_index()
-        index_names = df[(df['ntd_reporter_type'] == "Full Reporter")].index
-        df.drop(index_names, inplace=True)
         df = df.query("state == @state").reset_index()
 
     return df
 
 
 def vehicle_revenue_hours(dataframe, state='All', agency=None):
+    odf = dataframe[['state', 'mode', 'vehicle_revenue_hours', 'ntd_reporter_type']]
+    index_names = odf[(odf['ntd_reporter_type'] == "Full Reporter")].index
+    odf.drop(index_names, inplace=True)
     if state == 'All':
-        df = dataframe[['mode', 'vehicle_revenue_hours', "ntd_reporter_type"]]. \
+        df = odf[['mode', 'vehicle_revenue_hours']]. \
             groupby(['mode']).sum().reset_index()
-        index_names = df[(df['ntd_reporter_type'] == "Full Reporter")].index
-        df.drop(index_names, inplace=True)
     else:
-        df = dataframe[['state', 'mode', 'vehicle_revenue_hours', "ntd_reporter_type"]]. \
+        df = odf[['state', 'mode', 'vehicle_revenue_hours']]. \
             groupby(['state', 'mode']).sum().reset_index()
-        index_names = df[(df['ntd_reporter_type'] == "Full Reporter")].index
-        df.drop(index_names, inplace=True)
+        df = df.query("state == @state").reset_index()
+
+    return df
+
+
+def unlinked_passenger_trips(dataframe, state='All', agency=None):
+    odf = dataframe[['state', 'mode', 'unlinked_passenger_trips', 'ntd_reporter_type']]
+    index_names = odf[(odf['ntd_reporter_type'] == "Full Reporter")].index
+    odf.drop(index_names, inplace=True)
+    if state == 'All':
+        df = odf[['mode', 'unlinked_passenger_trips']]. \
+            groupby(['mode']).sum().reset_index()
+    else:
+        df = odf[['state', 'mode', 'unlinked_passenger_trips']]. \
+            groupby(['state', 'mode']).sum().reset_index()
         df = df.query("state == @state").reset_index()
 
     return df

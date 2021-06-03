@@ -156,9 +156,12 @@ def init_dashboard(server):
                                             'Description',
                                             style=paragraph_styles),
                                         html.Br(),
-                                        dcc.Graph(id='vehicle-revenue-miles'),
                                         dcc.Graph(
-                                            id='vehicle-revenue-hours')
+                                            id='vehicle-revenue-miles'),
+                                        dcc.Graph(
+                                            id='vehicle-revenue-hours'),
+                                        dcc.Graph(
+                                            id='unlinked_passenger_trips')
                                     ]
                                 )
                             ],

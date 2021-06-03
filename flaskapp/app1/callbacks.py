@@ -5,7 +5,7 @@ import plotly.express as px
 from util import vehicle_colors, revenue_vehicles, fleet_composition, \
     generate_stats, \
     replacement_cost, backlog, backlog_cost, make_state_agency_dict, vehicle_revenue_miles, mode_colors, \
-    vehicle_revenue_hours
+    vehicle_revenue_hours, unlinked_passenger_trips
 
 from .data import init_data
 
@@ -80,12 +80,36 @@ def init_callbacks(dash_app):
     @dash_app.callback(Output('vehicle-revenue-hours', 'figure'),
                        [Input('state-selector', 'value'),
                         Input('agency-dropdown', 'value')])
-    def vrm(state, agency):
+    def vrh(state, agency):
         df = vehicle_revenue_hours(data3, state, agency)
         fig = px.bar(df, x='mode', y='vehicle_revenue_hours', text='vehicle_revenue_hours',
                      color='mode',
                      color_discrete_map=mode_colors, title='Vehicle Revenue Hours',
                      labels={"mode": "mode", "vehicle_revenue_hours": "Vehicle Revenue Hours"},
+                     template='simple_white',
+                     )
+
+        fig.update_traces(textposition='outside')
+        fig.update_layout(
+            font_color="black",
+            title_font_color="black",
+            legend_title_font_color="black",
+            margin=dict(l=100, r=50, t=150, b=50),
+            height=600,
+            hovermode='x',
+            autosize=True
+        )
+        return fig
+
+    @dash_app.callback(Output('unlinked_passenger_trips', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def vrh(state, agency):
+        df = unlinked_passenger_trips(data3, state, agency)
+        fig = px.bar(df, x='mode', y='unlinked_passenger_trips', text='unlinked_passenger_trips',
+                     color='mode',
+                     color_discrete_map=mode_colors, title='Vehicle Revenue Hours',
+                     labels={"mode": "mode", "unlinked_passenger_trips": "unlinked_passenger_trips"},
                      template='simple_white',
                      )
 
