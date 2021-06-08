@@ -197,8 +197,26 @@ def init_dashboard(server):
                                             'Description',
                                             style=paragraph_styles),
                                         html.Br(),
+                                        html.P(
+                                            'Vehicle Revenue Miles',
+                                            style=paragraph_styles),
                                         dcc.Graph(
                                             id='vehicle-revenue-miles-table'),
+                                        html.Br(),
+                                        html.Br(),
+                                        html.P(
+                                            'Vehicle Revenue Hours',
+                                            style=paragraph_styles),
+                                        dcc.Graph(
+                                            id='vehicle-revenue-hours-table'),
+                                        html.Br(),
+                                        html.Br(),
+
+                                        html.P(
+                                            'Unlinked Passenger Trips',
+                                            style=paragraph_styles),
+                                        dcc.Graph(
+                                            id='unlinked_passenger_trips-table'),
                                     ]
                                 )
                             ],
