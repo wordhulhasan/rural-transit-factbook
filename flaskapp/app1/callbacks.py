@@ -1,7 +1,10 @@
+import json
+
 import dash_html_components as html
 from dash.dependencies import Input, Output
 import plotly.graph_objects as go
 import plotly.express as px
+import plotly.figure_factory as ff
 from util import vehicle_colors, revenue_vehicles, fleet_composition, \
     generate_stats, \
     replacement_cost, backlog, backlog_cost, make_state_agency_dict, vehicle_revenue_miles, mode_colors, \
@@ -77,9 +80,35 @@ def init_callbacks(dash_app):
         )
         return fig
 
+    @dash_app.callback(Output('vehicle-revenue-miles-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def vrm(state, agency):
+        df = vehicle_revenue_miles(data3, state, agency)
+        df_sample = df[['mode', 'vehicle_revenue_miles']]
+        fig = ff.create_table(df_sample)
+        #     go.Figure(data=[go.Table(
+        #     header=dict(values=list(df.columns),
+        #                 fill_color='paleturquoise',
+        #                 align='left'),
+        #     cells=dict(values=[df.mode, df.vehicle_revenue_miles],
+        #                fill_color='lavender',
+        #                align='left'))
+        # ])
+        return fig
+
+    @dash_app.callback(
+        Output('my-output', 'data'),
+        [Input('state-selector', 'value'),
+         Input('agency-dropdown', 'value')])
+    def update_table(state, agency):
+        df = vehicle_revenue_miles(data3, state, agency)
+        return df.to_html(classes='table table-striped')
+
     @dash_app.callback(Output('vehicle-revenue-hours', 'figure'),
                        [Input('state-selector', 'value'),
                         Input('agency-dropdown', 'value')])
+
     def vrh(state, agency):
         df = vehicle_revenue_hours(data3, state, agency)
         fig = px.bar(df, x='mode', y='vehicle_revenue_hours', text='vehicle_revenue_hours',

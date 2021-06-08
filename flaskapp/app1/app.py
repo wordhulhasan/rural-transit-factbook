@@ -161,7 +161,10 @@ def init_dashboard(server):
                                         dcc.Graph(
                                             id='vehicle-revenue-hours'),
                                         dcc.Graph(
-                                            id='unlinked_passenger_trips')
+                                            id='unlinked_passenger_trips'),
+                                        # html.Div(id='my-output'),
+                                        dcc.Graph(
+                                            id='vehicle-revenue-miles-table'),
                                     ]
                                 )
                             ],
