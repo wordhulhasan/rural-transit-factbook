@@ -8,14 +8,14 @@ import plotly.figure_factory as ff
 from util import vehicle_colors, revenue_vehicles, fleet_composition, \
     generate_stats, \
     replacement_cost, backlog, backlog_cost, make_state_agency_dict, vehicle_revenue_miles, mode_colors, \
-    vehicle_revenue_hours, unlinked_passenger_trips
+    vehicle_revenue_hours, unlinked_passenger_trips, statisticsForAgenciesRankedByVRM
 
 from .data import init_data
 
 
 def init_callbacks(dash_app):
     # callbacks
-    data1, data2, data3 = init_data()
+    data1, data2, data3, dataStatforAgenciesRankedByVRM = init_data()
 
     res = make_state_agency_dict()
 
@@ -155,6 +155,17 @@ def init_callbacks(dash_app):
         df = unlinked_passenger_trips(data3, state, agency)
         df_sample = df[['mode', 'unlinked_passenger_trips']]
         fig = ff.create_table(df_sample)
+        print(df_sample)
+        return fig
+
+    @dash_app.callback(Output('statisticsForAgenciesRankedByVRM-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')]
+                       )
+    def statForAgenciesRankedByVRM(state, agency):
+        df = statisticsForAgenciesRankedByVRM(dataStatforAgenciesRankedByVRM)
+        fig = ff.create_table(df)
+        print(df)
         return fig
 
     @dash_app.callback(Output('fleet-composition', 'figure'),

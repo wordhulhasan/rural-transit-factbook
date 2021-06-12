@@ -96,6 +96,11 @@ def unlinked_passenger_trips(dataframe, state='All', agency=None):
             df = df.query("state == @state and agency==@agency" ).reset_index(drop=True)
     return df
 
+def statisticsForAgenciesRankedByVRM(dataframe):
+    df = dataframe[['percentile_rank', 'minimum', 'maximum', 'unlinked_passenger_trips', 'vehicle_revenue_miles', 'vehicle_revenue_hours', 'trips_per_vehicle_revenue_mile', 'operating_cost_per_trip', 'operating_cost_per_vehicle_revenue_mile', 'operating_cost_per_vehicle_revenue_hour']]
+    df = df.dropna()
+    df.columns = ['Percentile Rank', 'Minimum', 'Maximum', 'UPT', 'VRM', 'VRH', 'Trips Per VRM', 'OPEX Per Trip', 'OPEX Per VRM', 'OPEX Per VRH']
+    return df
 
 def fleet_composition(dataframe, state='All', agency=None):
     """

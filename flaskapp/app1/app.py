@@ -216,7 +216,41 @@ def init_dashboard(server):
                                             'Unlinked Passenger Trips',
                                             style=paragraph_styles),
                                         dcc.Graph(
-                                            id='unlinked_passenger_trips-table'),
+                                            id='unlinked_passenger_trips-table')
+                                    ]
+                                ),
+                                dcc.Tab(
+                                    label=' Report Name In table format',
+                                    style=tab_style,
+                                    selected_style=tab_selected_style,
+                                    children=[
+                                        html.H2(
+                                            'Statistics For Vehicle Revenue Miles'),
+                                        html.P(
+                                            'Description',
+                                            style=paragraph_styles),
+                                        html.P(
+                                            'Vehicle Revenue Hours = VRH',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        html.P(
+                                            'Vehicle Revenue Miles = VRM',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        html.P(
+                                            'Unlinked Passenger Trips = UPT',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        html.P(
+                                            'Operating Cost = OPEX',
+                                            style=paragraph_styles),
+
+                                        html.Br(),
+                                        html.H3(
+                                            'Statistics For Agencies Ranked by Vehicle Revenue Miles'),
+
+                                        dcc.Graph(
+                                            id='statisticsForAgenciesRankedByVRM-table'),
                                     ]
                                 )
                             ],
