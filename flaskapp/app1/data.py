@@ -7,5 +7,7 @@ def init_data():
     data2 = preprocess('data/revenue_vehicle_replacement_cost.csv')
     data3 = preprocess('data/service.csv')
     dataStatforAgenciesRankedByVRM = preprocess('data/statForAgenciesRankedByVRM.csv')
+    datastatForDemandResponseRankedByVRM = preprocess('data/statForDemandResponseRankedByVRM.csv')
+    datastatForFixedRouteRankedByVRM = preprocess('data/statForFixedRouteRankedByVRM.csv')
 
-    return data1, data2, data3, dataStatforAgenciesRankedByVRM
+    return data1, data2, data3, dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM

@@ -251,6 +251,22 @@ def init_dashboard(server):
 
                                         dcc.Graph(
                                             id='statisticsForAgenciesRankedByVRM-table'),
+
+                                        html.Br(),
+                                        html.H3(
+                                            'Statistics For Demand Response Ranked by Vehicle Revenue Miles'),
+
+                                        dcc.Graph(
+                                            id='statisticsForDemandResponseRankedByVRM-table'),
+
+                                        html.Br(),
+                                        html.H3(
+                                            'Statistics For Fixed Route Ranked by Vehicle Revenue Miles'),
+
+                                        dcc.Graph(
+                                            id='statisticsForFixedRouteRankedByVRM-table')
+
+
                                     ]
                                 )
                             ],
