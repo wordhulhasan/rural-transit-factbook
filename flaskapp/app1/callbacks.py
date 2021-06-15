@@ -8,15 +8,19 @@ import plotly.figure_factory as ff
 from util import vehicle_colors, revenue_vehicles, fleet_composition, \
     generate_stats, \
     replacement_cost, backlog, backlog_cost, make_state_agency_dict, vehicle_revenue_miles, mode_colors, \
-    vehicle_revenue_hours, unlinked_passenger_trips, statisticsForAgenciesRankedByVRM, \
-    statisticsForDemandResponseRankedByVRM, statisticsForFixedRouteRankedByVRM
+    vehicle_revenue_hours, unlinked_passenger_trips, \
+    statisticsForAgenciesRankedByVRM, statisticsForDemandResponseRankedByVRM, statisticsForFixedRouteRankedByVRM, \
+    statisticsForAgenciesRankedByVRH, statisticsForDemandResponseRankedByVRH, statisticsForFixedRouteRankedByVRH
 
 from .data import init_data
 
 
 def init_callbacks(dash_app):
     # callbacks
-    data1, data2, data3, dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM = init_data()
+    data1, data2, data3, \
+    dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM,\
+    dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH \
+        = init_data()
 
     res = make_state_agency_dict()
 
@@ -185,6 +189,37 @@ def init_callbacks(dash_app):
                        )
     def statForFixedRouteRankedByVRM(state, agency):
         df = statisticsForFixedRouteRankedByVRM(datastatForFixedRouteRankedByVRM)
+        fig = ff.create_table(df)
+        print(df)
+        return fig
+
+
+    @dash_app.callback(Output('statisticsForAgenciesRankedByVRH-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')]
+                       )
+    def statForAgenciesRankedByVRH(state, agency):
+        df = statisticsForAgenciesRankedByVRH(dataStatforAgenciesRankedByVRH)
+        fig = ff.create_table(df)
+        print(df)
+        return fig
+
+    @dash_app.callback(Output('statisticsForDemandResponseRankedByVRH-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')]
+                       )
+    def statForDemandResponseRankedByVRH(state, agency):
+        df = statisticsForDemandResponseRankedByVRH(datastatForDemandResponseRankedByVRH)
+        fig = ff.create_table(df)
+        print(df)
+        return fig
+
+    @dash_app.callback(Output('statisticsForFixedRouteRankedByVRH-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')]
+                       )
+    def statForFixedRouteRankedByVRH(state, agency):
+        df = statisticsForFixedRouteRankedByVRH(datastatForFixedRouteRankedByVRH)
         fig = ff.create_table(df)
         print(df)
         return fig

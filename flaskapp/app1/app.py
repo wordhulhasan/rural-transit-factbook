@@ -268,6 +268,55 @@ def init_dashboard(server):
 
 
                                     ]
+                                ),
+                                dcc.Tab(
+                                    label=' Report Name In table format',
+                                    style=tab_style,
+                                    selected_style=tab_selected_style,
+                                    children=[
+                                        html.H2(
+                                            'Statistics For Vehicle Revenue Hours'),
+                                        html.P(
+                                            'Description',
+                                            style=paragraph_styles),
+                                        html.P(
+                                            'Vehicle Revenue Hours = VRH',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        html.P(
+                                            'Vehicle Revenue Miles = VRM',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        html.P(
+                                            'Unlinked Passenger Trips = UPT',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        html.P(
+                                            'Operating Cost = OPEX',
+                                            style=paragraph_styles),
+
+                                        html.Br(),
+                                        html.H3(
+                                            'Statistics For Agencies Ranked by Vehicle Revenue Hours'),
+
+                                        dcc.Graph(
+                                            id='statisticsForAgenciesRankedByVRH-table'),
+
+                                        html.Br(),
+                                        html.H3(
+                                            'Statistics For Demand Response Ranked by Vehicle Revenue Hours'),
+
+                                        dcc.Graph(
+                                            id='statisticsForDemandResponseRankedByVRH-table'),
+
+                                        html.Br(),
+                                        html.H3(
+                                            'Statistics For Fixed Route Ranked by Vehicle Revenue Hours'),
+
+                                        dcc.Graph(
+                                            id='statisticsForFixedRouteRankedByVRH-table')
+
+                                    ]
                                 )
                             ],
                                 style=tabs_styles)
