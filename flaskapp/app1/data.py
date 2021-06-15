@@ -15,6 +15,11 @@ def init_data():
     datastatForDemandResponseRankedByVRH = preprocess('data/statForDemandResponseByVRH.csv')
     datastatForFixedRouteRankedByVRH = preprocess('data/statForFixedRouteRankedByVRH.csv')
 
+    dataStatforAgenciesRankedByRidership = preprocess('data/statForAgenciesRankedByRidership.csv')
+    datastatForDemandResponseRankedByRidership = preprocess('data/statForDemandResponseRankedByRidership.csv')
+    datastatForFixedRouteRankedByRidership = preprocess('data/statForFixedRouteRankedByRidership.csv')
+
     return data1, data2, data3, \
            dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM,\
-           dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH
+           dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH,\
+           dataStatforAgenciesRankedByRidership, datastatForDemandResponseRankedByRidership, datastatForFixedRouteRankedByRidership
