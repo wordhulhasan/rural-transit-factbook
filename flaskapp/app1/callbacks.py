@@ -166,34 +166,20 @@ def init_callbacks(dash_app):
         print(df_sample)
         return fig
 
-    @dash_app.callback(Output('statisticsForAgenciesRankedByVRM-table', 'figure'),
+    @dash_app.callback(Output('statisticsRankedByVRM-table', 'figure'),
                        [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')]
+                        Input('agency-dropdown', 'value'),
+                        Input('stat-dropdown', 'value')]
                        )
-    def statForAgenciesRankedByVRM(state, agency):
-        df = statisticsForAgenciesRankedByVRM(dataStatforAgenciesRankedByVRM)
+    def statRankedByVRM(state, agency, statdropdown):
+        print(statdropdown)
+        if statdropdown == "agencies":
+            df = statisticsForAgenciesRankedByVRM(dataStatforAgenciesRankedByVRM)
+        elif statdropdown == "dr":
+            df = statisticsForDemandResponseRankedByVRM(datastatForDemandResponseRankedByVRM)
+        else:
+            df = statisticsForFixedRouteRankedByVRM(datastatForFixedRouteRankedByVRM)
         fig = ff.create_table(df)
-        print(df)
-        return fig
-
-    @dash_app.callback(Output('statisticsForDemandResponseRankedByVRM-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')]
-                       )
-    def statForDemandResponseRankedByVRM(state, agency):
-        df = statisticsForDemandResponseRankedByVRM(datastatForDemandResponseRankedByVRM)
-        fig = ff.create_table(df)
-        print(df)
-        return fig
-
-    @dash_app.callback(Output('statisticsForFixedRouteRankedByVRM-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')]
-                       )
-    def statForFixedRouteRankedByVRM(state, agency):
-        df = statisticsForFixedRouteRankedByVRM(datastatForFixedRouteRankedByVRM)
-        fig = ff.create_table(df)
-        print(df)
         return fig
 
 
@@ -204,7 +190,6 @@ def init_callbacks(dash_app):
     def statForAgenciesRankedByVRH(state, agency):
         df = statisticsForAgenciesRankedByVRH(dataStatforAgenciesRankedByVRH)
         fig = ff.create_table(df)
-        print(df)
         return fig
 
     @dash_app.callback(Output('statisticsForDemandResponseRankedByVRH-table', 'figure'),
@@ -214,7 +199,6 @@ def init_callbacks(dash_app):
     def statForDemandResponseRankedByVRH(state, agency):
         df = statisticsForDemandResponseRankedByVRH(datastatForDemandResponseRankedByVRH)
         fig = ff.create_table(df)
-        print(df)
         return fig
 
     @dash_app.callback(Output('statisticsForFixedRouteRankedByVRH-table', 'figure'),
@@ -224,7 +208,6 @@ def init_callbacks(dash_app):
     def statForFixedRouteRankedByVRH(state, agency):
         df = statisticsForFixedRouteRankedByVRH(datastatForFixedRouteRankedByVRH)
         fig = ff.create_table(df)
-        print(df)
         return fig
 
 
@@ -235,7 +218,6 @@ def init_callbacks(dash_app):
     def statForAgenciesRankedByRidership(state, agency):
         df = statisticsForAgenciesRankedByRidership(dataStatforAgenciesRankedByRidership)
         fig = ff.create_table(df)
-        print(df)
         return fig
 
     @dash_app.callback(Output('statisticsForDemandResponseRankedByRidership-table', 'figure'),
@@ -245,7 +227,6 @@ def init_callbacks(dash_app):
     def statForDemandResponseRankedByRidership(state, agency):
         df = statisticsForDemandResponseRankedByRidership(datastatForDemandResponseRankedByRidership)
         fig = ff.create_table(df)
-        print(df)
         return fig
 
     @dash_app.callback(Output('statisticsForFixedRouteRankedByRidership-table', 'figure'),
@@ -255,7 +236,6 @@ def init_callbacks(dash_app):
     def statForFixedRouteRankedByRidership(state, agency):
         df = statisticsForFixedRouteRankedByRidership(datastatForFixedRouteRankedByRidership)
         fig = ff.create_table(df)
-        print(df)
         return fig
 
 
