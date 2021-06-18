@@ -261,25 +261,24 @@ def init_dashboard(server):
                                                         style=paragraph_styles),
 
                                                     html.Br(),
-                                                    html.H3(
-                                                        'Statistics For Agencies Ranked by Vehicle Revenue Miles'),
-
-                                                    dcc.Graph(
-                                                        id='statisticsForAgenciesRankedByVRM-table'),
-
+                                                    dcc.Dropdown(
+                                                        id ='stat-dropdown-vrm',
+                                                        options=[
+                                                            {
+                                                                'label': 'Statistics For Agencies Ranked by Vehicle Revenue Miles',
+                                                                'value': 'agencies'},
+                                                            {
+                                                                'label': 'Statistics For Demand Response Ranked by Vehicle Revenue Miles',
+                                                                'value': 'dr'},
+                                                            {
+                                                                'label': 'Statistics For Fixed Route Ranked by Vehicle Revenue Miles',
+                                                                'value': 'mb'}
+                                                        ],
+                                                        value='agencies'
+                                                    ),
                                                     html.Br(),
-                                                    html.H3(
-                                                        'Statistics For Demand Response Ranked by Vehicle Revenue Miles'),
-
                                                     dcc.Graph(
-                                                        id='statisticsForDemandResponseRankedByVRM-table'),
-
-                                                    html.Br(),
-                                                    html.H3(
-                                                        'Statistics For Fixed Route Ranked by Vehicle Revenue Miles'),
-
-                                                    dcc.Graph(
-                                                        id='statisticsForFixedRouteRankedByVRM-table')
+                                                        id='statisticsRankedByVRM-table'),
 
                                                 ]
                                             ),
@@ -308,28 +307,26 @@ def init_dashboard(server):
                                                     html.P(
                                                         'Operating Cost = OPEX',
                                                         style=paragraph_styles),
-
                                                     html.Br(),
-                                                    html.H3(
-                                                        'Statistics For Agencies Ranked by Vehicle Revenue Hours'),
+                                                    dcc.Dropdown(
+                                                        id='stat-dropdown-vrh',
+                                                        options=[
+                                                            {
+                                                                'label': 'Statistics For Agencies Ranked by Vehicle Revenue Hours',
+                                                                'value': 'agencies'},
+                                                            {
+                                                                'label': 'Statistics For Demand Response Ranked by Vehicle Revenue Hours',
+                                                                'value': 'dr'},
+                                                            {
+                                                                'label': 'Statistics For Fixed Route Ranked by Vehicle Revenue Hours',
+                                                                'value': 'mb'}
+                                                        ],
+                                                        value='agencies'
+                                                    ),
+                                                    html.Br(),
 
                                                     dcc.Graph(
-                                                        id='statisticsForAgenciesRankedByVRH-table'),
-
-                                                    html.Br(),
-                                                    html.H3(
-                                                        'Statistics For Demand Response Ranked by Vehicle Revenue Hours'),
-
-                                                    dcc.Graph(
-                                                        id='statisticsForDemandResponseRankedByVRH-table'),
-
-                                                    html.Br(),
-                                                    html.H3(
-                                                        'Statistics For Fixed Route Ranked by Vehicle Revenue Hours'),
-
-                                                    dcc.Graph(
-                                                        id='statisticsForFixedRouteRankedByVRH-table')
-
+                                                        id='statisticsRankedByVRH-table'),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -359,25 +356,24 @@ def init_dashboard(server):
                                                         style=paragraph_styles),
 
                                                     html.Br(),
-                                                    html.H3(
-                                                        'Statistics For Agencies Ranked by Ridership'),
-
-                                                    dcc.Graph(
-                                                        id='statisticsForAgenciesRankedByRidership-table'),
-
+                                                    dcc.Dropdown(
+                                                        id='stat-dropdown-upt',
+                                                        options=[
+                                                            {
+                                                                'label': 'Statistics For Agencies Ranked by Ridership',
+                                                                'value': 'agencies'},
+                                                            {
+                                                                'label': 'Statistics For Demand Response Ranked by Ridership',
+                                                                'value': 'dr'},
+                                                            {
+                                                                'label': 'Statistics For Fixed Route Ranked by Ridership',
+                                                                'value': 'mb'}
+                                                        ],
+                                                        value='agencies'
+                                                    ),
                                                     html.Br(),
-                                                    html.H3(
-                                                        'Statistics For Demand Response Ranked by Ridership'),
-
                                                     dcc.Graph(
-                                                        id='statisticsForDemandResponseRankedByRidership-table'),
-
-                                                    html.Br(),
-                                                    html.H3(
-                                                        'Statistics For Fixed Route Ranked by Ridership'),
-
-                                                    dcc.Graph(
-                                                        id='statisticsForFixedRouteRankedByRidership-table')
+                                                        id='statisticsRankedByRidership-table'),
 
                                                 ]
                                             ),
