@@ -262,7 +262,7 @@ def init_dashboard(server):
 
                                                     html.Br(),
                                                     dcc.Dropdown(
-                                                        id ='stat-dropdown',
+                                                        id ='stat-dropdown-vrm',
                                                         options=[
                                                             {
                                                                 'label': 'Statistics For Agencies Ranked by Vehicle Revenue Miles',
@@ -276,7 +276,7 @@ def init_dashboard(server):
                                                         ],
                                                         value='agencies'
                                                     ),
-
+                                                    html.Br(),
                                                     dcc.Graph(
                                                         id='statisticsRankedByVRM-table'),
 
@@ -307,28 +307,26 @@ def init_dashboard(server):
                                                     html.P(
                                                         'Operating Cost = OPEX',
                                                         style=paragraph_styles),
-
                                                     html.Br(),
-                                                    html.H3(
-                                                        'Statistics For Agencies Ranked by Vehicle Revenue Hours'),
+                                                    dcc.Dropdown(
+                                                        id='stat-dropdown-vrh',
+                                                        options=[
+                                                            {
+                                                                'label': 'Statistics For Agencies Ranked by Vehicle Revenue Hours',
+                                                                'value': 'agencies'},
+                                                            {
+                                                                'label': 'Statistics For Demand Response Ranked by Vehicle Revenue Hours',
+                                                                'value': 'dr'},
+                                                            {
+                                                                'label': 'Statistics For Fixed Route Ranked by Vehicle Revenue Hours',
+                                                                'value': 'mb'}
+                                                        ],
+                                                        value='agencies'
+                                                    ),
+                                                    html.Br(),
 
                                                     dcc.Graph(
-                                                        id='statisticsForAgenciesRankedByVRH-table'),
-
-                                                    html.Br(),
-                                                    html.H3(
-                                                        'Statistics For Demand Response Ranked by Vehicle Revenue Hours'),
-
-                                                    dcc.Graph(
-                                                        id='statisticsForDemandResponseRankedByVRH-table'),
-
-                                                    html.Br(),
-                                                    html.H3(
-                                                        'Statistics For Fixed Route Ranked by Vehicle Revenue Hours'),
-
-                                                    dcc.Graph(
-                                                        id='statisticsForFixedRouteRankedByVRH-table')
-
+                                                        id='statisticsRankedByVRH-table'),
                                                 ]
                                             ),
                                             dcc.Tab(

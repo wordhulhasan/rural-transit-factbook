@@ -20,10 +20,10 @@ from .data import init_data
 def init_callbacks(dash_app):
     # callbacks
     data1, data2, data3, \
-    dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM,\
+    dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM, \
     dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH, \
     dataStatforAgenciesRankedByRidership, datastatForDemandResponseRankedByRidership, datastatForFixedRouteRankedByRidership \
-    = init_data()
+        = init_data()
 
     res = make_state_agency_dict()
 
@@ -97,11 +97,9 @@ def init_callbacks(dash_app):
         fig = ff.create_table(df_sample)
         return fig
 
-
     @dash_app.callback(Output('vehicle-revenue-hours', 'figure'),
                        [Input('state-selector', 'value'),
                         Input('agency-dropdown', 'value')])
-
     def vrh(state, agency):
         df = vehicle_revenue_hours(data3, state, agency)
         fig = px.bar(df, x='mode', y='vehicle_revenue_hours', text='vehicle_revenue_hours',
@@ -169,7 +167,7 @@ def init_callbacks(dash_app):
     @dash_app.callback(Output('statisticsRankedByVRM-table', 'figure'),
                        [Input('state-selector', 'value'),
                         Input('agency-dropdown', 'value'),
-                        Input('stat-dropdown', 'value')]
+                        Input('stat-dropdown-vrm', 'value')]
                        )
     def statRankedByVRM(state, agency, statdropdown):
         print(statdropdown)
@@ -182,34 +180,20 @@ def init_callbacks(dash_app):
         fig = ff.create_table(df)
         return fig
 
-
-    @dash_app.callback(Output('statisticsForAgenciesRankedByVRH-table', 'figure'),
+    @dash_app.callback(Output('statisticsRankedByVRH-table', 'figure'),
                        [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')]
+                        Input('agency-dropdown', 'value'),
+                        Input('stat-dropdown-vrh', 'value')]
                        )
-    def statForAgenciesRankedByVRH(state, agency):
-        df = statisticsForAgenciesRankedByVRH(dataStatforAgenciesRankedByVRH)
+    def statRankedByVRH(state, agency, statdropdown):
+        if statdropdown == "agencies":
+            df = statisticsForAgenciesRankedByVRH(dataStatforAgenciesRankedByVRH)
+        elif statdropdown == "dr":
+            df = statisticsForDemandResponseRankedByVRH(datastatForDemandResponseRankedByVRH)
+        else:
+            df = statisticsForFixedRouteRankedByVRH(datastatForFixedRouteRankedByVRH)
         fig = ff.create_table(df)
         return fig
-
-    @dash_app.callback(Output('statisticsForDemandResponseRankedByVRH-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')]
-                       )
-    def statForDemandResponseRankedByVRH(state, agency):
-        df = statisticsForDemandResponseRankedByVRH(datastatForDemandResponseRankedByVRH)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('statisticsForFixedRouteRankedByVRH-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')]
-                       )
-    def statForFixedRouteRankedByVRH(state, agency):
-        df = statisticsForFixedRouteRankedByVRH(datastatForFixedRouteRankedByVRH)
-        fig = ff.create_table(df)
-        return fig
-
 
     @dash_app.callback(Output('statisticsForAgenciesRankedByRidership-table', 'figure'),
                        [Input('state-selector', 'value'),
@@ -237,7 +221,6 @@ def init_callbacks(dash_app):
         df = statisticsForFixedRouteRankedByRidership(datastatForFixedRouteRankedByRidership)
         fig = ff.create_table(df)
         return fig
-
 
     @dash_app.callback(Output('fleet-composition', 'figure'),
                        [Input('state-selector', 'value'),
