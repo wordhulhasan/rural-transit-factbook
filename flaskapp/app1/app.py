@@ -172,6 +172,12 @@ def init_dashboard(server):
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
+                                        html.H2(
+                                            'Heading'),
+                                        html.P(
+                                            'Description',
+                                            style=paragraph_styles),
+                                        html.Br(),
                                         dcc.Tabs([
                                             dcc.Tab(
                                                 label=' Report Name ',
@@ -233,34 +239,35 @@ def init_dashboard(server):
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
+                                        html.H2(
+                                            'Statistics For Vehicle Revenue Miles'),
+                                        html.P(
+                                            'Description',
+                                            style=paragraph_styles),
+                                        html.P(
+                                            'Vehicle Revenue Hours = VRH',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        html.P(
+                                            'Vehicle Revenue Miles = VRM',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        html.P(
+                                            'Unlinked Passenger Trips = UPT',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        html.P(
+                                            'Operating Cost = OPEX',
+                                            style=paragraph_styles),
+
+                                        html.Br(),
                                         dcc.Tabs([
                                             dcc.Tab(
                                                 label='Stat for VRM',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
-                                                    html.H2(
-                                                        'Statistics For Vehicle Revenue Miles'),
-                                                    html.P(
-                                                        'Description',
-                                                        style=paragraph_styles),
-                                                    html.P(
-                                                        'Vehicle Revenue Hours = VRH',
-                                                        style=paragraph_styles),
-                                                    html.Br(),
-                                                    html.P(
-                                                        'Vehicle Revenue Miles = VRM',
-                                                        style=paragraph_styles),
-                                                    html.Br(),
-                                                    html.P(
-                                                        'Unlinked Passenger Trips = UPT',
-                                                        style=paragraph_styles),
-                                                    html.Br(),
-                                                    html.P(
-                                                        'Operating Cost = OPEX',
-                                                        style=paragraph_styles),
 
-                                                    html.Br(),
                                                     dcc.Dropdown(
                                                         id ='stat-dropdown-vrm',
                                                         options=[
@@ -287,27 +294,6 @@ def init_dashboard(server):
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
-                                                    html.H2(
-                                                        'Statistics For Vehicle Revenue Hours'),
-                                                    html.P(
-                                                        'Description',
-                                                        style=paragraph_styles),
-                                                    html.P(
-                                                        'Vehicle Revenue Hours = VRH',
-                                                        style=paragraph_styles),
-                                                    html.Br(),
-                                                    html.P(
-                                                        'Vehicle Revenue Miles = VRM',
-                                                        style=paragraph_styles),
-                                                    html.Br(),
-                                                    html.P(
-                                                        'Unlinked Passenger Trips = UPT',
-                                                        style=paragraph_styles),
-                                                    html.Br(),
-                                                    html.P(
-                                                        'Operating Cost = OPEX',
-                                                        style=paragraph_styles),
-                                                    html.Br(),
                                                     dcc.Dropdown(
                                                         id='stat-dropdown-vrh',
                                                         options=[
@@ -334,28 +320,6 @@ def init_dashboard(server):
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
-                                                    html.H2(
-                                                        'Statistics For Ridership'),
-                                                    html.P(
-                                                        'Description',
-                                                        style=paragraph_styles),
-                                                    html.P(
-                                                        'Vehicle Revenue Hours = VRH',
-                                                        style=paragraph_styles),
-                                                    html.Br(),
-                                                    html.P(
-                                                        'Vehicle Revenue Miles = VRM',
-                                                        style=paragraph_styles),
-                                                    html.Br(),
-                                                    html.P(
-                                                        'Unlinked Passenger Trips = UPT',
-                                                        style=paragraph_styles),
-                                                    html.Br(),
-                                                    html.P(
-                                                        'Operating Cost = OPEX',
-                                                        style=paragraph_styles),
-
-                                                    html.Br(),
                                                     dcc.Dropdown(
                                                         id='stat-dropdown-upt',
                                                         options=[
