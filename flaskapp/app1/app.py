@@ -190,19 +190,19 @@ def init_dashboard(server):
                                                         options=[
                                                             {
                                                                 'label': 'Statistics For Agencies Ranked by Ridership',
-                                                                'value': 'agencies'},
+                                                                'value': 'ridership'},
                                                             {
                                                                 'label': 'Statistics For Demand Response Ranked by Ridership',
-                                                                'value': 'dr'},
+                                                                'value': 'vrh'},
                                                             {
                                                                 'label': 'Statistics For Fixed Route Ranked by Ridership',
-                                                                'value': 'mb'}
+                                                                'value': 'vrm'}
                                                         ],
-                                                        value='agencies'
+                                                        value='ridership'
                                                     ),
                                                     html.Br(),
                                                     dcc.Graph(
-                                                        id='statisticsRankedByRidership-table'),
+                                                        id='statisticsRankedByAgencies-table'),
 
                                                 ]
                                             ),
