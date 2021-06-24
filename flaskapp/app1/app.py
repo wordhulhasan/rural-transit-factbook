@@ -235,7 +235,7 @@ def init_dashboard(server):
                                     ]
                                 ),
                                 dcc.Tab(
-                                    label=' Statistics',
+                                    label=' Percentile Rank',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
@@ -263,7 +263,7 @@ def init_dashboard(server):
                                         html.Br(),
                                         dcc.Tabs([
                                             dcc.Tab(
-                                                label='Stat for VRM',
+                                                label='Statistics For Fixed Route',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
@@ -290,33 +290,7 @@ def init_dashboard(server):
                                                 ]
                                             ),
                                             dcc.Tab(
-                                                label='Stat for VRH',
-                                                style=tab_style,
-                                                selected_style=tab_selected_style,
-                                                children=[
-                                                    dcc.Dropdown(
-                                                        id='stat-dropdown-vrh',
-                                                        options=[
-                                                            {
-                                                                'label': 'Statistics For Agencies Ranked by Vehicle Revenue Hours',
-                                                                'value': 'agencies'},
-                                                            {
-                                                                'label': 'Statistics For Demand Response Ranked by Vehicle Revenue Hours',
-                                                                'value': 'dr'},
-                                                            {
-                                                                'label': 'Statistics For Fixed Route Ranked by Vehicle Revenue Hours',
-                                                                'value': 'mb'}
-                                                        ],
-                                                        value='agencies'
-                                                    ),
-                                                    html.Br(),
-
-                                                    dcc.Graph(
-                                                        id='statisticsRankedByVRH-table'),
-                                                ]
-                                            ),
-                                            dcc.Tab(
-                                                label='Stat for Ridership',
+                                                label='Statistics For Agencies',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
@@ -339,6 +313,32 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='statisticsRankedByRidership-table'),
 
+                                                ]
+                                            ),											
+                                            dcc.Tab(
+                                                label='Statistics For Demand Response',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    dcc.Dropdown(
+                                                        id='stat-dropdown-vrh',
+                                                        options=[
+                                                            {
+                                                                'label': 'Statistics For Agencies Ranked by Vehicle Revenue Hours',
+                                                                'value': 'agencies'},
+                                                            {
+                                                                'label': 'Statistics For Demand Response Ranked by Vehicle Revenue Hours',
+                                                                'value': 'dr'},
+                                                            {
+                                                                'label': 'Statistics For Fixed Route Ranked by Vehicle Revenue Hours',
+                                                                'value': 'mb'}
+                                                        ],
+                                                        value='agencies'
+                                                    ),
+                                                    html.Br(),
+
+                                                    dcc.Graph(
+                                                        id='statisticsRankedByVRH-table'),
                                                 ]
                                             ),
                                         ], style=tabs_styles),
