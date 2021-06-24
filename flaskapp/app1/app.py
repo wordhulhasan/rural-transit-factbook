@@ -261,34 +261,6 @@ def init_dashboard(server):
                                             style=paragraph_styles),
 
                                         html.Br(),
-                                        dcc.Tabs([
-                                            dcc.Tab(
-                                                label='Statistics For Fixed Route',
-                                                style=tab_style,
-                                                selected_style=tab_selected_style,
-                                                children=[
-
-                                                    dcc.Dropdown(
-                                                        id ='stat-dropdown-vrm',
-                                                        options=[
-                                                            {
-                                                                'label': 'Statistics For Agencies Ranked by Vehicle Revenue Miles',
-                                                                'value': 'agencies'},
-                                                            {
-                                                                'label': 'Statistics For Demand Response Ranked by Vehicle Revenue Miles',
-                                                                'value': 'dr'},
-                                                            {
-                                                                'label': 'Statistics For Fixed Route Ranked by Vehicle Revenue Miles',
-                                                                'value': 'mb'}
-                                                        ],
-                                                        value='agencies'
-                                                    ),
-                                                    html.Br(),
-                                                    dcc.Graph(
-                                                        id='statisticsRankedByVRM-table'),
-
-                                                ]
-                                            ),
                                             dcc.Tab(
                                                 label='Statistics For Agencies',
                                                 style=tab_style,
@@ -314,9 +286,37 @@ def init_dashboard(server):
                                                         id='statisticsRankedByRidership-table'),
 
                                                 ]
+                                            ),
+                                        dcc.Tabs([
+                                            dcc.Tab(
+                                                label='Statistics For Fixed Route Service',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+
+                                                    dcc.Dropdown(
+                                                        id ='stat-dropdown-vrm',
+                                                        options=[
+                                                            {
+                                                                'label': 'Statistics For Agencies Ranked by Vehicle Revenue Miles',
+                                                                'value': 'agencies'},
+                                                            {
+                                                                'label': 'Statistics For Demand Response Ranked by Vehicle Revenue Miles',
+                                                                'value': 'dr'},
+                                                            {
+                                                                'label': 'Statistics For Fixed Route Ranked by Vehicle Revenue Miles',
+                                                                'value': 'mb'}
+                                                        ],
+                                                        value='agencies'
+                                                    ),
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='statisticsRankedByVRM-table'),
+
+                                                ]
                                             ),											
                                             dcc.Tab(
-                                                label='Statistics For Demand Response',
+                                                label='Statistics For Demand Response Service',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
