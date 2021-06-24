@@ -99,26 +99,26 @@ def unlinked_passenger_trips(dataframe, state='All', agency=None):
 def statisticsForAgenciesRankedByVRM(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()
-    # df.columns = ['Percentile Rank', 'Minimum', 'Maximum', 'UPT', 'VRM', 'VRH', 'Trips Per VRM', 'OPEX Per Trip', 'OPEX Per VRM', 'OPEX Per VRH']
+    df.columns = ['Percentile Rank', 'Minimum UPT', 'Maximum UPT', 'Avg UPT', 'Avg VRM', 'Avg VRH', 'Avg Trips Per VRM', 'Avg Trips Per VRH', 'Avg OE Per Trip', 'Avg OE Per VRM', 'Avg OE Per VRH']
     return df
 
 def statisticsForDemandResponseRankedByVRM(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()
-    # df.columns = ['Percentile Rank', 'Minimum', 'Maximum', 'UPT', 'VRM', 'VRH', 'Trips Per VRM', 'OPEX Per Trip', 'OPEX Per VRM', 'OPEX Per VRH']
+    df.columns = ['Percentile Rank', 'Minimum UPT', 'Maximum UPT', 'Avg UPT', 'Avg VRM', 'Avg VRH', 'Avg Trips Per VRM', 'Avg Trips Per VRH', 'Avg OE Per Trip', 'Avg OE Per VRM', 'Avg OE Per VRH']
     return df
 
 def statisticsForFixedRouteRankedByVRM(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()
-    # df.columns = ['Percentile Rank', 'Minimum', 'Maximum', 'UPT', 'VRM', 'VRH', 'Trips Per VRM', 'OPEX Per Trip', 'OPEX Per VRM', 'OPEX Per VRH']
+    df.columns = ['Percentile Rank', 'Minimum UPT', 'Maximum UPT', 'Avg UPT', 'Avg VRM', 'Avg VRH', 'Avg Trips Per VRM', 'Avg Trips Per VRH', 'Avg OE Per Trip', 'Avg OE Per VRM', 'Avg OE Per VRH']
     return df
 
 
 def statisticsForAgenciesRankedByVRH(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()
-    # df.columns = ['Percentile Rank', 'Minimum', 'Maximum', 'UPT', 'VRM', 'VRH', 'Trips Per VRM', 'OPEX Per Trip', 'OPEX Per VRM', 'OPEX Per VRH']
+    df.columns = ['Percentile Rank', 'Minimum UPT', 'Maximum UPT', 'Avg UPT', 'Avg VRM', 'Avg VRH', 'Avg Trips Per VRM', 'Avg Trips Per VRH', 'Avg OE Per Trip', 'Avg OE Per VRM', 'Avg OE Per VRH']
     return df
 
 def statisticsForDemandResponseRankedByVRH(dataframe):
@@ -126,7 +126,7 @@ def statisticsForDemandResponseRankedByVRH(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()
     # print(df)
-    # df.columns = ['Percentile Rank', 'Minimum', 'Maximum', 'UPT', 'VRM', 'VRH', 'Trips Per VRM', 'OPEX Per Trip', 'OPEX Per VRM', 'OPEX Per VRH']
+    df.columns = ['Percentile Rank', 'Minimum UPT', 'Maximum UPT', 'Avg UPT', 'Avg VRM', 'Avg VRH', 'Avg Trips Per VRM', 'Avg Trips Per VRH', 'Avg OE Per Trip', 'Avg OE Per VRM', 'Avg OE Per VRH']
     return df
 
 def statisticsForFixedRouteRankedByVRH(dataframe):
@@ -134,7 +134,7 @@ def statisticsForFixedRouteRankedByVRH(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()
     # print(df)
-    # df.columns = ['Percentile Rank', 'Minimum', 'Maximum', 'UPT', 'VRM', 'VRH', 'Trips Per VRM', 'OPEX Per Trip', 'OPEX Per VRM', 'OPEX Per VRH']
+    df.columns = ['Percentile Rank', 'Minimum UPT', 'Maximum UPT', 'Avg UPT', 'Avg VRM', 'Avg VRH', 'Avg Trips Per VRM', 'Avg Trips Per VRH', 'Avg OE Per Trip', 'Avg OE Per VRM', 'Avg OE Per VRH']
     return df
 
 
@@ -149,7 +149,7 @@ def statisticsForDemandResponseRankedByRidership(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()
     # print(df)
-    # df.columns = ['Percentile Rank', 'Minimum', 'Maximum', 'UPT', 'VRM', 'VRH', 'Trips Per VRM', 'OPEX Per Trip', 'OPEX Per VRM', 'OPEX Per VRH']
+    df.columns = ['Percentile Rank', 'Minimum UPT', 'Maximum UPT', 'Avg UPT', 'Avg VRM', 'Avg VRH', 'Avg Trips Per VRM', 'Avg Trips Per VRH', 'Avg OE Per Trip', 'Avg OE Per VRM', 'Avg OE Per VRH']
     return df
 
 def statisticsForFixedRouteRankedByRidership(dataframe):
@@ -157,7 +157,7 @@ def statisticsForFixedRouteRankedByRidership(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()
     # print(df)
-    # df.columns = ['Percentile Rank', 'Minimum', 'Maximum', 'UPT', 'VRM', 'VRH', 'Trips Per VRM', 'OPEX Per Trip', 'OPEX Per VRM', 'OPEX Per VRH']
+    df.columns = ['Percentile Rank', 'Minimum UPT', 'Maximum UPT', 'Avg UPT', 'Avg VRM', 'Avg VRH', 'Avg Trips Per VRM', 'Avg Trips Per VRH', 'Avg OE Per Trip', 'Avg OE Per VRM', 'Avg OE Per VRH']
     return df
 
 def fleet_composition(dataframe, state='All', agency=None):
