@@ -168,7 +168,7 @@ def init_dashboard(server):
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
-                                        html.H2(
+                                        html.H3(
                                             'Transit agencies are categorized into ten groups based on percentiles for vehicle revenue miles, vehicle revenue hours, or ridership. The first group is the smallest 10% of agencies, the second group the next smallest 10%, etc. In other words, agencies are sorted into deciles. '),
 										html.Br(),
                                         html.P(

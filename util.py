@@ -141,7 +141,7 @@ def statisticsForFixedRouteRankedByVRH(dataframe):
 def statisticsForAgenciesRankedByRidership(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()
-    # df.columns = ['Percentile Rank', 'Minimum', 'Maximum', 'UPT', 'VRM', 'VRH', 'Trips Per VRM', 'OPEX Per Trip', 'OPEX Per VRM', 'OPEX Per VRH']
+    df.columns = ['Percentile Rank', 'Minimum UPT', 'Maximum UPT', 'Avg UPT', 'Avg VRM', 'Avg VRH', 'Avg Trips Per VRM', 'Avg Trips Per VRH', 'Avg OE Per Trip', 'Avg OE Per VRM', 'Avg OE Per VRH']
     return df
 
 def statisticsForDemandResponseRankedByRidership(dataframe):
