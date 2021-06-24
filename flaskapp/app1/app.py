@@ -189,13 +189,13 @@ def init_dashboard(server):
                                                         id='stat-dropdown-upt',
                                                         options=[
                                                             {
-                                                                'label': 'Statistics For Agencies Ranked by Ridership',
+                                                                'label': 'Ranked by Ridership',
                                                                 'value': 'ridership'},
                                                             {
-                                                                'label': 'Statistics For Demand Response Ranked by Ridership',
+                                                                'label': 'Ranked by Vehicle Revenue Hours',
                                                                 'value': 'vrh'},
                                                             {
-                                                                'label': 'Statistics For Fixed Route Ranked by Ridership',
+                                                                'label': 'Ranked by Vehicle Revenue Miles',
                                                                 'value': 'vrm'}
                                                         ],
                                                         value='ridership'
@@ -216,20 +216,20 @@ def init_dashboard(server):
                                                         id ='stat-dropdown-vrm',
                                                         options=[
                                                             {
-                                                                'label': 'Statistics For Agencies Ranked by Vehicle Revenue Miles',
-                                                                'value': 'agencies'},
+                                                                'label': 'Ranked by Ridership',
+                                                                'value': 'ridership'},
                                                             {
-                                                                'label': 'Statistics For Demand Response Ranked by Vehicle Revenue Miles',
-                                                                'value': 'dr'},
+                                                                'label': 'Ranked by Vehicle Revenue Hours',
+                                                                'value': 'vrh'},
                                                             {
-                                                                'label': 'Statistics For Fixed Route Ranked by Vehicle Revenue Miles',
-                                                                'value': 'mb'}
+                                                                'label': 'Ranked by Vehicle Revenue Miles',
+                                                                'value': 'vrm'}
                                                         ],
-                                                        value='agencies'
+                                                        value='ridership'
                                                     ),
                                                     html.Br(),
                                                     dcc.Graph(
-                                                        id='statisticsRankedByVRM-table'),
+                                                        id='statisticsRankedByMB-table'),
 
                                                 ]
                                             ),											
@@ -242,21 +242,21 @@ def init_dashboard(server):
                                                         id='stat-dropdown-vrh',
                                                         options=[
                                                             {
-                                                                'label': 'Statistics For Agencies Ranked by Vehicle Revenue Hours',
-                                                                'value': 'agencies'},
+                                                                'label': 'Ranked by Ridership',
+                                                                'value': 'ridership'},
                                                             {
-                                                                'label': 'Statistics For Demand Response Ranked by Vehicle Revenue Hours',
-                                                                'value': 'dr'},
+                                                                'label': 'Ranked by Vehicle Revenue Hours',
+                                                                'value': 'vrh'},
                                                             {
-                                                                'label': 'Statistics For Fixed Route Ranked by Vehicle Revenue Hours',
-                                                                'value': 'mb'}
+                                                                'label': 'Ranked by Vehicle Revenue Miles',
+                                                                'value': 'vrm'}
                                                         ],
-                                                        value='agencies'
+                                                        value='ridership'
                                                     ),
                                                     html.Br(),
 
                                                     dcc.Graph(
-                                                        id='statisticsRankedByVRH-table'),
+                                                        id='statisticsRankedByDemandResponse-table'),
                                                 ]
                                             ),
                                         ], style=tabs_styles),

@@ -164,33 +164,33 @@ def init_callbacks(dash_app):
         print(df_sample)
         return fig
 
-    @dash_app.callback(Output('statisticsRankedByVRM-table', 'figure'),
+    @dash_app.callback(Output('statisticsRankedByMB-table', 'figure'),
                        [Input('state-selector', 'value'),
                         Input('agency-dropdown', 'value'),
                         Input('stat-dropdown-vrm', 'value')]
                        )
-    def statRankedByVRM(state, agency, statdropdown):
-        if statdropdown == "agencies":
-            df = statisticsForAgenciesRankedByVRM(dataStatforAgenciesRankedByVRM)
-        elif statdropdown == "dr":
-            df = statisticsForDemandResponseRankedByVRM(datastatForDemandResponseRankedByVRM)
+    def statRankedByFixedRoute(state, agency, statdropdown):
+        if statdropdown == "ridership":
+            df = statisticsForFixedRouteRankedByRidership(datastatForFixedRouteRankedByRidership)
+        elif statdropdown == "vrh":
+            df = statisticsForFixedRouteRankedByVRH(datastatForFixedRouteRankedByVRH)
         else:
             df = statisticsForFixedRouteRankedByVRM(datastatForFixedRouteRankedByVRM)
         fig = ff.create_table(df)
         return fig
 
-    @dash_app.callback(Output('statisticsRankedByVRH-table', 'figure'),
+    @dash_app.callback(Output('statisticsRankedByDemandResponse-table', 'figure'),
                        [Input('state-selector', 'value'),
                         Input('agency-dropdown', 'value'),
                         Input('stat-dropdown-vrh', 'value')]
                        )
     def statRankedByVRH(state, agency, statdropdown):
-        if statdropdown == "agencies":
-            df = statisticsForAgenciesRankedByVRH(dataStatforAgenciesRankedByVRH)
-        elif statdropdown == "dr":
+        if statdropdown == "ridership":
+            df = statisticsForDemandResponseRankedByRidership(datastatForDemandResponseRankedByRidership)
+        elif statdropdown == "vrh":
             df = statisticsForDemandResponseRankedByVRH(datastatForDemandResponseRankedByVRH)
         else:
-            df = statisticsForFixedRouteRankedByVRH(datastatForFixedRouteRankedByVRH)
+            df = statisticsForDemandResponseRankedByVRM(datastatForDemandResponseRankedByVRM)
         fig = ff.create_table(df)
         return fig
 
