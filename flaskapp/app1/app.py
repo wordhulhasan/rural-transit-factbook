@@ -261,6 +261,8 @@ def init_dashboard(server):
                                             style=paragraph_styles),
 
                                         html.Br(),
+
+                                        dcc.Tabs([
                                             dcc.Tab(
                                                 label='Statistics For Agencies',
                                                 style=tab_style,
@@ -287,7 +289,6 @@ def init_dashboard(server):
 
                                                 ]
                                             ),
-                                        dcc.Tabs([
                                             dcc.Tab(
                                                 label='Statistics For Fixed Route Service',
                                                 style=tab_style,
