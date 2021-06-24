@@ -243,10 +243,10 @@ def init_dashboard(server):
                                             'Transit agencies are categorized into ten groups based on percentiles for vehicle revenue miles, vehicle revenue hours, or ridership. The first group is the smallest 10% of agencies, the second group the next smallest 10%, etc. In other words, agencies are sorted into deciles. '),
 										html.Br(),
                                         html.P(
-                                            'Note: VRH - Vehicle Revenue Hours, VRM - Vehicle Revenue Miles, UPT - Unlinked Passenger Trips, OPEX - Operating Cost,
+                                            'Note: VRH - Vehicle Revenue Hours, VRM - Vehicle Revenue Miles, UPT - Unlinked Passenger Trips, OPEX - Operating Cost',
                                             style=paragraph_styles),
                                         html.P(
-                                            <i>'Source: National Transit Database, 2019'</i>,
+                                            'Source: National Transit Database, 2019',
                                             style=paragraph_styles),
                                         html.Br(),
 
