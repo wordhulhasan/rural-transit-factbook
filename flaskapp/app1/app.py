@@ -189,8 +189,29 @@ def init_dashboard(server):
                                             'Description',
                                             style=paragraph_styles),
                                         html.Br(),
-										dcc.Graph(
-											id='vehicle_by_mode-table'),
+										dcc.Tabs([
+											dcc.Tab(
+												label='Vehicles by Mode',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+												children[
+												    html.Br(),
+													dcc.Graph(
+													id='vehicle_by_mode-table'),
+												]
+												),
+											dcc.Tab(
+												label='Fleet Size by Mode',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+												children[
+												    html.Br(),
+													dcc.Graph(
+													id='fleet_by_mode-table'),
+												]
+											),
+										], style=tabs_styles),
+
                                     ]
                                 ),
                                 dcc.Tab(

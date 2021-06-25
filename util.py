@@ -101,6 +101,12 @@ def statVehiclesByMode(dataframe):
 	df = df.dropna()
 	df.columns = ['Vehicle Type','Demand-Response','Fixed-Route','Commuter Bus','Vanpool','Demand-Response Taxi','Total']
 	return df
+
+def statFleetByMode(dataframe):
+	df = dataframe[['Mode','average_number_of_vehicles_per_agency']]
+	df = df.dropna()
+	df.columns = ['Mode','Average Number of Vehicles per Agency']
+	return df
 		
 def statisticsForAgenciesRankedByVRM(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]

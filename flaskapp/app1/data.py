@@ -8,6 +8,7 @@ def init_data():
     data3 = preprocess('data/service.csv')
 
     dataVehiclesByMode = preprocess('data/Table 21.csv')
+	dataFleetByMode = preprocess('data/Table 23.csv')
 
     dataStatforAgenciesRankedByVRM = preprocess('data/Table 34.csv')
     datastatForDemandResponseRankedByVRM = preprocess('data/Table 40.csv')
@@ -22,7 +23,7 @@ def init_data():
     datastatForFixedRouteRankedByRidership = preprocess('data/Table 39.csv')
 
     return data1, data2, data3, \
-		   dataVehiclesByMode, \
+		   dataVehiclesByMode, dataFleetByMode, \
            dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM,\
            dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH,\
            dataStatforAgenciesRankedByRidership, datastatForDemandResponseRankedByRidership, datastatForFixedRouteRankedByRidership
