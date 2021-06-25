@@ -262,6 +262,105 @@ def init_dashboard(server):
                                         ], style=tabs_styles),
                                     ]
                                 ),
+                                dcc.Tab(
+                                    label=' Percentile Rank',
+                                    style=tab_style,
+                                    selected_style=tab_selected_style,
+                                    children=[
+                                        html.H3(
+                                            'Transit agencies are categorized into ten groups based on percentiles for vehicle revenue miles, vehicle revenue hours, or ridership. The first group is the smallest 10% of agencies, the second group the next smallest 10%, etc. In other words, agencies are sorted into deciles. '),
+										html.Br(),
+                                        html.P(
+                                            'Note: VRH - Vehicle Revenue Hours, VRM - Vehicle Revenue Miles, UPT - Unlinked Passenger Trips, OPEX - Operating Cost',
+                                            style=paragraph_styles),
+                                        html.P(
+                                            'Source: National Transit Database, 2019',
+                                            style=paragraph_styles),
+                                        html.Br(),
+
+                                        dcc.Tabs([
+                                            dcc.Tab(
+                                                label='Statistics For Agencies',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    dcc.Dropdown(
+                                                        id='stat-dropdown-upt',
+                                                        options=[
+                                                            {
+                                                                'label': 'Ranked by Ridership',
+                                                                'value': 'ridership'},
+                                                            {
+                                                                'label': 'Ranked by Vehicle Revenue Hours',
+                                                                'value': 'vrh'},
+                                                            {
+                                                                'label': 'Ranked by Vehicle Revenue Miles',
+                                                                'value': 'vrm'}
+                                                        ],
+                                                        value='ridership'
+                                                    ),
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='statisticsRankedByAgencies-table'),
+
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='Statistics For Fixed Route Service',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+
+                                                    dcc.Dropdown(
+                                                        id ='stat-dropdown-vrm',
+                                                        options=[
+                                                            {
+                                                                'label': 'Ranked by Ridership',
+                                                                'value': 'ridership'},
+                                                            {
+                                                                'label': 'Ranked by Vehicle Revenue Hours',
+                                                                'value': 'vrh'},
+                                                            {
+                                                                'label': 'Ranked by Vehicle Revenue Miles',
+                                                                'value': 'vrm'}
+                                                        ],
+                                                        value='ridership'
+                                                    ),
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='statisticsRankedByMB-table'),
+
+                                                ]
+                                            ),											
+                                            dcc.Tab(
+                                                label='Statistics For Demand Response Service',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    dcc.Dropdown(
+                                                        id='stat-dropdown-vrh',
+                                                        options=[
+                                                            {
+                                                                'label': 'Ranked by Ridership',
+                                                                'value': 'ridership'},
+                                                            {
+                                                                'label': 'Ranked by Vehicle Revenue Hours',
+                                                                'value': 'vrh'},
+                                                            {
+                                                                'label': 'Ranked by Vehicle Revenue Miles',
+                                                                'value': 'vrm'}
+                                                        ],
+                                                        value='ridership'
+                                                    ),
+                                                    html.Br(),
+
+                                                    dcc.Graph(
+                                                        id='statisticsRankedByDemandResponse-table'),
+                                                ]
+                                            ),
+                                        ], style=tabs_styles),
+                                    ]
+                                ),
                             ],
                                 style=tabs_styles)
                         ],
