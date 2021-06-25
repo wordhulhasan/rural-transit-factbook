@@ -19,7 +19,7 @@ from .data import init_data
 
 def init_callbacks(dash_app):
     # callbacks
-    data1, data2, data3, statVehiclesByMode, \
+    data1, data2, data3, dataVehiclesByMode, \
     dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM, \
     dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH, \
     dataStatforAgenciesRankedByRidership, datastatForDemandResponseRankedByRidership, datastatForFixedRouteRankedByRidership \
@@ -92,11 +92,11 @@ def init_callbacks(dash_app):
                        [Input('state-selector', 'value'),
                         Input('agency-dropdown', 'value')])
     def vbm(state, agency):
-        df = statVehiclesByMode(dataVehiclesByMode, state, agency)
+        df = statVehiclesByMode(dataVehiclesByMode)
 #        df_sample = df[['vehicle_type', 'vehicle_revenue_miles']]
         fig = ff.create_table(df)
         return fig
-		
+
     @dash_app.callback(Output('vehicle-revenue-miles-table', 'figure'),
                        [Input('state-selector', 'value'),
                         Input('agency-dropdown', 'value')])

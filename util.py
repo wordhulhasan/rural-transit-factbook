@@ -97,7 +97,7 @@ def unlinked_passenger_trips(dataframe, state='All', agency=None):
     return df
 
 def statVehiclesByMode(dataframe):
-	df = dataframe[['Vehicle_Type','Demand-Response','Fixed-Route','Commuter_Bus','Vanpool','Demand-Response_Taxi','Total']]
+	df = dataframe[['vehicle_type','demand_response','fixed_route','commuter_bus','vanpool','demand_response_taxi','total']]
 	df = df.dropna()
 	df.columns = ['Vehicle Type','Demand-Response','Fixed-Route','Commuter Bus','Vanpool','Demand-Response Taxi','Total']
 	return df
