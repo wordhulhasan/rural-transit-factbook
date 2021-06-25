@@ -163,6 +163,13 @@ def init_dashboard(server):
                                         ], style=tabs_styles),
                                     ]
                                 ),
+								dcc.Tab(
+									label=' Fleet Statistics',
+                                    style=tab_style,
+                                    selected_style=tab_selected_style,
+									children[
+									]
+								),
                                 dcc.Tab(
                                     label=' Percentile Rank',
                                     style=tab_style,
