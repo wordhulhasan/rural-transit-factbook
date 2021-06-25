@@ -8,7 +8,7 @@ def init_data():
     data3 = preprocess('data/service.csv')
 
     dataVehiclesByMode = preprocess('data/Table 21.csv')
-	dataFleetByMode = preprocess('data/Table 23.csv')
+    dataFleetByMode = preprocess('data/Table 23.csv')
 
     dataStatforAgenciesRankedByVRM = preprocess('data/Table 34.csv')
     datastatForDemandResponseRankedByVRM = preprocess('data/Table 40.csv')

@@ -19,7 +19,7 @@ from .data import init_data
 
 def init_callbacks(dash_app):
     # callbacks
-    data1, data2, data3, dataVehiclesByMode, dataFleetByMode\
+    data1, data2, data3, dataVehiclesByMode, dataFleetByMode,\
     dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM, \
     dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH, \
     dataStatforAgenciesRankedByRidership, datastatForDemandResponseRankedByRidership, datastatForFixedRouteRankedByRidership \

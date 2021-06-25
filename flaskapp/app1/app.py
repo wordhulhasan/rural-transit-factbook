@@ -178,7 +178,7 @@ def init_dashboard(server):
                                         ], style=tabs_styles),
                                     ]
                                 ),
-								dcc.Tab(
+                                dcc.Tab(
                                     label=' Fleet Statistics ',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
@@ -189,28 +189,28 @@ def init_dashboard(server):
                                             'Description',
                                             style=paragraph_styles),
                                         html.Br(),
-										dcc.Tabs([
-											dcc.Tab(
-												label='Vehicles by Mode',
+                                        dcc.Tabs([
+                                            dcc.Tab(
+                                                label='Vehicles by Mode',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
-												children[
-												    html.Br(),
-													dcc.Graph(
-													id='vehicle_by_mode-table'),
-												]
-												),
-											dcc.Tab(
-												label='Fleet Size by Mode',
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='vehicle_by_mode-table'),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='Fleet Size by Mode',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
-												children[
-												    html.Br(),
-													dcc.Graph(
-													id='fleet_by_mode-table'),
-												]
-											),
-										], style=tabs_styles),
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='fleet_by_mode-table'),
+                                                ]
+                                            ),
+                                        ], style=tabs_styles),
 
                                     ]
                                 ),
@@ -221,7 +221,7 @@ def init_dashboard(server):
                                     children=[
                                         html.H3(
                                             'Transit agencies are categorized into ten groups based on percentiles for vehicle revenue miles, vehicle revenue hours, or ridership. The first group is the smallest 10% of agencies, the second group the next smallest 10%, etc.'),
-										html.Br(),
+                                        html.Br(),
                                         html.P(
                                             'Note: VRH - Vehicle Revenue Hours, VRM - Vehicle Revenue Miles, UPT - Unlinked Passenger Trips, OE - Operating Expenses',
                                             style=paragraph_styles),
@@ -264,7 +264,7 @@ def init_dashboard(server):
                                                 children=[
 
                                                     dcc.Dropdown(
-                                                        id ='stat-dropdown-vrm',
+                                                        id='stat-dropdown-vrm',
                                                         options=[
                                                             {
                                                                 'label': 'Ranked by Ridership',
@@ -283,7 +283,7 @@ def init_dashboard(server):
                                                         id='statisticsRankedByMB-table'),
 
                                                 ]
-                                            ),											
+                                            ),
                                             dcc.Tab(
                                                 label='Statistics For Demand Response Service',
                                                 style=tab_style,

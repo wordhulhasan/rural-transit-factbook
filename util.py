@@ -103,7 +103,7 @@ def statVehiclesByMode(dataframe):
 	return df
 
 def statFleetByMode(dataframe):
-	df = dataframe[['Mode','average_number_of_vehicles_per_agency']]
+	df = dataframe[['mode','average_number_of_vehicles_per_agency']]
 	df = df.dropna()
 	df.columns = ['Mode','Average Number of Vehicles per Agency']
 	return df
