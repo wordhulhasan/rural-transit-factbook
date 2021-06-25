@@ -64,6 +64,28 @@ def init_callbacks(dash_app):
         )
         return fig
 
+    @dash_app.callback(Output('fleet-composition', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def update_fleet_composition(state, agency):
+        df = fleet_composition(data1, state, agency)
+
+        fig = px.pie(df, values='count', names='vehicle_type', color='vehicle_type', color_discrete_map=vehicle_colors,
+                     title='Percent of Revenue Vehicles', template='simple_white')
+
+        fig.update_layout(
+            font_color="black",
+            title_font_color="black",
+            legend_title_font_color="black",
+            uniformtext_minsize=16,
+            uniformtext_mode='hide',
+            margin=dict(l=100, r=50, t=150, b=50),
+            height=700,
+            hovermode='x',
+            autosize=True
+        )
+        return fig
+
     @dash_app.callback(Output('vehicle-revenue-miles', 'figure'),
                        [Input('state-selector', 'value'),
                         Input('agency-dropdown', 'value')])
@@ -217,28 +239,6 @@ def init_callbacks(dash_app):
             df = statisticsForAgenciesRankedByVRM(dataStatforAgenciesRankedByVRM)
 
         fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('fleet-composition', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def update_fleet_composition(state, agency):
-        df = fleet_composition(data1, state, agency)
-
-        fig = px.pie(df, values='count', names='vehicle_type', color='vehicle_type', color_discrete_map=vehicle_colors,
-                     title='Percent of Revenue Vehicles', template='simple_white')
-
-        fig.update_layout(
-            font_color="black",
-            title_font_color="black",
-            legend_title_font_color="black",
-            uniformtext_minsize=16,
-            uniformtext_mode='hide',
-            margin=dict(l=100, r=50, t=150, b=50),
-            height=700,
-            hovermode='x',
-            autosize=True
-        )
         return fig
 
     @dash_app.callback(Output('number-replaced', 'figure'),

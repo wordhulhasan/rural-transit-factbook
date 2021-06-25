@@ -95,7 +95,22 @@ def init_dashboard(server):
                         className='nine columns div-for-charts bg-grey',
                         children=[
                             dcc.Tabs([
-
+                                dcc.Tab(
+                                    label='Revenue Vehicles Statistics',
+                                    style=tab_style,
+                                    selected_style=tab_selected_style,
+                                    children=[
+                                        html.H2(
+                                            'Small Urban & Rural Transit Systems Revenue Vehicles Fleet Information Reports'),
+                                        html.P(
+                                            'Reports are generated from National Transit Database (NTD) data based on 2019 reporting year, the most current data.',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        dcc.Graph(id='revenue-vehicles', config={'displayModeBar': False},
+                                                  animate=True),
+                                        dcc.Graph(id='fleet-composition')
+                                    ]
+                                ),
                                 dcc.Tab(
                                     label=' Services ',
                                     style=tab_style,

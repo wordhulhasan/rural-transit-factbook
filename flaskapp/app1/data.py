@@ -6,7 +6,7 @@ def init_data():
     data1 = preprocess('data/revenue_vehicle_condition.csv')
     data2 = preprocess('data/revenue_vehicle_replacement_cost.csv')
     data3 = preprocess('data/service.csv')
-	
+
     dataVehiclesByMode = preprocess('data/Table 21.csv')
 
     dataStatforAgenciesRankedByVRM = preprocess('data/Table 34.csv')
