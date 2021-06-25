@@ -97,7 +97,7 @@ def init_dashboard(server):
                             dcc.Tabs([
 
                                 dcc.Tab(
-                                    label=' Primary Tab ',
+                                    label=' Sevice Report ',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
@@ -129,6 +129,73 @@ def init_dashboard(server):
                                             ),
                                             dcc.Tab(
                                                 label=' Report Name In table format',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.H2(
+                                                        'Heading 2'),
+                                                    html.P(
+                                                        'Description',
+                                                        style=paragraph_styles),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Vehicle Revenue Miles',
+                                                        style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vehicle-revenue-miles-table'),
+                                                    html.Br(),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Vehicle Revenue Hours',
+                                                        style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vehicle-revenue-hours-table'),
+                                                    html.Br(),
+                                                    html.Br(),
+
+                                                    html.P(
+                                                        'Unlinked Passenger Trips',
+                                                        style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='unlinked_passenger_trips-table')
+                                                ]
+                                            ),
+                                        ], style=tabs_styles),
+                                    ]
+                                ),
+                                dcc.Tab(
+                                    label=' Primary Tab 2 ',
+                                    style=tab_style,
+                                    selected_style=tab_selected_style,
+                                    children=[
+                                        html.H2(
+                                            'Heading'),
+                                        html.P(
+                                            'Description',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        dcc.Tabs([
+                                            dcc.Tab(
+                                                label=' Report Name 1',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.H2(
+                                                        'Heading 2'),
+                                                    html.P(
+                                                        'Description',
+                                                        style=paragraph_styles),
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='vehicle-revenue-miles'),
+                                                    dcc.Graph(
+                                                        id='vehicle-revenue-hours'),
+                                                    dcc.Graph(
+                                                        id='unlinked_passenger_trips'),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label=' Report Name 2',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
