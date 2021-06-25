@@ -163,6 +163,21 @@ def init_dashboard(server):
                                         ], style=tabs_styles),
                                     ]
                                 ),
+								dcc.Tab(
+                                    label=' Fleet Statistics ',
+                                    style=tab_style,
+                                    selected_style=tab_selected_style,
+                                    children=[
+                                        html.H2(
+                                            'Heading'),
+                                        html.P(
+                                            'Description',
+                                            style=paragraph_styles),
+                                        html.Br(),
+										dcc.Graph(
+											id='vehicle_by_mode-table'),
+                                    ]
+                                ),
                                 dcc.Tab(
                                     label=' Percentile Rank',
                                     style=tab_style,

@@ -96,6 +96,12 @@ def unlinked_passenger_trips(dataframe, state='All', agency=None):
             df = df.query("state == @state and agency==@agency" ).reset_index(drop=True)
     return df
 
+def statVehiclesByMode(dataframe):
+	df = dataframe[['Vehicle_Type','Demand-Response','Fixed-Route','Commuter_Bus','Vanpool','Demand-Response_Taxi','Total']]
+	df = df.dropna()
+	df.columns = ['Vehicle Type','Demand-Response','Fixed-Route','Commuter Bus','Vanpool','Demand-Response Taxi','Total']
+	return df
+		
 def statisticsForAgenciesRankedByVRM(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()

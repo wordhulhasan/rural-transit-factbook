@@ -12,14 +12,14 @@ from util import vehicle_colors, revenue_vehicles, fleet_composition, \
     statisticsForAgenciesRankedByVRM, statisticsForDemandResponseRankedByVRM, statisticsForFixedRouteRankedByVRM, \
     statisticsForAgenciesRankedByVRH, statisticsForDemandResponseRankedByVRH, statisticsForFixedRouteRankedByVRH, \
     statisticsForAgenciesRankedByRidership, statisticsForDemandResponseRankedByRidership, \
-    statisticsForFixedRouteRankedByRidership
+    statisticsForFixedRouteRankedByRidership, statVehiclesByMode
 
 from .data import init_data
 
 
 def init_callbacks(dash_app):
     # callbacks
-    data1, data2, data3, \
+    data1, data2, data3, statVehiclesByMode, \
     dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM, \
     dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH, \
     dataStatforAgenciesRankedByRidership, datastatForDemandResponseRankedByRidership, datastatForFixedRouteRankedByRidership \
@@ -88,6 +88,15 @@ def init_callbacks(dash_app):
         )
         return fig
 
+    @dash_app.callback(Output('vehicle_by_mode-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def vbm(state, agency):
+        df = statVehiclesByMode(dataVehiclesByMode, state, agency)
+#        df_sample = df[['vehicle_type', 'vehicle_revenue_miles']]
+        fig = ff.create_table(df)
+        return fig
+		
     @dash_app.callback(Output('vehicle-revenue-miles-table', 'figure'),
                        [Input('state-selector', 'value'),
                         Input('agency-dropdown', 'value')])
