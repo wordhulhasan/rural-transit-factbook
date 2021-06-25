@@ -66,20 +66,20 @@ def init_dashboard(server):
                                 placeholder='Select a transit agency...'
                             ),
 
-                            html.Hr(),
-                            html.H3('Vehicle Type'),
-                            html.Div(
-                                className='div-for-vehicle-dropdown',
-                                children=[
-                                    dcc.Dropdown(
-                                        id='vehicle-selector',
-                                        options=[{'label': k, 'value': v} for k, v in vehicles_dict.items()],
-                                        value=' All ',
-                                        className='vehicle-selector',
-                                        placeholder='Select a vehicle type...'
-                                    ),
-                                ],
-                            ),
+                            # html.Hr(),
+                            # html.H3('Vehicle Type'),
+                            # html.Div(
+                            #     className='div-for-vehicle-dropdown',
+                            #     children=[
+                            #         dcc.Dropdown(
+                            #             id='vehicle-selector',
+                            #             options=[{'label': k, 'value': v} for k, v in vehicles_dict.items()],
+                            #             value=' All ',
+                            #             className='vehicle-selector',
+                            #             placeholder='Select a vehicle type...'
+                            #         ),
+                            #     ],
+                            # ),
                             html.Br(),
                             html.Div(className='w3-xlarge w3-center',
                                      children=[
