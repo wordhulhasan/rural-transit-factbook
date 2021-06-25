@@ -1,0 +1,14 @@
+Vehicle Type,Demand-Response,Fixed-Route,Commuter Bus,Vanpool,Demand-Response Taxi,Total
+Bus,950,1968,310,0,0,3074
+Cutaway,10026,3049,289,0,0,11993
+Van,2709,210,12,295,23,3140
+Minivan,4327,114,1,145,58,4572
+Automobile,308,7,0,0,52,367
+School Bus,40,17,0,0,0,57
+Over-the-road Bus,0,31,54,0,0,85
+Sports Utility Vehicle,274,5,0,5,1,283
+Aerial Tramway,0,0,0,0,0,68
+Articulated Bus,0,1,0,0,0,1
+Ferryboat,0,0,0,0,0,27
+Other ,1,9,0,0,0,34
+Total,18635,5411,666,445,134,23701

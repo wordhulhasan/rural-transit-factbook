@@ -164,6 +164,60 @@ def init_dashboard(server):
                                     ]
                                 ),
                                 dcc.Tab(
+                                    label=' Fleet Statistics ',
+                                    style=tab_style,
+                                    selected_style=tab_selected_style,
+                                    children=[
+                                        html.H2(
+                                            'Fleet Statistics, 2019'),
+                                        html.P(
+                                            'Source: National Transit Database, 2019',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        dcc.Tabs([
+                                            dcc.Tab(
+                                                label=' Vehicles by Mode ',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[                                                    
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Vehicle Revenue Miles',
+                                                        style=paragraph_styles),													
+                                                    dcc.Graph(
+                                                        id='vehicle-revenue-miles-table'),                                                    
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label=' Average Fleet Size by Mode ',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Vehicle Revenue Hours',
+                                                        style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vehicle-revenue-hours-table'),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label=' Transit Vehicles by Type',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Unlinked Passenger Trips',
+                                                        style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='unlinked_passenger_trips-table')
+                                                ]
+                                            ),
+                                        ], style=tabs_styles),
+                                    ]
+                                ),
+                                dcc.Tab(
                                     label=' Percentile Rank',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
