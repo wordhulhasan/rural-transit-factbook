@@ -12,7 +12,7 @@ from util import vehicle_colors, revenue_vehicles, fleet_composition, \
     statisticsForAgenciesRankedByVRM, statisticsForDemandResponseRankedByVRM, statisticsForFixedRouteRankedByVRM, \
     statisticsForAgenciesRankedByVRH, statisticsForDemandResponseRankedByVRH, statisticsForFixedRouteRankedByVRH, \
     statisticsForAgenciesRankedByRidership, statisticsForDemandResponseRankedByRidership, \
-    statisticsForFixedRouteRankedByRidership, statVehiclesByMode, statFleetByMode
+    statisticsForFixedRouteRankedByRidership, statVehiclesByMode, statFleetByMode, statAdaAccessible
 
 from .data import init_data
 
@@ -127,6 +127,14 @@ def init_callbacks(dash_app):
         fig = ff.create_table(df)
         return fig
 
+    @dash_app.callback(Output('AdaAccessible-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def ada(state, agency):
+        df = statAdaAccessible(dataAdaAccessible)
+        fig = ff.create_table(df)
+        return fig
+		
     @dash_app.callback(Output('vehicle-revenue-miles-table', 'figure'),
                        [Input('state-selector', 'value'),
                         Input('agency-dropdown', 'value')])
