@@ -169,7 +169,7 @@ def init_callbacks(dash_app):
         fig = ff.create_table(df)
         return fig
 		
-    @dash_app.callback(Output('vehicleOwnership-table', 'figure'),
+    @dash_app.callback(Output('fundingSource-table', 'figure'),
                        [Input('state-selector', 'value'),
                         Input('agency-dropdown', 'value')])
     def funding(state, agency):

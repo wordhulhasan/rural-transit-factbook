@@ -210,6 +210,66 @@ def init_dashboard(server):
                                                         id='fleet_by_mode-table'),
                                                 ]
                                             ),
+                                            dcc.Tab(
+                                                label='ADA Accessible in %',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='adaAccessible-table'),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='Average Vehicle Age in Years',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='vehicleAge-table'),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='Average Vehicle Length in Feet',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='vehicleLenght-table'),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='Average Seating Capacity',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='seatingCapacity-table'),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='Vehicle Ownership',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='vehicleOwnership-table'),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='Primary Funding Source',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='fundingSource-table'),
+                                                ]
+                                            ),
                                         ], style=tabs_styles),
 
                                     ]
