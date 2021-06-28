@@ -12,7 +12,7 @@ from util import vehicle_colors, revenue_vehicles, fleet_composition, \
     statisticsForAgenciesRankedByVRM, statisticsForDemandResponseRankedByVRM, statisticsForFixedRouteRankedByVRM, \
     statisticsForAgenciesRankedByVRH, statisticsForDemandResponseRankedByVRH, statisticsForFixedRouteRankedByVRH, \
     statisticsForAgenciesRankedByRidership, statisticsForDemandResponseRankedByRidership, \
-    statisticsForFixedRouteRankedByRidership, statVehiclesByMode, statFleetByMode, statAdaAccessible
+    statisticsForFixedRouteRankedByRidership, statVehiclesByMode, statFleetByMode, statAdaAccessible, statVehicleAge
 
 from .data import init_data
 
@@ -127,11 +127,27 @@ def init_callbacks(dash_app):
         fig = ff.create_table(df)
         return fig
 
-    @dash_app.callback(Output('AdaAccessible-table', 'figure'),
+    @dash_app.callback(Output('adaAccessible-table', 'figure'),
                        [Input('state-selector', 'value'),
                         Input('agency-dropdown', 'value')])
     def ada(state, agency):
         df = statAdaAccessible(dataAdaAccessible)
+        fig = ff.create_table(df)
+        return fig
+		
+    @dash_app.callback(Output('vehicleAge-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def age(state, agency):
+        df = statVehicleAge(dataVehicleAge)
+        fig = ff.create_table(df)
+        return fig
+		
+    @dash_app.callback(Output('vehicleLenght-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def length(state, agency):
+        df = statVehicleLength(dataVehicleLength)
         fig = ff.create_table(df)
         return fig
 		

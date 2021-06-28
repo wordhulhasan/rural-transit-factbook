@@ -113,6 +113,18 @@ def statAdaAccessible(dataframe):
 	df = df.dropna()
 	df.columns = ['Vehicle Type','2015','2016','2017','2018','2019']
 	return df
+	
+def statVehicleAge(dataframe):
+	df = dataframe[['vehicle_type','2015','2016','2017','2018','2019']]
+	df = df.dropna()
+	df.columns = ['Vehicle Type','2015','2016','2017','2018','2019']
+	return df
+	
+def statVehicleLength(dataframe):
+	df = dataframe[['vehicle_type','2015','2016','2017','2018','2019']]
+	df = df.dropna()
+	df.columns = ['Vehicle Type','2015','2016','2017','2018','2019']
+	return df
 		
 def statisticsForAgenciesRankedByVRM(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
