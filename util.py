@@ -125,6 +125,24 @@ def statVehicleLength(dataframe):
 	df = df.dropna()
 	df.columns = ['Vehicle Type','2015','2016','2017','2018','2019']
 	return df
+	
+def statSeatingCapacity(dataframe):
+	df = dataframe[['vehicle_type','2015','2016','2017','2018','2019']]
+	df = df.dropna()
+	df.columns = ['Vehicle Type','2015','2016','2017','2018','2019']
+	return df
+	
+def statVehicleOwnership(dataframe):
+	df = dataframe[['ownership_type','bus','cutaway','van','minivan','auto','school_bus','over_the_road_bus','sports_utility_vehicle','total']]
+	df = df.dropna()
+	df.columns = ['Ownership Type','Bus','Cutaway','Van','Minivan','Auto','School Bus','Over-the-road bus','Sports Utility Vehicle','Total']
+	return df
+	
+def statFundingSource(dataframe):
+	df = dataframe[['funding_source','bus','cutaway','van','minivan','auto','school_bus','over_the_road_bus','sports_utility_vehicle','total']]
+	df = df.dropna()
+	df.columns = ['Funding Source','Bus','Cutaway','Van','Minivan','Auto','School Bus','Over-the-road bus','Sports Utility Vehicle','Total']
+	return df
 		
 def statisticsForAgenciesRankedByVRM(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]

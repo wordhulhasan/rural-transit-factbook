@@ -12,6 +12,9 @@ def init_data():
     dataAdaAccessible = preprocess('data/Table 24.csv')
     dataVehicleAge = preprocess('data/Table 25.csv')
     dataVehicleLength = preprocess('data/Table 26.csv')
+    dataSeatingCapacity = preprocess('data/Table 27.csv')
+	dataVehicleOwnerShip = preprocess('data/Table 28.csv')
+	dataFundingSource = preprocess('data/Table 29.csv')
 
     dataStatforAgenciesRankedByVRM = preprocess('data/Table 34.csv')
     datastatForDemandResponseRankedByVRM = preprocess('data/Table 40.csv')
@@ -26,7 +29,8 @@ def init_data():
     datastatForFixedRouteRankedByRidership = preprocess('data/Table 39.csv')
 
     return data1, data2, data3, \
-		   dataVehiclesByMode, dataFleetByMode, dataAdaAccessible, dataVehicleAge, dataVehicleLength, \
+		   dataVehiclesByMode, dataFleetByMode, dataAdaAccessible, dataVehicleAge, dataVehicleLength, dataSeatingCapacity, \
+		   dataVehicleOwnerShip, dataFundingSource, \
            dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM,\
            dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH,\
            dataStatforAgenciesRankedByRidership, datastatForDemandResponseRankedByRidership, datastatForFixedRouteRankedByRidership
