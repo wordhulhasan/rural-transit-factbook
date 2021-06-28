@@ -112,19 +112,19 @@ def init_dashboard(server):
                                     ]
                                 ),
                                 dcc.Tab(
-                                    label=' Services ',
+                                    label=' Operating Statistics ',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
                                         html.H2(
-                                            'Heading'),
+                                            'Operating Statistics of Rural Transit Systems'),
                                         html.P(
-                                            'Description',
+                                            'Source: National Transit Database',
                                             style=paragraph_styles),
                                         html.Br(),
                                         dcc.Tabs([
                                             dcc.Tab(
-                                                label=' Transit Services in Chart ',
+                                                label=' Operating Statistics in 2019 (Chart) ',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
@@ -143,7 +143,7 @@ def init_dashboard(server):
                                                 ]
                                             ),
                                             dcc.Tab(
-                                                label=' Transit Services in table format',
+                                                label=' Operating Statistics in 2019 (Table)',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
@@ -184,9 +184,9 @@ def init_dashboard(server):
                                     selected_style=tab_selected_style,
                                     children=[
                                         html.H2(
-                                            'Heading'),
+                                            'Key Statistics on Small Urban & Rural Transit Vehicles'),
                                         html.P(
-                                            'Description',
+                                            'Source: National Transit Database',
                                             style=paragraph_styles),
                                         html.Br(),
                                         dcc.Tabs([
