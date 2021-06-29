@@ -157,7 +157,7 @@ def init_dashboard(server):
                                                         'Ridership',
                                                         style=paragraph_styles),
                                                     dcc.Graph(
-                                                        id='unlinked_passenger_trips-table')													
+                                                        id='unlinked_passenger_trips-table'),
                                                     html.P(
                                                         'Vehicle Revenue Miles',
                                                         style=paragraph_styles),

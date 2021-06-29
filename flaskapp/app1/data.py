@@ -31,7 +31,7 @@ def init_data():
     datastatForDemandResponseRankedByRidership = preprocess('data/Table 42.csv')
     datastatForFixedRouteRankedByRidership = preprocess('data/Table 39.csv')
 
-    return data1, data2, data3, dataRidershipByYear, dataVrmByYear, dataVrhByYear\
+    return data1, data2, data3, dataRidershipByYear, dataVrmByYear, dataVrhByYear,\
 		   dataVehiclesByMode, dataFleetByMode, dataAdaAccessible, dataVehicleAge, dataVehicleLength, dataSeatingCapacity, \
 		   dataVehicleOwnerShip, dataFundingSource, \
            dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM,\
