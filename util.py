@@ -97,19 +97,19 @@ def unlinked_passenger_trips(dataframe, state='All', agency=None):
     return df
 
 def statRidershipByYear(dataframe):
-	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019','Change_2018_2019']]
+	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019','change_2018_2019']]
 	df = df.dropna()
 	df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019','% Change 2018-2019']
 	return df
 	
 def statVrmByYear(dataframe):
-	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019','Change_2018_2019']]
+	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019','change_2018_2019']]
 	df = df.dropna()
 	df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019','% Change 2018-2019']
 	return df
 	
 def statVrhByYear(dataframe):
-	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019','Change_2018_2019']]
+	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019','change_2018_2019']]
 	df = df.dropna()
 	df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019','% Change 2018-2019']
 	return df
