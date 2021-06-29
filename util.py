@@ -114,6 +114,24 @@ def statVrhByYear(dataframe):
 	df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019','% Change 2018-2019']
 	return df
 
+def statRidershipByRank(dataframe):
+	df = dataframe[['percentile','fixed_route','demand_response','total']]
+	df = df.dropna()
+	df.columns = ['Percentile','Fixed-Route','Demand-response','Total']
+	return df
+
+def statVrmByRank(dataframe):
+	df = dataframe[['percentile','fixed_route','demand_response','total']]
+	df = df.dropna()
+	df.columns = ['Percentile','Fixed-Route','Demand-response','Total']
+	return df
+
+def statVrhByRank(dataframe):
+	df = dataframe[['percentile','fixed_route','demand_response','total']]
+	df = df.dropna()
+	df.columns = ['Percentile','Fixed-Route','Demand-response','Total']
+	return df
+
 def statVehiclesByMode(dataframe):
 	df = dataframe[['vehicle_type','demand_response','fixed_route','commuter_bus','vanpool','demand_response_taxi','total']]
 	df = df.dropna()
