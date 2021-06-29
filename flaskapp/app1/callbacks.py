@@ -14,14 +14,14 @@ from util import vehicle_colors, revenue_vehicles, fleet_composition, \
     statisticsForAgenciesRankedByRidership, statisticsForDemandResponseRankedByRidership, \
     statisticsForFixedRouteRankedByRidership, statVehiclesByMode, statFleetByMode, statAdaAccessible, statVehicleAge,\
 	statVehicleLength, statSeatingCapacity, statVehicleOwnership, statFundingSource, \
-	statRidershipByYear, statVrmByYear, statVrhByYear
+	statRidershipByYear, statVrmByYear, statVrhByYear, statRidershipByRank, statVrmByRank, statVrhByRank
 
 from .data import init_data
 
 
 def init_callbacks(dash_app):
     # callbacks
-    data1, data2, data3, dataRidershipByYear, dataVrmByYear, dataVrhByYear, \
+    data1, data2, data3, dataRidershipByYear, dataVrmByYear, dataVrhByYear, dataRidershipByRank, dataVrmByRank, dataVrhByRank, \
 	dataVehiclesByMode, dataFleetByMode, dataAdaAccessible, dataVehicleAge, dataVehicleLength, \
 	dataSeatingCapacity, dataVehicleOwnership, dataFundingSource,\
     dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM, \
@@ -137,10 +137,34 @@ def init_callbacks(dash_app):
         df = statVrhByYear(dataVrhByYear)
         fig = ff.create_table(df)
         return fig
-		
+
+    @dash_app.callback(Output('ridership_by_rank-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def rbr(state, agency):
+        df = statRidershipByRank(dataRidershipByRank)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('vrm_by_rank-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def vrmbr(state, agency):
+        df = statVrmByRank(dataVrmByRank)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('vrh_by_rank-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def vrhbr(state, agency):
+        df = statVrhByRank(dataVrhByRank)
+        fig = ff.create_table(df)
+        return fig
     @dash_app.callback(Output('vehicle_by_mode-table', 'figure'),
                        [Input('state-selector', 'value'),
                         Input('agency-dropdown', 'value')])
+
     def vbm(state, agency):
         df = statVehiclesByMode(dataVehiclesByMode)
 #        df_sample = df[['vehicle_type', 'vehicle_revenue_miles']]

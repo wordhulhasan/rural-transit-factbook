@@ -129,9 +129,9 @@ def init_dashboard(server):
                                                 selected_style=tab_selected_style,
                                                 children=[
                                                     html.H2(
-                                                        'Heading 2'),
+                                                        ''),
                                                     html.P(
-                                                        'Description',
+                                                        'Source: National Transit Database, 2019',
                                                         style=paragraph_styles),
                                                     html.Br(),
                                                     dcc.Graph(
@@ -148,9 +148,9 @@ def init_dashboard(server):
                                                 selected_style=tab_selected_style,
                                                 children=[
                                                     html.H2(
-                                                        'Heading 2'),
+                                                        ''),
                                                     html.P(
-                                                        'Description',
+                                                        'Source: National Transit Database, 2019',
                                                         style=paragraph_styles),
                                                     html.Br(),
                                                     html.P(
@@ -205,6 +205,38 @@ def init_dashboard(server):
                                                         style=paragraph_styles),
                                                     dcc.Graph(
                                                         id='vrh_by_year-table')
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label=' Operating Statistics Percentile Rankings',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.H2(
+                                                        ''),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2019',
+                                                        style=paragraph_styles),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Ridership Percentile Rankings for Rural Transit Agencies',
+                                                        style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='ridership_by_rank-table'),
+                                                    html.Br(),
+#                                                    html.Br(),
+                                                    html.P(
+                                                        'Vehicle Miles Percentile Rankings for Rural Transit Agencies',
+                                                        style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vrm_by_rank-table'),
+                                                    html.Br(),
+#                                                    html.Br(),
+                                                    html.P(
+                                                        'Vehicle Hours Percentile Rankings for Rural Transit Agencies',
+                                                        style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vrh_by_rank-table')
                                                 ]
                                             ),
                                         ], style=tabs_styles),
