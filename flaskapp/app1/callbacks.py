@@ -38,8 +38,32 @@ def init_callbacks(dash_app):
         return [{'label': i, 'value': i} for i in res[selected_state]]
 
     @dash_app.callback(
+        Output('agency-dropdown-2', 'options'),
+        [Input('state-selector-2', 'value')])
+    def set_cities_options(selected_state):
+        return [{'label': i, 'value': i} for i in res[selected_state]]
+
+    @dash_app.callback(
+        Output('agency-dropdown-3', 'options'),
+        [Input('state-selector-3', 'value')])
+    def set_cities_options(selected_state):
+        return [{'label': i, 'value': i} for i in res[selected_state]]
+
+    @dash_app.callback(
         Output('agency-dropdown', 'value'),
         [Input('agency-dropdown', 'options')])
+    def set_cities_value(available_options):
+        return available_options[0]['value']
+
+    @dash_app.callback(
+        Output('agency-dropdown-2', 'value'),
+        [Input('agency-dropdown-2', 'options')])
+    def set_cities_value(available_options):
+        return available_options[0]['value']
+
+    @dash_app.callback(
+        Output('agency-dropdown-3', 'value'),
+        [Input('agency-dropdown-3', 'options')])
     def set_cities_value(available_options):
         return available_options[0]['value']
 
@@ -91,8 +115,8 @@ def init_callbacks(dash_app):
         return fig
 
     @dash_app.callback(Output('vehicle-revenue-miles', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
+                       [Input('state-selector-2', 'value'),
+                        Input('agency-dropdown-2', 'value')])
     def vrm(state, agency):
         df = vehicle_revenue_miles(data3, state, agency)
         fig = px.bar(df, x='mode', y='vehicle_revenue_miles', text='vehicle_revenue_miles',
@@ -161,10 +185,10 @@ def init_callbacks(dash_app):
         df = statVrhByRank(dataVrhByRank)
         fig = ff.create_table(df)
         return fig
+
     @dash_app.callback(Output('vehicle_by_mode-table', 'figure'),
                        [Input('state-selector', 'value'),
                         Input('agency-dropdown', 'value')])
-
     def vbm(state, agency):
         df = statVehiclesByMode(dataVehiclesByMode)
 #        df_sample = df[['vehicle_type', 'vehicle_revenue_miles']]
@@ -228,8 +252,8 @@ def init_callbacks(dash_app):
         return fig
 		
     @dash_app.callback(Output('vehicle-revenue-miles-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
+                       [Input('state-selector-3', 'value'),
+                        Input('agency-dropdown-3', 'value')])
     def vrm(state, agency):
         df = vehicle_revenue_miles(data3, state, agency)
         df_sample = df[['mode', 'vehicle_revenue_miles']]
@@ -237,8 +261,8 @@ def init_callbacks(dash_app):
         return fig
 
     @dash_app.callback(Output('vehicle-revenue-hours', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
+                       [Input('state-selector-2', 'value'),
+                        Input('agency-dropdown-2', 'value')])
     def vrh(state, agency):
         df = vehicle_revenue_hours(data3, state, agency)
         fig = px.bar(df, x='mode', y='vehicle_revenue_hours', text='vehicle_revenue_hours',
@@ -261,8 +285,8 @@ def init_callbacks(dash_app):
         return fig
 
     @dash_app.callback(Output('vehicle-revenue-hours-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
+                       [Input('state-selector-3', 'value'),
+                        Input('agency-dropdown-3', 'value')])
     def vrh(state, agency):
         df = vehicle_revenue_hours(data3, state, agency)
         df_sample = df[['mode', 'vehicle_revenue_hours']]
@@ -270,8 +294,8 @@ def init_callbacks(dash_app):
         return fig
 
     @dash_app.callback(Output('unlinked_passenger_trips', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
+                       [Input('state-selector-2', 'value'),
+                        Input('agency-dropdown-2', 'value')])
     def vrh(state, agency):
         df = unlinked_passenger_trips(data3, state, agency)
         fig = px.bar(df, x='mode', y='unlinked_passenger_trips', text='unlinked_passenger_trips',
@@ -294,8 +318,8 @@ def init_callbacks(dash_app):
         return fig
 
     @dash_app.callback(Output('unlinked_passenger_trips-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
+                       [Input('state-selector-3', 'value'),
+                        Input('agency-dropdown-3', 'value')])
     def vrh(state, agency):
         df = unlinked_passenger_trips(data3, state, agency)
         df_sample = df[['mode', 'unlinked_passenger_trips']]
