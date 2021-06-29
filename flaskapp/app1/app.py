@@ -154,6 +154,11 @@ def init_dashboard(server):
                                                         style=paragraph_styles),
                                                     html.Br(),
                                                     html.P(
+                                                        'Ridership',
+                                                        style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='unlinked_passenger_trips-table')													
+                                                    html.P(
                                                         'Vehicle Revenue Miles',
                                                         style=paragraph_styles),
                                                     dcc.Graph(
@@ -167,12 +172,39 @@ def init_dashboard(server):
                                                         id='vehicle-revenue-hours-table'),
                                                     html.Br(),
                                                     html.Br(),
-
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label=' Rural Transit Operating Statistics',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.H2(
+                                                        ''),
                                                     html.P(
-                                                        'Unlinked Passenger Trips',
+                                                        'Source: National Transit Database, 2015–2019',
+                                                        style=paragraph_styles),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Ridership (millions)',
                                                         style=paragraph_styles),
                                                     dcc.Graph(
-                                                        id='unlinked_passenger_trips-table')
+                                                        id='ridership_by_year-table'),
+                                                    html.Br(),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Vehicle Revenue Miles (millions)',
+                                                        style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vrm_by_year-table'),
+                                                    html.Br(),
+                                                    html.Br(),
+
+                                                    html.P(
+                                                        'Vehicle Revenue Hours (millions)',
+                                                        style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vrh_by_year-table')
                                                 ]
                                             ),
                                         ], style=tabs_styles),
@@ -221,7 +253,7 @@ def init_dashboard(server):
                                                 ]
                                             ),
                                             dcc.Tab(
-                                                label='Average Vehicle Age in Years',
+                                                label='Avg. Vehicle Age',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
@@ -231,7 +263,7 @@ def init_dashboard(server):
                                                 ]
                                             ),
                                             dcc.Tab(
-                                                label='Average Vehicle Length in Feet',
+                                                label='Avg. Vehicle Length',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
@@ -241,7 +273,7 @@ def init_dashboard(server):
                                                 ]
                                             ),
                                             dcc.Tab(
-                                                label='Average Seating Capacity',
+                                                label='Avg. Seating Capacity',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
@@ -261,7 +293,7 @@ def init_dashboard(server):
                                                 ]
                                             ),
                                             dcc.Tab(
-                                                label='Primary Funding Source',
+                                                label='Funding Source',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
