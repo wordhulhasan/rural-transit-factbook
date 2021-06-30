@@ -14,7 +14,9 @@ from util import vehicle_colors, revenue_vehicles, fleet_composition, \
     statisticsForAgenciesRankedByRidership, statisticsForDemandResponseRankedByRidership, \
     statisticsForFixedRouteRankedByRidership, statVehiclesByMode, statFleetByMode, statAdaAccessible, statVehicleAge,\
 	statVehicleLength, statSeatingCapacity, statVehicleOwnership, statFundingSource, \
-	statRidershipByYear, statVrmByYear, statVrhByYear, statRidershipByRank, statVrmByRank, statVrhByRank
+	statRidershipByYear, statVrmByYear, statVrhByYear, statRidershipByRank, statVrmByRank, statVrhByRank, \
+    statTripsPerMile, statTripsPerHour, statTripsMilesHoursPerVehicle, statOperatingExpensePerTrip, \
+    statOperatingExpensePerVehicleMile, statOperatingExpensePerVehicleHour, statFareboxRecoveryRatio
 
 from .data import init_data
 
@@ -23,7 +25,8 @@ def init_callbacks(dash_app):
     # callbacks
     data1, data2, data3, dataRidershipByYear, dataVrmByYear, dataVrhByYear, dataRidershipByRank, dataVrmByRank, dataVrhByRank, \
 	dataVehiclesByMode, dataFleetByMode, dataAdaAccessible, dataVehicleAge, dataVehicleLength, \
-	dataSeatingCapacity, dataVehicleOwnership, dataFundingSource,\
+	dataSeatingCapacity, dataVehicleOwnership, dataFundingSource, dataTripsPerMile, dataTripsPerHour, dataTripsMilesHoursPerVehicle, \
+    dataOperatingExpensePerTrip, dataOperatingExpensePerVehicleMile, dataOperatingExpensePerVehicleHour, dataFareboxRecoveryRatio,\
     dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM, \
     dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH, \
     dataStatforAgenciesRankedByRidership, datastatForDemandResponseRankedByRidership, datastatForFixedRouteRankedByRidership \
@@ -250,7 +253,63 @@ def init_callbacks(dash_app):
         df = statFundingSource(dataFundingSource)
         fig = ff.create_table(df)
         return fig
-		
+
+    @dash_app.callback(Output('tripsPerMile-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def tpm(state, agency):
+        df = statTripsPerMile(dataTripsPerMile)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('tripsPerHour-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def tph(state, agency):
+        df = statTripsPerHour(dataTripsPerHour)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('tripsMilesHoursPerVehicle-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def tmhpv(state, agency):
+        df = statTripsMilesHoursPerVehicle(dataTripsMilesHoursPerVehicle)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('operatingExpensePerTrip-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def oept(state, agency):
+        df = statOperatingExpensePerTrip(dataOperatingExpensePerTrip)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('operatingExpensePerVehicleMile-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def oepvm(state, agency):
+        df = statOperatingExpensePerVehicleMile(dataOperatingExpensePerVehicleMile)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('operatingExpensePerVehicleHour-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def oepvh(state, agency):
+        df = statOperatingExpensePerVehicleHour(dataOperatingExpensePerVehicleHour)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('fareboxRecoveryRatio-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def frr(state, agency):
+        df = statFareboxRecoveryRatio(dataFareboxRecoveryRatio)
+        fig = ff.create_table(df)
+        return fig
+
     @dash_app.callback(Output('vehicle-revenue-miles-table', 'figure'),
                        [Input('state-selector-3', 'value'),
                         Input('agency-dropdown-3', 'value')])

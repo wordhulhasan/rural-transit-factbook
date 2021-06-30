@@ -213,7 +213,6 @@ def init_dashboard(server):
                                                         id='vrm_by_year-table'),
                                                     html.Br(),
                                                     html.Br(),
-
                                                     html.P(
                                                         'Vehicle Revenue Hours (millions)',
                                                         style=paragraph_styles),
@@ -334,6 +333,28 @@ def init_dashboard(server):
                                                 selected_style=tab_selected_style,
                                                 children=[
                                                     html.Br(),
+                                                    html.P(
+                                                        'OOPA - Owned Outright by a Public Agency',
+                                                        style=paragraph_styles),
+                                                    html.P(
+                                                        'OOPE - Owned Outright by a Private Entity',
+                                                        style=paragraph_styles),
+                                                    html.P(
+                                                        'TLPA - True Lease by a Public Agency',
+                                                        style=paragraph_styles),
+                                                    html.P(
+                                                        'LRPA - Leased or Borrowed from Related Parties by a Public Agency',
+                                                        style=paragraph_styles),
+                                                    html.P(
+                                                        'TLPE - True Lease by a Private Entity',
+                                                        style=paragraph_styles),
+                                                    html.P(
+                                                        'LPPA - Lease under Lease Purchase Agreement by a Public Agency ',
+                                                        style=paragraph_styles),
+                                                    html.P(
+                                                        'LRPE - Leased or Borrowed from Related Parties by a Private Entity',
+                                                        style=paragraph_styles),
+                                                    html.Br(),
                                                     dcc.Graph(
                                                         id='vehicleOwnership-table'),
                                                 ]
@@ -346,6 +367,77 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     dcc.Graph(
                                                         id='fundingSource-table'),
+                                                ]
+                                            ),
+                                        ], style=tabs_styles),
+
+                                    ]
+                                ),
+                                dcc.Tab(
+                                    label=' Performance Measures ',
+                                    style=tab_style,
+                                    selected_style=tab_selected_style,
+                                    children=[
+                                        html.H2(
+                                            ''),
+                                        html.P(
+                                            '',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        dcc.Tabs([
+                                            dcc.Tab(
+                                                label='Trips per Vehicle Revenue Mile',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='tripsPerMile-table'),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='Trips per Vehicle Revenue Hour',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='tripsPerHour-table'),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='Trips, Miles, and Hours per Vehicle',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='tripsMilesHoursPerVehicle-table'),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='Key Performance Measures by Year',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.P('Operating Expense per Trip',style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='operatingExpensePerTrip-table'),
+                                                    html.Br(),
+                                                    html.P('Operating Expense per Vehicle Mile', style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='operatingExpensePerVehicleMile-table'),
+                                                    html.Br(),
+                                                    html.P('Operating Expense per Vehicle Hour',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='operatingExpensePerVehicleHour-table'),
+                                                    html.Br(),
+                                                    html.P('Farebox Recovery Ratio',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='fareboxRecoveryRatio-table'),
                                                 ]
                                             ),
                                         ], style=tabs_styles),

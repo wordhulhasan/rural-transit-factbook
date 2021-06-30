@@ -179,7 +179,49 @@ def statFundingSource(dataframe):
 	df = df.dropna()
 	df.columns = ['Funding Source','Bus','Cutaway','Van','Minivan','Auto','School Bus','Over-the-road bus','Sports Utility Vehicle','Total']
 	return df
-		
+
+def statTripsPerMile(dataframe):
+	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019','change_2018_2019']]
+	df = df.dropna()
+	df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019','% Change 2018-2019']
+	return df
+
+def statTripsPerHour(dataframe):
+	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019','change_2018_2019']]
+	df = df.dropna()
+	df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019','% Change 2018-2019']
+	return df
+
+def statTripsMilesHoursPerVehicle(dataframe):
+	df = dataframe[['performance_measure','fixed_route','demand_response','total']]
+	df = df.dropna()
+	df.columns = ['Performance Measure','Fixed-Route','Demand-Response','Total']
+	return df
+
+def statOperatingExpensePerTrip(dataframe):
+	df = dataframe[['mode','2016','2017','2018','2019','change_2018_2019']]
+	df = df.dropna()
+	df.columns = ['Mode','2016','2017','2018','2019','% Change 2018-2019']
+	return df
+
+def statOperatingExpensePerVehicleMile(dataframe):
+	df = dataframe[['mode','2016','2017','2018','2019','change_2018_2019']]
+	df = df.dropna()
+	df.columns = ['Mode','2016','2017','2018','2019','% Change 2018-2019']
+	return df
+
+def statOperatingExpensePerVehicleHour(dataframe):
+	df = dataframe[['mode','2016','2017','2018','2019','change_2018_2019']]
+	df = df.dropna()
+	df.columns = ['Mode','2016','2017','2018','2019','% Change 2018-2019']
+	return df
+
+def statFareboxRecoveryRatio(dataframe):
+	df = dataframe[['mode','2016','2017','2018','2019','change_2018_2019']]
+	df = df.dropna()
+	df.columns = ['Mode','2016','2017','2018','2019','% Change 2018-2019']
+	return df
+
 def statisticsForAgenciesRankedByVRM(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()
