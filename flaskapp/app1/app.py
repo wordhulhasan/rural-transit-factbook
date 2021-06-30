@@ -56,6 +56,7 @@ def init_dashboard(server):
                                     label='Revenue Vehicles Statistics',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
+
                                     children=[
                                         html.H2(
                                             'Small Urban & Rural Transit Systems Revenue Vehicles Fleet Information Reports'),
@@ -70,13 +71,15 @@ def init_dashboard(server):
                                             id='state-selector',
                                             options=[{'label': states_dict[k], 'value': k} for k in res.keys()],
                                             value='All',
-                                            placeholder='Select a state...'
+                                            placeholder='Select a state...',
+                                            style = {'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
                                         ),
                                         html.Hr(),
                                         html.H3('Transit Agency'),
                                         dcc.Dropdown(
                                             id='agency-dropdown',
-                                            placeholder='Select a transit agency...'
+                                            placeholder='Select a transit agency...',
+                                            style={'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
                                         ),
 
                                         dcc.Graph(id='revenue-vehicles', config={'displayModeBar': False},
@@ -114,13 +117,17 @@ def init_dashboard(server):
                                                         options=[{'label': states_dict[k], 'value': k} for k in
                                                                  res.keys()],
                                                         value='All',
-                                                        placeholder='Select a state...'
+                                                        placeholder='Select a state...',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
                                                     ),
                                                     html.Hr(),
                                                     html.H3('Transit Agency'),
                                                     dcc.Dropdown(
                                                         id='agency-dropdown-2',
-                                                        placeholder='Select a transit agency...'
+                                                        placeholder='Select a transit agency...',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
                                                     ),
                                                     dcc.Graph(
                                                         id='vehicle-revenue-miles'),
@@ -148,13 +155,17 @@ def init_dashboard(server):
                                                         options=[{'label': states_dict[k], 'value': k} for k in
                                                                  res.keys()],
                                                         value='All',
-                                                        placeholder='Select a state...'
+                                                        placeholder='Select a state...',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
                                                     ),
                                                     html.Hr(),
                                                     html.H3('Transit Agency'),
                                                     dcc.Dropdown(
                                                         id='agency-dropdown-3',
-                                                        placeholder='Select a transit agency...'
+                                                        placeholder='Select a transit agency...',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
                                                     ),
                                                     html.P(
                                                         'Ridership',
@@ -363,6 +374,7 @@ def init_dashboard(server):
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
+                                                    html.Br(),
                                                     dcc.Dropdown(
                                                         id='stat-dropdown-upt',
                                                         options=[
@@ -376,7 +388,9 @@ def init_dashboard(server):
                                                                 'label': 'Ranked by Vehicle Revenue Miles',
                                                                 'value': 'vrm'}
                                                         ],
-                                                        value='ridership'
+                                                        value='ridership',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
                                                     ),
                                                     html.Br(),
                                                     dcc.Graph(
@@ -389,7 +403,7 @@ def init_dashboard(server):
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
-
+                                                    html.Br(),
                                                     dcc.Dropdown(
                                                         id='stat-dropdown-vrm',
                                                         options=[
@@ -403,7 +417,9 @@ def init_dashboard(server):
                                                                 'label': 'Ranked by Vehicle Revenue Miles',
                                                                 'value': 'vrm'}
                                                         ],
-                                                        value='ridership'
+                                                        value='ridership',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
                                                     ),
                                                     html.Br(),
                                                     dcc.Graph(
@@ -416,6 +432,7 @@ def init_dashboard(server):
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
+                                                    html.Br(),
                                                     dcc.Dropdown(
                                                         id='stat-dropdown-vrh',
                                                         options=[
@@ -429,7 +446,9 @@ def init_dashboard(server):
                                                                 'label': 'Ranked by Vehicle Revenue Miles',
                                                                 'value': 'vrm'}
                                                         ],
-                                                        value='ridership'
+                                                        value='ridership',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
                                                     ),
                                                     html.Br(),
 
