@@ -22,8 +22,18 @@ def init_dashboard(server):
     }
 
     tabs_styles = {
-        'height': '44px'
+        'height': '65px',
     }
+
+    tabs_styles_main = {
+        'height': '44px',
+        'borderBottom': '50px',
+        'padding-top': '56px',
+        'padding-left': '50px',
+        'padding-right': '50px',
+        'fontWeight': 'bold'
+    }
+
     tab_style = {
         'borderBottom': '1px solid #d6d6d6',
         'padding': '6px',
@@ -698,7 +708,9 @@ def init_dashboard(server):
 
                                     ]
                                 ),
-                            ], style=tabs_styles),
+                            ],
+                                vertical=True,
+                                style=tabs_styles_main),
                         ],
                     )
                 ]
