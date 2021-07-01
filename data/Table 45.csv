@@ -1,0 +1,12 @@
+Vehicle Type,FTA Region 1,FTA Region 2,FTA Region 3,FTA Region 4,FTA Region 5,FTA Region 6,FTA Region 7,FTA Region 8,FTA Region 9,FTA Region 10
+Bus,186,204,280,358,707,106,106,545,231,351
+Cutaway,352,388,640,"2,316","2,691","1,526","1,811",739,804,726
+Van,59,3,119,"1,472",242,512,181,180,119,253
+Minivan,62,2,108,899,940,936,847,429,102,247
+Automobile,6,0,4,35,58,93,69,37,20,45
+School Bus,1,0,0,10,21,4,0,10,0,11
+Over-the-road Bus,6,6,1,0,0,10,5,42,15,0
+Sports Utility Vehicle,5,0,5,138,19,76,4,19,7,10
+Other,12,0,1,8,4,0,0,93,7,5
+Total,689,603,"1,158","5,236","4,682","3,263","3,023","2,094","1,305","1,648"
+Vehicles ADA Accessible,86%,96%,94%,77%,92%,83%,86%,81%,88%,74%

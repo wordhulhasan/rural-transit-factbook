@@ -264,6 +264,48 @@ def statVrhByRegion(dataframe):
 	df.columns = ['Vehicle Mode','FTA Region 1','FTA Region 2','FTA Region 3','FTA Region 4','FTA Region 5','FTA Region 6','FTA Region 7','FTA Region 8','FTA Region 9','FTA Region 10']
 	return df
 
+def statVehiclesByRegion(dataframe):
+	df = dataframe[['vehicle_type','fta_region_1','fta_region_2','fta_region_3','fta_region_4','fta_region_5','fta_region_6','fta_region_7','fta_region_8','fta_region_9','fta_region_10']]
+	df = df.dropna()
+	df.columns = ['Vehicle Type','FTA Region 1','FTA Region 2','FTA Region 3','FTA Region 4','FTA Region 5','FTA Region 6','FTA Region 7','FTA Region 8','FTA Region 9','FTA Region 10']
+	return df
+
+def statPerformanceByRegion(dataframe):
+	df = dataframe[['performance_measures','fta_region_1','fta_region_2','fta_region_3','fta_region_4','fta_region_5','fta_region_6','fta_region_7','fta_region_8','fta_region_9','fta_region_10']]
+	df = df.dropna()
+	df.columns = ['Performance Measures','FTA Region 1','FTA Region 2','FTA Region 3','FTA Region 4','FTA Region 5','FTA Region 6','FTA Region 7','FTA Region 8','FTA Region 9','FTA Region 10']
+	return df
+
+def statTripsPerVRMByRegion(dataframe):
+	df = dataframe[['vehicle_mode','fta_region_1','fta_region_2','fta_region_3','fta_region_4','fta_region_5','fta_region_6','fta_region_7','fta_region_8','fta_region_9','fta_region_10']]
+	df = df.dropna()
+	df.columns = ['Vehicle Mode','FTA Region 1','FTA Region 2','FTA Region 3','FTA Region 4','FTA Region 5','FTA Region 6','FTA Region 7','FTA Region 8','FTA Region 9','FTA Region 10']
+	return df
+
+def statTripsPerVRHByRegion(dataframe):
+	df = dataframe[['vehicle_mode','fta_region_1','fta_region_2','fta_region_3','fta_region_4','fta_region_5','fta_region_6','fta_region_7','fta_region_8','fta_region_9','fta_region_10']]
+	df = df.dropna()
+	df.columns = ['Vehicle Mode','FTA Region 1','FTA Region 2','FTA Region 3','FTA Region 4','FTA Region 5','FTA Region 6','FTA Region 7','FTA Region 8','FTA Region 9','FTA Region 10']
+	return df
+
+def statOperatingPerTripByRegion(dataframe):
+	df = dataframe[['vehicle_mode','fta_region_1','fta_region_2','fta_region_3','fta_region_4','fta_region_5','fta_region_6','fta_region_7','fta_region_8','fta_region_9','fta_region_10']]
+	df = df.dropna()
+	df.columns = ['Vehicle Mode','FTA Region 1','FTA Region 2','FTA Region 3','FTA Region 4','FTA Region 5','FTA Region 6','FTA Region 7','FTA Region 8','FTA Region 9','FTA Region 10']
+	return df
+
+def statOperatingPerVRMByRegion(dataframe):
+	df = dataframe[['vehicle_mode','fta_region_1','fta_region_2','fta_region_3','fta_region_4','fta_region_5','fta_region_6','fta_region_7','fta_region_8','fta_region_9','fta_region_10']]
+	df = df.dropna()
+	df.columns = ['Vehicle Mode','FTA Region 1','FTA Region 2','FTA Region 3','FTA Region 4','FTA Region 5','FTA Region 6','FTA Region 7','FTA Region 8','FTA Region 9','FTA Region 10']
+	return df
+
+def statOperatingPerVRHByRegion(dataframe):
+	df = dataframe[['vehicle_mode','fta_region_1','fta_region_2','fta_region_3','fta_region_4','fta_region_5','fta_region_6','fta_region_7','fta_region_8','fta_region_9','fta_region_10']]
+	df = df.dropna()
+	df.columns = ['Vehicle Mode','FTA Region 1','FTA Region 2','FTA Region 3','FTA Region 4','FTA Region 5','FTA Region 6','FTA Region 7','FTA Region 8','FTA Region 9','FTA Region 10']
+	return df
+
 def statisticsForAgenciesRankedByVRM(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()

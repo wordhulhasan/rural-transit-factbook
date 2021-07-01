@@ -614,6 +614,16 @@ def init_dashboard(server):
                                                 ]
                                             ),
                                             dcc.Tab(
+                                                label='Fleet Statistics by Region',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='vehiclesByRegion-table'),
+                                                ]
+                                            ),
+                                            dcc.Tab(
                                                 label='Operating Statistics by Region',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
@@ -635,12 +645,47 @@ def init_dashboard(server):
                                                     html.Br(),
                                                 ]
                                             ),
+                                            dcc.Tab(
+                                                label='Performance Measures by Region',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.P('Key Performance Measures', style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='performanceByRegion-table'),
+                                                    html.Br(),
+                                                    html.P('Trips per Vehicle Revenue Miles',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='tripsPerVRMByRegion-table'),
+                                                    html.Br(),
+                                                    html.P('Trips per Vehicle Revenue Hours',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='tripsPerVRHByRegion-table'),
+                                                    html.Br(),
+                                                    html.P('Operating Expense per Trip',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='operatingPerTripByRegion-table'),
+                                                    html.Br(),
+                                                    html.P('Operating Expense per Vehicle Revenue Miles',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='operatingPerVRMByRegion-table'),
+                                                    html.Br(),
+                                                    html.P('Operating Expense per Vehicle Revenue Hours',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='operatingPerVRHByRegion-table'),
+                                                ]
+                                            ),
                                         ], style=tabs_styles),
 
                                     ]
                                 ),
-                            ],
-                                style=tabs_styles)
+                            ], style=tabs_styles),
                         ],
                     )
                 ]
