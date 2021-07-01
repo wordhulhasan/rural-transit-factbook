@@ -28,7 +28,7 @@ def init_dashboard(server):
     tabs_styles_main = {
         'height': '44px',
         'borderBottom': '50px',
-        'padding-top': '100px',
+        'padding-top': '40px',
         'padding-left': '50px',
         'padding-right': '50px',
         'fontWeight': 'bold',
@@ -69,9 +69,10 @@ def init_dashboard(server):
                                          html.A('Home',
                                                 className="w3-button w3-grey w3-round-xlarge w3-center",
                                                 id='submit-val',
+                                                style={'padding': '8px 65px'},
                                                 href='/')
                                      ],
-                                     style={'padding-left': '105px'}
+                                     style={'padding-left': '47px'}
                                      ),
                             dcc.Tabs([
                                 dcc.Tab(
