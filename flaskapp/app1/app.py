@@ -90,7 +90,6 @@ def init_dashboard(server):
                                             style=paragraph_styles),
                                         html.Br(),
 
-                                        html.Hr(),
                                         html.H3('State'),
                                         dcc.Dropdown(
                                             id='state-selector',
@@ -99,7 +98,6 @@ def init_dashboard(server):
                                             placeholder='Select a state...',
                                             style = {'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
                                         ),
-                                        html.Hr(),
                                         html.H3('Transit Agency'),
                                         dcc.Dropdown(
                                             id='agency-dropdown',
@@ -135,7 +133,6 @@ def init_dashboard(server):
                                                         'Source: National Transit Database, 2019',
                                                         style=paragraph_styles),
                                                     html.Br(),
-                                                    html.Hr(),
                                                     html.H3('State'),
                                                     dcc.Dropdown(
                                                         id='state-selector-2',
@@ -146,7 +143,6 @@ def init_dashboard(server):
                                                         style={'width': '60%', 'margin': '0 0 0',
                                                                'padding-left': '100px'}
                                                     ),
-                                                    html.Hr(),
                                                     html.H3('Transit Agency'),
                                                     dcc.Dropdown(
                                                         id='agency-dropdown-2',
@@ -173,7 +169,6 @@ def init_dashboard(server):
                                                         'Source: National Transit Database, 2019',
                                                         style=paragraph_styles),
                                                     html.Br(),
-                                                    html.Hr(),
                                                     html.H3('State'),
                                                     dcc.Dropdown(
                                                         id='state-selector-3',
@@ -184,7 +179,6 @@ def init_dashboard(server):
                                                         style={'width': '60%', 'margin': '0 0 0',
                                                                'padding-left': '100px'}
                                                     ),
-                                                    html.Hr(),
                                                     html.H3('Transit Agency'),
                                                     dcc.Dropdown(
                                                         id='agency-dropdown-3',
