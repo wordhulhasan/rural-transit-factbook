@@ -31,6 +31,14 @@ def init_data():
     dataOperatingExpensePerVehicleMile = preprocess('data/Table 32B.csv')
     dataOperatingExpensePerVehicleHour = preprocess('data/Table 32C.csv')
     dataFareboxRecoveryRatio = preprocess('data/Table 32D.csv')
+    dataPercentileTotal = preprocess('data/Table 33A.csv')
+    dataPercentileFixedRoute = preprocess('data/Table 33B.csv')
+    dataPercentileDemandResponse = preprocess('data/Table 33C.csv')
+
+    dataAgenciesByRegion = preprocess('data/Table 43.csv')
+    dataRidershipByRegion = preprocess('data/Table 44A.csv')
+    dataVrmByRegion = preprocess('data/Table 44B.csv')
+    dataVrhByRegion = preprocess('data/Table 44C.csv')
 
     dataStatforAgenciesRankedByVRM = preprocess('data/Table 34.csv')
     datastatForDemandResponseRankedByVRM = preprocess('data/Table 40.csv')
@@ -48,7 +56,9 @@ def init_data():
 		   dataRidershipByRank, dataVrmByRank,dataVrhByRank,\
            dataVehiclesByMode, dataFleetByMode, dataAdaAccessible, dataVehicleAge, dataVehicleLength, dataSeatingCapacity, \
 		   dataVehicleOwnerShip, dataFundingSource, dataTripsPerMile, dataTripsPerHour, dataTripsMilesHoursPerVehicle, \
-           dataOperatingExpensePerTrip, dataOperatingExpensePerVehicleMile, dataOperatingExpensePerVehicleHour, dataFareboxRecoveryRatio,\
+           dataOperatingExpensePerTrip, dataOperatingExpensePerVehicleMile, dataOperatingExpensePerVehicleHour, dataFareboxRecoveryRatio, \
+           dataPercentileTotal, dataPercentileFixedRoute, dataPercentileDemandResponse, \
+           dataAgenciesByRegion, dataRidershipByRegion, dataVrmByRegion, dataVrhByRegion,\
            dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM,\
            dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH,\
            dataStatforAgenciesRankedByRidership, datastatForDemandResponseRankedByRidership, datastatForFixedRouteRankedByRidership

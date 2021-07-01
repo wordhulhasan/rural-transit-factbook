@@ -440,6 +440,33 @@ def init_dashboard(server):
                                                         id='fareboxRecoveryRatio-table'),
                                                 ]
                                             ),
+                                            dcc.Tab(
+                                                label='Performance Measures Percentiles',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.P('Total', style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='percentileTotal-table'),
+                                                    html.Br(),
+                                                    html.P('Fixed-route',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='percentileFixedRoute-table'),
+                                                    html.Br(),
+                                                    html.P('Demand-response',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='percentileDemandResponse-table'),
+                                                    html.Br(),
+                                                    html.P('Note:',
+                                                           style=paragraph_styles),
+                                                    html.P('OE - Operating Expense, VRM - Vehicle Revenue Mile, VRH - Vehicle Revenue Hour, UPT - Unlinked Passenger Trips',
+                                                           style=paragraph_styles),
+
+                                                ]
+                                            ),
                                         ], style=tabs_styles),
 
                                     ]
@@ -450,14 +477,8 @@ def init_dashboard(server):
                                     selected_style=tab_selected_style,
                                     children=[
                                         html.H3(
-                                            'Transit agencies are categorized into ten groups based on percentiles for vehicle revenue miles, vehicle revenue hours, or ridership. The first group is the smallest 10% of agencies, the second group the next smallest 10%, etc.'),
+                                            ''),
                                         html.Br(),
-                                        html.P(
-                                            'Note: VRH - Vehicle Revenue Hours, VRM - Vehicle Revenue Miles, UPT - Unlinked Passenger Trips, OE - Operating Expenses',
-                                            style=paragraph_styles),
-                                        html.P(
-                                            'Source: National Transit Database, 2019',
-                                            style=paragraph_styles),
                                         html.Br(),
 
                                         dcc.Tabs([
@@ -487,7 +508,13 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     dcc.Graph(
                                                         id='statisticsRankedByAgencies-table'),
-
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2019',
+                                                        style=paragraph_styles),
+                                                    html.P(
+                                                        'Note: VRH - Vehicle Revenue Hours, VRM - Vehicle Revenue Miles, UPT - Unlinked Passenger Trips, OE - Operating Expenses',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -516,7 +543,13 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     dcc.Graph(
                                                         id='statisticsRankedByMB-table'),
-
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2019',
+                                                        style=paragraph_styles),
+                                                    html.P(
+                                                        'Note: VRH - Vehicle Revenue Hours, VRM - Vehicle Revenue Miles, UPT - Unlinked Passenger Trips, OE - Operating Expenses',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -546,9 +579,64 @@ def init_dashboard(server):
 
                                                     dcc.Graph(
                                                         id='statisticsRankedByDemandResponse-table'),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2019',
+                                                        style=paragraph_styles),
+                                                    html.P(
+                                                        'Note: VRH - Vehicle Revenue Hours, VRM - Vehicle Revenue Miles, UPT - Unlinked Passenger Trips, OE - Operating Expenses',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                         ], style=tabs_styles),
+                                    ]
+                                ),
+                                dcc.Tab(
+                                    label=' Regional Statistics ',
+                                    style=tab_style,
+                                    selected_style=tab_selected_style,
+                                    children=[
+                                        html.H2(
+                                            ''),
+                                        html.P(
+                                            '',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        dcc.Tabs([
+                                            dcc.Tab(
+                                                label='Transit Agencies by Region',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='agenciesByRegion-table'),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='Operating Statistics by Region',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.P('Ridership', style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='ridershipByRegion-table'),
+                                                    html.Br(),
+                                                    html.P('Vehicle Revenue Miles',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                       id='vrmByRegion-table'),
+                                                    html.Br(),
+                                                    html.P('Vehicle Revenue Hours',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vrhByRegion-table'),
+                                                    html.Br(),
+                                                ]
+                                            ),
+                                        ], style=tabs_styles),
+
                                     ]
                                 ),
                             ],

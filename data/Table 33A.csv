@@ -1,0 +1,6 @@
+Percentile,OE Per Trip,OE Per VRM,OE Per VRH,UPT Per VRM,UPT Per VRH,Farebox Recovery Ratio
+10th,7.41,1.67,28.19,0.06,1.2,0.00
+25th,11.47,2.2,35.82,0.1,1.76,0.03
+50th,17.4,3.1,49.88,0.17,2.76,0.05
+75th,26.43,4.33,69.49,0.33,4.58,0.10
+90th,39.96,6.06,97.26,0.61,8.09,0.18

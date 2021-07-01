@@ -222,6 +222,48 @@ def statFareboxRecoveryRatio(dataframe):
 	df.columns = ['Mode','2016','2017','2018','2019','% Change 2018-2019']
 	return df
 
+def statPercentileTotal(dataframe):
+	df = dataframe[['percentile','oe_per_trip','oe_per_vrm','oe_per_vrh','upt_per_vrm','upt_per_vrh','farebox_recovery_ratio']]
+	df = df.dropna()
+	df.columns = ['Percentile','OE Per Trip','OE Per VRM','OE Per VRH','UPT Per VRM','UPT Per VRH','Farebox Recovery Ratio']
+	return df
+
+def statPercentileFixedRoute(dataframe):
+	df = dataframe[['percentile','oe_per_trip','oe_per_vrm','oe_per_vrh','upt_per_vrm','upt_per_vrh','farebox_recovery_ratio']]
+	df = df.dropna()
+	df.columns = ['Percentile','OE Per Trip','OE Per VRM','OE Per VRH','UPT Per VRM','UPT Per VRH','Farebox Recovery Ratio']
+	return df
+
+def statPercentileDemandResponse(dataframe):
+	df = dataframe[['percentile','oe_per_trip','oe_per_vrm','oe_per_vrh','upt_per_vrm','upt_per_vrh','farebox_recovery_ratio']]
+	df = df.dropna()
+	df.columns = ['Percentile','OE Per Trip','OE Per VRM','OE Per VRH','UPT Per VRM','UPT Per VRH','Farebox Recovery Ratio']
+	return df
+
+def statAgenciesByRegion(dataframe):
+	df = dataframe[['vehicle_mode','fta_region_1','fta_region_2','fta_region_3','fta_region_4','fta_region_5','fta_region_6','fta_region_7','fta_region_8','fta_region_9','fta_region_10']]
+	df = df.dropna()
+	df.columns = ['Vehicle Mode','FTA Region 1','FTA Region 2','FTA Region 3','FTA Region 4','FTA Region 5','FTA Region 6','FTA Region 7','FTA Region 8','FTA Region 9','FTA Region 10']
+	return df
+
+def statRidershipByRegion(dataframe):
+	df = dataframe[['vehicle_mode','fta_region_1','fta_region_2','fta_region_3','fta_region_4','fta_region_5','fta_region_6','fta_region_7','fta_region_8','fta_region_9','fta_region_10']]
+	df = df.dropna()
+	df.columns = ['Vehicle Mode','FTA Region 1','FTA Region 2','FTA Region 3','FTA Region 4','FTA Region 5','FTA Region 6','FTA Region 7','FTA Region 8','FTA Region 9','FTA Region 10']
+	return df
+
+def statVrmByRegion(dataframe):
+	df = dataframe[['vehicle_mode','fta_region_1','fta_region_2','fta_region_3','fta_region_4','fta_region_5','fta_region_6','fta_region_7','fta_region_8','fta_region_9','fta_region_10']]
+	df = df.dropna()
+	df.columns = ['Vehicle Mode','FTA Region 1','FTA Region 2','FTA Region 3','FTA Region 4','FTA Region 5','FTA Region 6','FTA Region 7','FTA Region 8','FTA Region 9','FTA Region 10']
+	return df
+
+def statVrhByRegion(dataframe):
+	df = dataframe[['vehicle_mode','fta_region_1','fta_region_2','fta_region_3','fta_region_4','fta_region_5','fta_region_6','fta_region_7','fta_region_8','fta_region_9','fta_region_10']]
+	df = df.dropna()
+	df.columns = ['Vehicle Mode','FTA Region 1','FTA Region 2','FTA Region 3','FTA Region 4','FTA Region 5','FTA Region 6','FTA Region 7','FTA Region 8','FTA Region 9','FTA Region 10']
+	return df
+
 def statisticsForAgenciesRankedByVRM(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()
