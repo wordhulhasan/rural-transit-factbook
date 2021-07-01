@@ -28,10 +28,12 @@ def init_dashboard(server):
     tabs_styles_main = {
         'height': '44px',
         'borderBottom': '50px',
-        'padding-top': '56px',
+        'padding-top': '100px',
         'padding-left': '50px',
         'padding-right': '50px',
-        'fontWeight': 'bold'
+        'fontWeight': 'bold',
+        'backgroundColor': '#FFFFFF',
+        "margin-bottom": "20px"
     }
 
     tab_style = {
@@ -61,6 +63,16 @@ def init_dashboard(server):
                     html.Div(
                         className='nine columns div-for-charts bg-grey',
                         children=[
+                            html.Br(),
+                            html.Div(className='w3-xlarge w3-left',
+                                     children=[
+                                         html.A('Home',
+                                                className="w3-button w3-grey w3-round-xlarge w3-center",
+                                                id='submit-val',
+                                                href='/')
+                                     ],
+                                     style={'padding-left': '105px'}
+                                     ),
                             dcc.Tabs([
                                 dcc.Tab(
                                     label='Revenue Vehicles Statistics',
