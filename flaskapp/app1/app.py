@@ -74,6 +74,7 @@ def init_dashboard(server):
                                      ],
                                      style={'padding-left': '47px',
                                             'padding-top': '30px'}
+                                     #for no reason
                                      ),
                             dcc.Tabs([
                                 dcc.Tab(
