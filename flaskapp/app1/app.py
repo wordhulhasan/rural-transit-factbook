@@ -681,6 +681,19 @@ def init_dashboard(server):
                                                         id='operatingPerVRHByRegion-table'),
                                                 ]
                                             ),
+                                            dcc.Tab(
+                                                label='Median Agency Performance Measures',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='agencyPerformanceByRegion-table'),
+                                                    html.Br(),
+                                                    html.P('Note: VRM = Vehicle Revenue Miles, VRH = Vehicle Revenue Hours',
+                                                           style=paragraph_styles),
+                                                ]
+                                            ),
                                         ], style=tabs_styles),
 
                                     ]

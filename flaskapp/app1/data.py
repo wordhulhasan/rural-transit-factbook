@@ -47,6 +47,7 @@ def init_data():
     dataOperatingPerTripByRegion = preprocess('data/Table 46OEPerTrip.csv')
     dataOperatingPerVRMByRegion = preprocess('data/Table 46OEPerVRM.csv')
     dataOperatingPerVRHByRegion = preprocess('data/Table 46OEPerVRH.csv')
+    dataAgencyPerformanceByRegion = preprocess('data/Table 47.csv')
 
     dataStatforAgenciesRankedByVRM = preprocess('data/Table 34.csv')
     datastatForDemandResponseRankedByVRM = preprocess('data/Table 40.csv')
@@ -67,7 +68,8 @@ def init_data():
            dataOperatingExpensePerTrip, dataOperatingExpensePerVehicleMile, dataOperatingExpensePerVehicleHour, dataFareboxRecoveryRatio, \
            dataPercentileTotal, dataPercentileFixedRoute, dataPercentileDemandResponse, \
            dataAgenciesByRegion, dataRidershipByRegion, dataVrmByRegion, dataVrhByRegion, dataVehiclesByRegion, \
-           dataPerformanceByRegion, dataTripsPerVRMByRegion,  dataTripsPerVRHByRegion, dataOperatingPerTripByRegion, dataOperatingPerVRMByRegion, dataOperatingPerVRHByRegion, \
+           dataPerformanceByRegion, dataTripsPerVRMByRegion,  dataTripsPerVRHByRegion, dataOperatingPerTripByRegion, dataOperatingPerVRMByRegion, \
+           dataOperatingPerVRHByRegion, dataAgencyPerformanceByRegion,\
            dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM,\
            dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH,\
            dataStatforAgenciesRankedByRidership, datastatForDemandResponseRankedByRidership, datastatForFixedRouteRankedByRidership
