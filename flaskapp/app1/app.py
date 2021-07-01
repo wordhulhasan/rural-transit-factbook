@@ -72,7 +72,8 @@ def init_dashboard(server):
                                                 style={'padding': '8px 65px'},
                                                 href='/')
                                      ],
-                                     style={'padding-left': '47px'}
+                                     style={'padding-left': '47px',
+                                            'padding-top': '30px'}
                                      ),
                             dcc.Tabs([
                                 dcc.Tab(
