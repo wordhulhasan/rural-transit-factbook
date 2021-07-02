@@ -151,7 +151,7 @@ def init_dashboard(server):
                                                         style={'width': '60%', 'margin': '0 0 0',
                                                                'padding-left': '100px'}
                                                     ),
-                                                    html.H3('Operating Statistics Type'),
+                                                    html.H3('Performance Measure'),
                                                     dcc.Dropdown(
                                                         id='op-stat-dropdown',
                                                         options=[
