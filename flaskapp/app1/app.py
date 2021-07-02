@@ -83,8 +83,8 @@ def init_dashboard(server):
                                     selected_style=tab_selected_style,
 
                                     children=[
-#                                        html.H2(
-#                                            'Small Urban & Rural Transit Systems Revenue Vehicles Fleet Information Reports'),
+                                        html.H2(
+                                            'Small Urban & Rural Transit Systems Revenue Vehicles Fleet Information Reports'),
 #                                        html.P(
 #                                            'Reports are generated from National Transit Database (NTD) data based on 2019 reporting year, the most current data.',
 #                                            style=paragraph_styles),
