@@ -129,28 +129,68 @@ def init_callbacks(dash_app):
         )
         return fig
 
-    @dash_app.callback(Output('vehicle-revenue-miles', 'figure'),
+    @dash_app.callback(Output('op-stat', 'figure'),
                        [Input('state-selector-2', 'value'),
-                        Input('agency-dropdown-2', 'value')])
-    def vrm(state, agency):
-        df = vehicle_revenue_miles(data3, state, agency)
-        fig = px.bar(df, x='mode', y='vehicle_revenue_miles', text='vehicle_revenue_miles',
-                     color='mode',
-                     color_discrete_map=mode_colors, title='Vehicle Revenue Miles',
-                     labels={"mode": "mode", "vehicle_revenue_miles": "Vehicle Revenue Miles"},
-                     template='simple_white',
-                     )
+                        Input('agency-dropdown-2', 'value'),
+                        Input('op-stat-dropdown','value')])
+    def vrm(state, agency, opStat):
+        if opStat == "vrm":
+            df = vehicle_revenue_miles(data3, state, agency)
+            fig = px.bar(df, x='mode', y='vehicle_revenue_miles', text='vehicle_revenue_miles',
+                         color='mode',
+                         color_discrete_map=mode_colors, title='Vehicle Revenue Miles',
+                         labels={"mode": "mode", "vehicle_revenue_miles": "Vehicle Revenue Miles"},
+                         template='simple_white',
+                         )
 
-        fig.update_traces(textposition='outside')
-        fig.update_layout(
-            font_color="black",
-            title_font_color="black",
-            legend_title_font_color="black",
-            margin=dict(l=100, r=50, t=150, b=50),
-            height=600,
-            hovermode='x',
-            autosize=True
-        )
+            fig.update_traces(textposition='outside')
+            fig.update_layout(
+                font_color="black",
+                title_font_color="black",
+                legend_title_font_color="black",
+                margin=dict(l=100, r=50, t=150, b=50),
+                height=600,
+                hovermode='x',
+                autosize=True
+            )
+        elif opStat == "vrh":
+            df = vehicle_revenue_hours(data3, state, agency)
+            fig = px.bar(df, x='mode', y='vehicle_revenue_hours', text='vehicle_revenue_hours',
+                         color='mode',
+                         color_discrete_map=mode_colors, title='Vehicle Revenue Hours',
+                         labels={"mode": "mode", "vehicle_revenue_hours": "Vehicle Revenue Hours"},
+                         template='simple_white',
+                         )
+
+            fig.update_traces(textposition='outside')
+            fig.update_layout(
+                font_color="black",
+                title_font_color="black",
+                legend_title_font_color="black",
+                margin=dict(l=100, r=50, t=150, b=50),
+                height=600,
+                hovermode='x',
+                autosize=True
+            )
+        else:
+            df = unlinked_passenger_trips(data3, state, agency)
+            fig = px.bar(df, x='mode', y='unlinked_passenger_trips', text='unlinked_passenger_trips',
+                         color='mode',
+                         color_discrete_map=mode_colors, title='Unlinked Passenger Trips',
+                         labels={"mode": "mode", "unlinked_passenger_trips": "unlinked_passenger_trips"},
+                         template='simple_white',
+                         )
+
+            fig.update_traces(textposition='outside')
+            fig.update_layout(
+                font_color="black",
+                title_font_color="black",
+                legend_title_font_color="black",
+                margin=dict(l=100, r=50, t=150, b=50),
+                height=600,
+                hovermode='x',
+                autosize=True
+            )
         return fig
 
     @dash_app.callback(Output('ridership_by_year-table', 'figure'),
@@ -507,30 +547,6 @@ def init_callbacks(dash_app):
         fig = ff.create_table(df_sample)
         return fig
 
-    @dash_app.callback(Output('vehicle-revenue-hours', 'figure'),
-                       [Input('state-selector-2', 'value'),
-                        Input('agency-dropdown-2', 'value')])
-    def vrh(state, agency):
-        df = vehicle_revenue_hours(data3, state, agency)
-        fig = px.bar(df, x='mode', y='vehicle_revenue_hours', text='vehicle_revenue_hours',
-                     color='mode',
-                     color_discrete_map=mode_colors, title='Vehicle Revenue Hours',
-                     labels={"mode": "mode", "vehicle_revenue_hours": "Vehicle Revenue Hours"},
-                     template='simple_white',
-                     )
-
-        fig.update_traces(textposition='outside')
-        fig.update_layout(
-            font_color="black",
-            title_font_color="black",
-            legend_title_font_color="black",
-            margin=dict(l=100, r=50, t=150, b=50),
-            height=600,
-            hovermode='x',
-            autosize=True
-        )
-        return fig
-
     @dash_app.callback(Output('vehicle-revenue-hours-table', 'figure'),
                        [Input('state-selector-3', 'value'),
                         Input('agency-dropdown-3', 'value')])
@@ -538,30 +554,6 @@ def init_callbacks(dash_app):
         df = vehicle_revenue_hours(data3, state, agency)
         df_sample = df[['mode', 'vehicle_revenue_hours']]
         fig = ff.create_table(df_sample)
-        return fig
-
-    @dash_app.callback(Output('unlinked_passenger_trips', 'figure'),
-                       [Input('state-selector-2', 'value'),
-                        Input('agency-dropdown-2', 'value')])
-    def vrh(state, agency):
-        df = unlinked_passenger_trips(data3, state, agency)
-        fig = px.bar(df, x='mode', y='unlinked_passenger_trips', text='unlinked_passenger_trips',
-                     color='mode',
-                     color_discrete_map=mode_colors, title='Vehicle Revenue Hours',
-                     labels={"mode": "mode", "unlinked_passenger_trips": "unlinked_passenger_trips"},
-                     template='simple_white',
-                     )
-
-        fig.update_traces(textposition='outside')
-        fig.update_layout(
-            font_color="black",
-            title_font_color="black",
-            legend_title_font_color="black",
-            margin=dict(l=100, r=50, t=150, b=50),
-            height=600,
-            hovermode='x',
-            autosize=True
-        )
         return fig
 
     @dash_app.callback(Output('unlinked_passenger_trips-table', 'figure'),

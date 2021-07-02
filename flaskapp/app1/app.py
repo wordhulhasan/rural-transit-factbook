@@ -151,12 +151,32 @@ def init_dashboard(server):
                                                         style={'width': '60%', 'margin': '0 0 0',
                                                                'padding-left': '100px'}
                                                     ),
+                                                    html.H3('Operating Statistics Type'),
+                                                    dcc.Dropdown(
+                                                        id='op-stat-dropdown',
+                                                        options=[
+                                                            {
+                                                                'label': 'Vehicle Revenue Miles',
+                                                                'value': 'vrm'},
+                                                            {
+                                                                'label': 'Vehicle Revenue Hours',
+                                                                'value': 'vrh'},
+                                                            {
+                                                                'label': 'Unlinked Passenger Trips',
+                                                                'value': 'utp'}
+                                                        ],
+                                                        value='ridership',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
+                                                    html.Br(),
+
                                                     dcc.Graph(
-                                                        id='vehicle-revenue-miles'),
-                                                    dcc.Graph(
-                                                        id='vehicle-revenue-hours'),
-                                                    dcc.Graph(
-                                                        id='unlinked_passenger_trips'),
+                                                        id='op-stat'),
+                                                    # dcc.Graph(
+                                                    #     id='vehicle-revenue-hours'),
+                                                    # dcc.Graph(
+                                                    #     id='unlinked_passenger_trips'),
                                                 ]
                                             ),
                                             dcc.Tab(
