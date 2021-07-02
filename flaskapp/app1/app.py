@@ -83,6 +83,7 @@ def init_dashboard(server):
                                     selected_style=tab_selected_style,
 
                                     children=[
+                                        html.Br(),
                                         html.H2(
                                             'Small Urban & Rural Transit Systems Revenue Vehicles Fleet Information Reports'),
                                         html.P(
@@ -501,7 +502,9 @@ def init_dashboard(server):
                                     children=[
                                         html.H3(
                                             ''),
-                                        html.Br(),
+                                        html.P(
+                                            '',
+                                            style=paragraph_styles),
                                         html.Br(),
 
                                         dcc.Tabs([
