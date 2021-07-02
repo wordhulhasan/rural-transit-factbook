@@ -778,6 +778,33 @@ def init_dashboard(server):
                                                     html.Br(),
                                                 ]
                                             ),
+                                            dcc.Tab(
+                                                label='Rural Transit Ridership by State',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.P('Total (million trips)', style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='ridershipTotalYearlyByState-table'),
+                                                    html.Br(),
+                                                    html.P('Fixed-Route Service (million trips)',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='ridershipFRYearlyByState-table'),
+                                                    html.Br(),
+                                                    html.P('Demand-Response Service (million trips)',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='ridershipDRYearlyByState-table'),
+                                                    html.Br(),
+                                                    html.P('Other Service (million trips)',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='ridershipOtherYearlyByState-table'),
+                                                    html.Br(),
+                                                ]
+                                            ),
                                         ], style=tabs_styles),
 
                                     ]

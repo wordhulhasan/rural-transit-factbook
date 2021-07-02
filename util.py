@@ -330,6 +330,30 @@ def statVrhByState(dataframe):
 	df.columns = ['State','Total','Fixed-Route','Demand-Response','Other']
 	return df
 
+def statRidershipTotalYearlyByState(dataframe):
+	df = dataframe[['state','2016','2017','2018','2019']]
+	df = df.dropna()
+	df.columns = ['State','2016','2017','2018','2019']
+	return df
+
+def statRidershipFRYearlyByState(dataframe):
+	df = dataframe[['state','2016','2017','2018','2019']]
+	df = df.dropna()
+	df.columns = ['State','2016','2017','2018','2019']
+	return df
+
+def statRidershipDRYearlyByState(dataframe):
+	df = dataframe[['state','2016','2017','2018','2019']]
+	df = df.dropna()
+	df.columns = ['State','2016','2017','2018','2019']
+	return df
+
+def statRidershipOtherYearlyByState(dataframe):
+	df = dataframe[['state','2016','2017','2018','2019']]
+	df = df.dropna()
+	df.columns = ['State','2016','2017','2018','2019']
+	return df
+
 def statisticsForAgenciesRankedByVRM(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()
