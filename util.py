@@ -312,13 +312,31 @@ def statAgencyPerformanceByRegion(dataframe):
 	df.columns = ['Performance Measures','FTA Region 1','FTA Region 2','FTA Region 3','FTA Region 4','FTA Region 5','FTA Region 6','FTA Region 7','FTA Region 8','FTA Region 9','FTA Region 10']
 	return df
 
+def statRidershipByState(dataframe):
+	df = dataframe[['state','total','fixed_route','demand_response','other']]
+	df = df.dropna()
+	df.columns = ['State','Total','Fixed-Route','Demand-Response','Other']
+	return df
+
+def statVrmByState(dataframe):
+	df = dataframe[['state','total','fixed_route','demand_response','other']]
+	df = df.dropna()
+	df.columns = ['State','Total','Fixed-Route','Demand-Response','Other']
+	return df
+
+def statVrhByState(dataframe):
+	df = dataframe[['state','total','fixed_route','demand_response','other']]
+	df = df.dropna()
+	df.columns = ['State','Total','Fixed-Route','Demand-Response','Other']
+	return df
+
 def statisticsForAgenciesRankedByVRM(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()
     df.columns = ['Percentile Rank', 'Minimum UPT', 'Maximum UPT', 'Avg UPT', 'Avg VRM', 'Avg VRH', 'Avg Trips Per VRM', 'Avg Trips Per VRH', 'Avg OE Per Trip', 'Avg OE Per VRM', 'Avg OE Per VRH']
     return df
 
-def statisticsForDemandResponseRankedByVRM(dataframe):
+def statisticsForDemandResponseRankedByVRM(dataframe):'
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()
     df.columns = ['Percentile Rank', 'Minimum UPT', 'Maximum UPT', 'Avg UPT', 'Avg VRM', 'Avg VRH', 'Avg Trips Per VRM', 'Avg Trips Per VRH', 'Avg OE Per Trip', 'Avg OE Per VRM', 'Avg OE Per VRH']
