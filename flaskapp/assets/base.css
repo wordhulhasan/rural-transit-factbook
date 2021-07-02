@@ -25,6 +25,15 @@ Taken from https://codepen.io/chriddyp/pen/bWLwgP.css
     padding: 0 20px;
     box-sizing: border-box;
   }
+
+.tab-content{
+    width: 95%;
+    margin-right: 20px;
+}
+
+.jsx-2309230230{
+    width: 30%;
+}
   .column, .columns {
     width: 100%;
     float: left;
