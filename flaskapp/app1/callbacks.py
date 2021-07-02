@@ -22,7 +22,7 @@ from util import vehicle_colors, revenue_vehicles, fleet_composition, \
     statPerformanceByRegion, statTripsPerVRMByRegion,  statTripsPerVRHByRegion, statOperatingPerTripByRegion, \
     statOperatingPerVRMByRegion, statOperatingPerVRHByRegion, statAgencyPerformanceByRegion, \
     statRidershipByState, statVrmByState, statVrhByState, statRidershipTotalYearlyByState, \
-    dataRidershipFRYearlyByState, statRidershipDRYearlyByState, statRidershipOtherYearlyByState
+    statRidershipFRYearlyByState, statRidershipDRYearlyByState, statRidershipOtherYearlyByState
 
 from .data import init_data
 
