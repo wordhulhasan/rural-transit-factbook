@@ -97,28 +97,28 @@ def unlinked_passenger_trips(dataframe, state='All', agency=None):
     return df
 
 def statRidershipByYear(dataframe):
-	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019','change_2018_2019']]
-	df = df.dropna()
-	df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019','% Change 2018-2019']
-	return df
+    df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019','change_2018_2019']]
+    df = df.dropna()
+    df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019','% Change 2018-2019']
+    return df
 	
 def statVrmByYear(dataframe):
-	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019','change_2018_2019']]
-	df = df.dropna()
-	df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019','% Change 2018-2019']
-	return df
+    df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019','change_2018_2019']]
+    df = df.dropna()
+    df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019','% Change 2018-2019']
+    return df
 	
 def statVrhByYear(dataframe):
-	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019','change_2018_2019']]
-	df = df.dropna()
-	df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019','% Change 2018-2019']
-	return df
+    df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019','change_2018_2019']]
+    df = df.dropna()
+    df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019','% Change 2018-2019']
+    return df
 
 def statRidershipByRank(dataframe):
-	df = dataframe[['percentile','fixed_route','demand_response','total']]
-	df = df.dropna()
-	df.columns = ['Percentile','Fixed-Route','Demand-response','Total']
-	return df
+    df = dataframe[['percentile','fixed_route','demand_response','total']]
+    df = df.dropna()
+    df.columns = ['Percentile','Fixed-Route','Demand-response','Total']
+    return df
 
 def statVrmByRank(dataframe):
 	df = dataframe[['percentile','fixed_route','demand_response','total']]
@@ -336,7 +336,7 @@ def statisticsForAgenciesRankedByVRM(dataframe):
     df.columns = ['Percentile Rank', 'Minimum UPT', 'Maximum UPT', 'Avg UPT', 'Avg VRM', 'Avg VRH', 'Avg Trips Per VRM', 'Avg Trips Per VRH', 'Avg OE Per Trip', 'Avg OE Per VRM', 'Avg OE Per VRH']
     return df
 
-def statisticsForDemandResponseRankedByVRM(dataframe):'
+def statisticsForDemandResponseRankedByVRM(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()
     df.columns = ['Percentile Rank', 'Minimum UPT', 'Maximum UPT', 'Avg UPT', 'Avg VRM', 'Avg VRH', 'Avg Trips Per VRM', 'Avg Trips Per VRH', 'Avg OE Per Trip', 'Avg OE Per VRM', 'Avg OE Per VRH']
