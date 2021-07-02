@@ -21,7 +21,8 @@ from util import vehicle_colors, revenue_vehicles, fleet_composition, \
     statAgenciesByRegion, statRidershipByRegion, statVrmByRegion, statVrhByRegion, statVehiclesByRegion, \
     statPerformanceByRegion, statTripsPerVRMByRegion,  statTripsPerVRHByRegion, statOperatingPerTripByRegion, \
     statOperatingPerVRMByRegion, statOperatingPerVRHByRegion, statAgencyPerformanceByRegion, \
-    statRidershipByState, statVrmByState, statVrhByState
+    statRidershipByState, statVrmByState, statVrhByState, statRidershipTotalYearlyByState, \
+    dataRidershipFRYearlyByState, statRidershipDRYearlyByState, statRidershipOtherYearlyByState
 
 from .data import init_data
 
@@ -36,7 +37,8 @@ def init_callbacks(dash_app):
     dataAgenciesByRegion, dataRidershipByRegion, dataVrmByRegion, dataVrhByRegion, dataVehiclesByRegion, \
     dataPerformanceByRegion, dataTripsPerVRMByRegion, dataTripsPerVRHByRegion, dataOperatingPerTripByRegion, \
     dataOperatingPerVRMByRegion, dataOperatingPerVRHByRegion, dataAgencyPerformanceByRegion, \
-    dataRidershipByState, dataVrmByState, dataVrhByState,\
+    dataRidershipByState, dataVrmByState, dataVrhByState, \
+    dataRidershipTotalYearlyByState, dataRidershipFRYearlyByState, dataRidershipDRYearlyByState, dataRidershipOtherYearlyByState,\
     dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM, \
     dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH, \
     dataStatforAgenciesRankedByRidership, datastatForDemandResponseRankedByRidership, datastatForFixedRouteRankedByRidership \
@@ -461,6 +463,38 @@ def init_callbacks(dash_app):
                         Input('agency-dropdown', 'value')])
     def rbvrh(state, agency):
         df = statVrhByState(dataVrhByState)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('ridershipTotalYearlyByState-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def rtybs(state, agency):
+        df = statRidershipTotalYearlyByState(dataRidershipTotalYearlyByState)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('ridershipFRYearlyByState-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def rfrybs(state, agency):
+        df = statRidershipFRYearlyByState(dataRidershipFRYearlyByState)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('ridershipDRYearlyByState-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def rdrybs(state, agency):
+        df = statRidershipDRYearlyByState(dataRidershipDRYearlyByState)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('ridershipOtherYearlyByState-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def rorybs(state, agency):
+        df = statRidershipOtherYearlyByState(dataRidershipOtherYearlyByState)
         fig = ff.create_table(df)
         return fig
 
