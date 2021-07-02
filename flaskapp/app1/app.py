@@ -78,16 +78,16 @@ def init_dashboard(server):
                                      ),
                             dcc.Tabs([
                                 dcc.Tab(
-                                    label='Revenue Vehicles Statistics',
+                                    label='Rural Fleet Information',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
 
                                     children=[
-                                        html.H2(
-                                            'Small Urban & Rural Transit Systems Revenue Vehicles Fleet Information Reports'),
-                                        html.P(
-                                            'Reports are generated from National Transit Database (NTD) data based on 2019 reporting year, the most current data.',
-                                            style=paragraph_styles),
+#                                        html.H2(
+#                                            'Small Urban & Rural Transit Systems Revenue Vehicles Fleet Information Reports'),
+#                                        html.P(
+#                                            'Reports are generated from National Transit Database (NTD) data based on 2019 reporting year, the most current data.',
+#                                            style=paragraph_styles),
                                         html.Br(),
 
                                         html.H3('State'),
@@ -115,11 +115,11 @@ def init_dashboard(server):
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
-                                        html.H2(
-                                            'Operating Statistics of Rural Transit Systems'),
-                                        html.P(
-                                            'Source: National Transit Database',
-                                            style=paragraph_styles),
+#                                        html.H2(
+#                                            'Operating Statistics of Rural Transit Systems'),
+#                                        html.P(
+#                                            'Source: National Transit Database',
+#                                            style=paragraph_styles),
                                         html.Br(),
                                         dcc.Tabs([
                                             dcc.Tab(
@@ -127,11 +127,11 @@ def init_dashboard(server):
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
-                                                    html.H2(
-                                                        ''),
-                                                    html.P(
-                                                        'Source: National Transit Database, 2019',
-                                                        style=paragraph_styles),
+#                                                   html.H2(
+#                                                        ''),
+#                                                    html.P(
+#                                                        'Source: National Transit Database, 2019',
+#                                                        style=paragraph_styles),
                                                     html.Br(),
                                                     html.H3('State'),
                                                     dcc.Dropdown(
@@ -163,11 +163,11 @@ def init_dashboard(server):
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
-                                                    html.H2(
-                                                        ''),
-                                                    html.P(
-                                                        'Source: National Transit Database, 2019',
-                                                        style=paragraph_styles),
+#                                                    html.H2(
+#                                                        ''),
+#                                                    html.P(
+#                                                        'Source: National Transit Database, 2019',
+#                                                        style=paragraph_styles),
                                                     html.Br(),
                                                     html.H3('State'),
                                                     dcc.Dropdown(
@@ -212,11 +212,11 @@ def init_dashboard(server):
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
-                                                    html.H2(
-                                                        ''),
-                                                    html.P(
-                                                        'Source: National Transit Database, 2015–2019',
-                                                        style=paragraph_styles),
+#                                                    html.H2(
+#                                                        ''),
+#                                                    html.P(
+#                                                        'Source: National Transit Database, 2015–2019',
+#                                                        style=paragraph_styles),
                                                     html.Br(),
                                                     html.P(
                                                         'Ridership (millions)',
@@ -244,11 +244,11 @@ def init_dashboard(server):
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
-                                                    html.H2(
-                                                        ''),
-                                                    html.P(
-                                                        'Source: National Transit Database, 2019',
-                                                        style=paragraph_styles),
+#                                                    html.H2(
+#                                                        ''),
+#                                                    html.P(
+#                                                        'Source: National Transit Database, 2019',
+#                                                        style=paragraph_styles),
                                                     html.Br(),
                                                     html.P(
                                                         'Ridership Percentile Rankings for Rural Transit Agencies',
@@ -279,11 +279,11 @@ def init_dashboard(server):
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
-                                        html.H2(
-                                            'Key Statistics on Small Urban & Rural Transit Vehicles'),
-                                        html.P(
-                                            'Source: National Transit Database',
-                                            style=paragraph_styles),
+#                                        html.H2(
+#                                            'Key Statistics on Small Urban & Rural Transit Vehicles'),
+#                                        html.P(
+#                                            'Source: National Transit Database',
+#                                            style=paragraph_styles),
                                         html.Br(),
                                         dcc.Tabs([
                                             dcc.Tab(
@@ -352,6 +352,12 @@ def init_dashboard(server):
                                                 selected_style=tab_selected_style,
                                                 children=[
                                                     html.Br(),
+                                                    dcc.Graph(
+                                                        id='vehicleOwnership-table'),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Note:',
+                                                        style=paragraph_styles),
                                                     html.P(
                                                         'OOPA - Owned Outright by a Public Agency',
                                                         style=paragraph_styles),
@@ -373,9 +379,7 @@ def init_dashboard(server):
                                                     html.P(
                                                         'LRPE - Leased or Borrowed from Related Parties by a Private Entity',
                                                         style=paragraph_styles),
-                                                    html.Br(),
-                                                    dcc.Graph(
-                                                        id='vehicleOwnership-table'),
+
                                                 ]
                                             ),
                                             dcc.Tab(
