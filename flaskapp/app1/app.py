@@ -724,7 +724,44 @@ def init_dashboard(server):
 
                                     ]
                                 ),
+                                dcc.Tab(
+                                    label=' State Statistics ',
+                                    style=tab_style,
+                                    selected_style=tab_selected_style,
+                                    children=[
+                                        html.H2(
+                                            ''),
+                                        html.P(
+                                            '',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        dcc.Tabs([
+                                            dcc.Tab(
+                                                label='Operating Statistics by State',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.P('Ridership', style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='ridershipByState-table'),
+                                                    html.Br(),
+                                                    html.P('Vehicle Revenue Miles',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vrmByState-table'),
+                                                    html.Br(),
+                                                    html.P('Vehicle Revenue Hours',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vrhByState-table'),
+                                                    html.Br(),
+                                                ]
+                                            ),
+                                        ], style=tabs_styles),
 
+                                    ]
+                                ),
                             ],
                                 vertical=True,
                                 style=tabs_styles_main),
