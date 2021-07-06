@@ -1,6 +1,7 @@
 import dash
 import dash_html_components as html
 import dash_core_components as dcc
+import dash_bootstrap_components as dbc
 
 from util import states_dict, vehicles_dict, make_state_agency_dict
 
@@ -57,6 +58,16 @@ def init_dashboard(server):
 
     dash_app.layout = html.Div(
         children=[
+            dbc.Nav(
+                children=[
+                    # dbc.Label("NDSU Upper Great Plains Transportation Institute",
+                    #           style={"color": "white"}),
+                    dbc.NavLink("NDSU Upper Great Plains Transportation Institute   |    Small Urban and Rural Transit Center on Mobility", href="/",
+                                style={"align": "center", "color": "white"}),
+                ],
+                style={"background-color": "#006400", "padding": "20px"}
+
+            ),
             html.Div(
                 className='row',
                 children=[
@@ -72,9 +83,7 @@ def init_dashboard(server):
                                                 style={'padding': '8px 65px'},
                                                 href='/')
                                      ],
-                                     style={'padding-left': '47px',
-                                            'padding-top': '30px'}
-                                     #for no reason
+                                     style={'padding-left': '47px'}
                                      ),
                             dcc.Tabs([
                                 dcc.Tab(
