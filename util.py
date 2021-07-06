@@ -354,6 +354,60 @@ def statRidershipOtherYearlyByState(dataframe):
 	df.columns = ['State','2016','2017','2018','2019']
 	return df
 
+def statVrmTotalYearlyByState(dataframe):
+	df = dataframe[['state','2016','2017','2018','2019']]
+	df = df.dropna()
+	df.columns = ['State','2016','2017','2018','2019']
+	return df
+
+def statVrmFrsYearlyByState(dataframe):
+	df = dataframe[['state','2016','2017','2018','2019']]
+	df = df.dropna()
+	df.columns = ['State','2016','2017','2018','2019']
+	return df
+
+def statVrmDrsYearlyByState(dataframe):
+	df = dataframe[['state','2016','2017','2018','2019']]
+	df = df.dropna()
+	df.columns = ['State','2016','2017','2018','2019']
+	return df
+
+def statVrmOtherYearlyByState(dataframe):
+	df = dataframe[['state','2016','2017','2018','2019']]
+	df = df.dropna()
+	df.columns = ['State','2016','2017','2018','2019']
+	return df
+
+def statFinancialOnOperationsByState(dataframe):
+	df = dataframe[['state','directly_generated','local_government','state_government','federal_government','total']]
+#	df = df.dropna()
+	df.columns = ['State','Directly Generated','Local Government','State Government','Federal Government','Total']
+	return df
+
+def statFinancialOnCapitalByState(dataframe):
+	df = dataframe[['state','directly_generated','local_government','state_government','federal_government','total']]
+#	df = df.dropna()
+	df.columns = ['State','Directly Generated','Local Government','State Government','Federal Government','Total']
+	return df
+
+def statFleetStatisticsByState(dataframe):
+	df = dataframe[['state','total_active_vehicles','ada_vehicles','average_vehicle_age','average_vehicle_length','average_vehicle_capacity','trips_per_vehicle','miles_per_vehicle','hours_per_vehicle']]
+#	df = df.dropna()
+	df.columns = ['State','Total Active Vehicles','ADA Vehicles (%)','Average Vehicle Age','Average Vehicle Length (ft)','Average Vehicle Capacity','Trips Per Vehicle','Miles Per Vehicle','Hours Per Vehicle']
+	return df
+
+def statPerformanceMeasuresByState(dataframe):
+	df = dataframe[['state','total_trips_per_vrm','fixed_route_trips_per_vrm','demand_response_trips_per_vrm','total_trips_per_vrh','fixed_route_trips_per_vrh','demand_response_trips_per_vrh','operating_expense_per_trip','operating_expense_per_vrm','operating_expense_per_vrh','farebox_recovery_ratio']]
+#	df = df.dropna()
+	df.columns = ['State','Total Trips Per VRM','FR Trips Per VRM','DR Trips Per VRM','Total Trips Per VRH','FR Trips Per VRH','DR Trips Per VRH','OE Per Trip','OE Per VRM','OE Per VRH','Farebox Recovery Ratio']
+	return df
+
+def statPerformanceMeasuresMedianByState(dataframe):
+	df = dataframe[['state','total_trips_per_vrm','fixed_route_trips_per_vrm','demand_response_trips_per_vrm','total_trips_per_vrh','fixed_route_trips_per_vrh','demand_response_trips_per_vrh','operating_expense_per_trip','operating_expense_per_vrm','operating_expense_per_vrh','farebox_recovery_ratio']]
+#	df = df.dropna()
+	df.columns = ['State','Total Trips Per VRM','FR Trips Per VRM','DR Trips Per VRM','Total Trips Per VRH','FR Trips Per VRH','DR Trips Per VRH','OE Per Trip','OE Per VRM','OE Per VRH','Farebox Recovery Ratio']
+	return df
+
 def statisticsForAgenciesRankedByVRM(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()

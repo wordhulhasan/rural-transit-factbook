@@ -58,6 +58,20 @@ def init_data():
     dataRidershipDRYearlyByState = preprocess('data/Table 49DRS.csv')
     dataRidershipOtherYearlyByState = preprocess('data/Table 49Other.csv')
 
+    dataVrmTotalYearlyByState = preprocess('data/Table 50VRM_Total.csv')
+    dataVrmFrsYearlyByState = preprocess('data/Table 50VRM_FRS.csv')
+    dataVrmDrsYearlyByState = preprocess('data/Table 50VRM_DRS.csv')
+    dataVrmOtherYearlyByState = preprocess('data/Table 50VRM_Other.csv')
+
+    dataFinancialOnOperationsByState = preprocess('data/Table 51FS_Operations.csv')
+    dataFinancialOnCapitalByState = preprocess('data/Table 51FS_Capital.csv')
+
+    dataFleetStatisticsByState = preprocess('data/Table 52.csv')
+
+    dataPerformanceMeasuresByState = preprocess('data/Table 53.csv')
+
+    dataPerformanceMeasuresMedianByState = preprocess('data/Table 54.csv')
+
     dataStatforAgenciesRankedByVRM = preprocess('data/Table 34.csv')
     datastatForDemandResponseRankedByVRM = preprocess('data/Table 40.csv')
     datastatForFixedRouteRankedByVRM = preprocess('data/Table 37.csv')
@@ -80,7 +94,12 @@ def init_data():
            dataPerformanceByRegion, dataTripsPerVRMByRegion,  dataTripsPerVRHByRegion, dataOperatingPerTripByRegion, dataOperatingPerVRMByRegion, \
            dataOperatingPerVRHByRegion, dataAgencyPerformanceByRegion, \
            dataRidershipByState, dataVrmByState, dataVrhByState, \
-           dataRidershipTotalYearlyByState, dataRidershipFRYearlyByState, dataRidershipDRYearlyByState, dataRidershipOtherYearlyByState,\
+           dataRidershipTotalYearlyByState, dataRidershipFRYearlyByState, dataRidershipDRYearlyByState, dataRidershipOtherYearlyByState, \
+           dataVrmTotalYearlyByState, dataVrmFrsYearlyByState, dataVrmDrsYearlyByState, dataVrmOtherYearlyByState, \
+           dataFinancialOnOperationsByState, dataFinancialOnCapitalByState, \
+           dataFleetStatisticsByState, \
+           dataPerformanceMeasuresByState, \
+           dataPerformanceMeasuresMedianByState,\
            dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM,\
            dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH,\
            dataStatforAgenciesRankedByRidership, datastatForDemandResponseRankedByRidership, datastatForFixedRouteRankedByRidership

@@ -805,6 +805,90 @@ def init_dashboard(server):
                                                     html.Br(),
                                                 ]
                                             ),
+                                            dcc.Tab(
+                                                label='Rural Transit Vehicle Revenue Miles of Service by State',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.P('Total (million miles)', style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vrmTotalYearlyByState-table'),
+                                                    html.Br(),
+                                                    html.P('Fixed-Route Service (million miles)',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vrmFrsYearlyByState-table'),
+                                                    html.Br(),
+                                                    html.P('Demand-Response Service (million miles)',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vrmDrsYearlyByState-table'),
+                                                    html.Br(),
+                                                    html.P('Other Service (million trips)',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vrmOtherYearlyByState-table'),
+                                                    html.Br(),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='State Financial Statistics',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.P('Funds Expended on Operations by Source', style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='financialOnOperationsByState-table'),
+                                                    html.Br(),
+                                                    html.P('Funds Expended on Capital by Source',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='financialOnCapitalByState-table'),
+                                                    html.Br(),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='State Fleet Statistics',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='fleetStatisticsByState-table'),
+                                                    html.Br(),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='State Performance Measures, Averages',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='performanceMeasuresByState-table'),
+                                                    html.Br(),
+                                                    html.P('Note:',style=paragraph_styles),
+                                                    html.P('VRM - Vehicle Revenue Mile,VRH - Vehicle Revenue Hour, FR - Fixed-Route, DR - Demand-Response, OE - Operating Expense',
+                                                           style=paragraph_styles),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='State Performance Measures, Median Agency Values',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='performanceMeasuresMedianByState-table'),
+                                                    html.Br(),
+                                                    html.P('Note:', style=paragraph_styles),
+                                                    html.P(
+                                                        'VRM - Vehicle Revenue Mile,VRH - Vehicle Revenue Hour, FR - Fixed-Route, DR - Demand-Response, OE - Operating Expense',
+                                                        style=paragraph_styles),
+                                                ]
+                                            ),
                                         ], style=tabs_styles),
 
                                     ]

@@ -22,7 +22,10 @@ from util import vehicle_colors, revenue_vehicles, fleet_composition, \
     statPerformanceByRegion, statTripsPerVRMByRegion,  statTripsPerVRHByRegion, statOperatingPerTripByRegion, \
     statOperatingPerVRMByRegion, statOperatingPerVRHByRegion, statAgencyPerformanceByRegion, \
     statRidershipByState, statVrmByState, statVrhByState, statRidershipTotalYearlyByState, \
-    statRidershipFRYearlyByState, statRidershipDRYearlyByState, statRidershipOtherYearlyByState
+    statRidershipFRYearlyByState, statRidershipDRYearlyByState, statRidershipOtherYearlyByState, \
+    statVrmTotalYearlyByState, statVrmFrsYearlyByState, statVrmDrsYearlyByState, statVrmOtherYearlyByState, \
+    statFinancialOnOperationsByState, statFinancialOnCapitalByState, statFleetStatisticsByState, \
+    statPerformanceMeasuresByState, statPerformanceMeasuresMedianByState
 
 from .data import init_data
 
@@ -38,7 +41,12 @@ def init_callbacks(dash_app):
     dataPerformanceByRegion, dataTripsPerVRMByRegion, dataTripsPerVRHByRegion, dataOperatingPerTripByRegion, \
     dataOperatingPerVRMByRegion, dataOperatingPerVRHByRegion, dataAgencyPerformanceByRegion, \
     dataRidershipByState, dataVrmByState, dataVrhByState, \
-    dataRidershipTotalYearlyByState, dataRidershipFRYearlyByState, dataRidershipDRYearlyByState, dataRidershipOtherYearlyByState,\
+    dataRidershipTotalYearlyByState, dataRidershipFRYearlyByState, dataRidershipDRYearlyByState, dataRidershipOtherYearlyByState, \
+    dataVrmTotalYearlyByState, dataVrmFrsYearlyByState, dataVrmDrsYearlyByState, dataVrmOtherYearlyByState, \
+    dataFinancialOnOperationsByState, dataFinancialOnCapitalByState, \
+    dataFleetStatisticsByState, \
+    dataPerformanceMeasuresByState, \
+    dataPerformanceMeasuresMedianByState,\
     dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM, \
     dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH, \
     dataStatforAgenciesRankedByRidership, datastatForDemandResponseRankedByRidership, datastatForFixedRouteRankedByRidership \
@@ -535,6 +543,78 @@ def init_callbacks(dash_app):
                         Input('agency-dropdown', 'value')])
     def rorybs(state, agency):
         df = statRidershipOtherYearlyByState(dataRidershipOtherYearlyByState)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('vrmTotalYearlyByState-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def vtybs(state, agency):
+        df = statVrmTotalYearlyByState(dataVrmTotalYearlyByState)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('vrmFrsYearlyByState-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def vfybs(state, agency):
+        df = statVrmFrsYearlyByState(dataVrmFrsYearlyByState)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('vrmDrsYearlyByState-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def vdybs(state, agency):
+        df = statVrmDrsYearlyByState(dataVrmDrsYearlyByState)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('vrmOtherYearlyByState-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def voybs(state, agency):
+        df = statVrmOtherYearlyByState(dataVrmOtherYearlyByState)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('financialOnOperationsByState-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def foobs(state, agency):
+        df = statFinancialOnOperationsByState(dataFinancialOnOperationsByState)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('financialOnCapitalByState-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def focbs(state, agency):
+        df = statFinancialOnCapitalByState(dataFinancialOnCapitalByState)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('fleetStatisticsByState-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def fsbs(state, agency):
+        df = statFleetStatisticsByState(dataFleetStatisticsByState)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('performanceMeasuresByState-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def pmbs(state, agency):
+        df = statPerformanceMeasuresByState(dataPerformanceMeasuresByState)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('performanceMeasuresMedianByState-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def pmmbs(state, agency):
+        df = statPerformanceMeasuresMedianByState(dataPerformanceMeasuresMedianByState)
         fig = ff.create_table(df)
         return fig
 
