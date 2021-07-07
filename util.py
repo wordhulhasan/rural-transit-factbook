@@ -408,6 +408,102 @@ def statPerformanceMeasuresMedianByState(dataframe):
 	df.columns = ['State','Total Trips Per VRM','FR Trips Per VRM','DR Trips Per VRM','Total Trips Per VRH','FR Trips Per VRH','DR Trips Per VRH','OE Per Trip','OE Per VRM','OE Per VRH','Farebox Recovery Ratio']
 	return df
 
+def statAgencyPercentileRidershipByState(dataframe):
+	df = dataframe[['state','number_of_agencies','25th','50th','75th']]
+#	df = df.dropna()
+	df.columns = ['State','Number of Agencies','25th','50th','75th']
+	return df
+
+def statAgencyPercentileVrmByState(dataframe):
+	df = dataframe[['state','number_of_agencies','25th','50th','75th']]
+#	df = df.dropna()
+	df.columns = ['State','Number of Agencies','25th','50th','75th']
+	return df
+
+def statAgencyPercentileVrhByState(dataframe):
+	df = dataframe[['state','number_of_agencies','25th','50th','75th']]
+#	df = df.dropna()
+	df.columns = ['State','Number of Agencies','25th','50th','75th']
+	return df
+
+def statRidershipYearlyByTribal(dataframe):
+	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019']]
+#	df = df.dropna()
+	df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019']
+	return df
+
+def statVrmYearlyByTribal(dataframe):
+	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019']]
+#	df = df.dropna()
+	df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019']
+	return df
+
+def statVrhYearlyByTribal(dataframe):
+	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019']]
+#	df = df.dropna()
+	df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019']
+	return df
+
+def statVehiclesByTribal(dataframe):
+	df = dataframe[['vehicle_type','number_of_vehicles']]
+#	df = df.dropna()
+	df.columns = ['Vehicle Type','Number of Vehicles']
+	return df
+
+def statFleetStatisticsByTribal(dataframe):
+	df = dataframe[['number_of_vehicles','vehicle_ada','average_vehicle_age','average_vehicle_length','average_vehicle_capacity']]
+#	df = df.dropna()
+	df.columns = ['Number of Vehicles','% Vehicle ADA','Average Vehicle Age (years)','Average Vehicle Length (feet)','Average Vehicle Capacity']
+	return df
+
+def statTripsPerVehicleByTribal(dataframe):
+	df = dataframe[['vehicle_mode','trips']]
+#	df = df.dropna()
+	df.columns = ['Vehicle Mode','Trips']
+	return df
+
+def statVRMPerVehicleByTribal(dataframe):
+	df = dataframe[['vehicle_mode','vehicle_revenue_miles']]
+#	df = df.dropna()
+	df.columns = ['Vehicle Mode','Vehicle Revenue Miles']
+	return df
+
+def statVRHPerVehicleByTribal(dataframe):
+	df = dataframe[['vehicle_mode','vehicle_revenue_hours']]
+#	df = df.dropna()
+	df.columns = ['Vehicle Mode','Vehicle Revenue Hours']
+	return df
+
+def statTripsPerVrmByTribal(dataframe):
+	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019']]
+	df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019']
+	return df
+
+def statTripsPerVrhByTribal(dataframe):
+	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019']]
+	df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019']
+	return df
+
+def statOperatingExpensePerTripByTribal(dataframe):
+	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019']]
+	df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019']
+	return df
+
+def statOperatingExpensePerVrmByTribal(dataframe):
+	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019']]
+	df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019']
+	return df
+
+def statOperatingExpensePerVrhByTribal(dataframe):
+	df = dataframe[['vehicle_mode','2015','2016','2017','2018','2019']]
+	df.columns = ['Vehicle Mode','2015','2016','2017','2018','2019']
+	return df
+
+def statFareboxRecoveryRatioByTribal(dataframe):
+	df = dataframe[['frr','2015','2016','2017','2018','2019']]
+	df.columns = ['Farebox Recovery Ratio','2015','2016','2017','2018','2019']
+	return df
+
 def statisticsForAgenciesRankedByVRM(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()

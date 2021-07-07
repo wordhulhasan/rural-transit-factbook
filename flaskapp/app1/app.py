@@ -898,6 +898,150 @@ def init_dashboard(server):
                                                         style=paragraph_styles),
                                                 ]
                                             ),
+                                            dcc.Tab(
+                                                label='Transit Agency Percentiles for Operating Statistics',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.P('Ridership Percentile',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='agencyPercentileRidershipByState-table'),
+                                                    html.Br(),
+                                                    html.P('Vehicle Revenue Miles Percentile',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='agencyPercentileVrmByState-table'),
+                                                    html.Br(),
+                                                    html.P('Vehicle Revenue Hours Percentile',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='agencyPercentileVrhByState-table'),
+                                                    html.Br(),
+                                                ]
+                                            ),
+                                        ], style=tabs_styles),
+
+                                    ]
+                                ),
+                                dcc.Tab(
+                                    label=' Tribal Transit Statistics ',
+                                    style=tab_style,
+                                    selected_style=tab_selected_style,
+                                    children=[
+                                        html.H2(
+                                            ''),
+                                        html.P(
+                                            '',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        dcc.Tabs([
+                                            dcc.Tab(
+                                                label='Tribal Transit Operating Statistics',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.P('Ridership (thousand rides)', style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='ridershipYearlyByTribal-table'),
+                                                    html.Br(),
+                                                    html.P('Vehicle Revenue Miles (thousand miles)',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vrmYearlyByTribal-table'),
+                                                    html.Br(),
+                                                    html.P('Vehicle Revenue Hours (thousand hours)',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vrhYearlyByTribal-table'),
+                                                    html.Br(),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='Tribal Transit Vehicles Information',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='vehiclesByTribal-table'),
+                                                    html.Br(),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='Tribal Transit Fleet Statistics',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='fleetStatisticsByTribal-table'),
+                                                    html.Br(),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='Operating Statistics by Vehicle Mode',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.P('Trips per Vehicle',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='tripsPerVehicleByTribal-table'),
+                                                    html.Br(),
+                                                    html.P('Vehicle Revenue Miles per Vehicle',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vrmPerVehicleByTribal-table'),
+                                                    html.Br(),
+                                                    html.P('Vehicle Revenue Hours per Vehicle',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='vrhPerVehicleByTribal-table'),
+                                                    html.Br(),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='Tribal Transit Performance Measures',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.P('Trips per Vehicle Revenue Mile',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='tripsPerVrmByTribal-table'),
+                                                    html.Br(),
+                                                    html.P('Trips per Vehicle Revenue Hour',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='tripsPerVrhByTribal-table'),
+                                                    html.Br(),
+                                                    html.P('Operating Expense Per Trip',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='operatingExpensePerTripByTribal-table'),
+                                                    html.Br(),
+                                                    html.P('Operating Expense per Vehicle Revenue Mile',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='operatingExpensePerVrmByTribal-table'),
+                                                    html.Br(),
+                                                    html.P('Operating Expense per Vehicle Revenue Hour',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='operatingExpensePerVrhByTribal-table'),
+                                                    html.Br(),
+                                                    html.P('Farebox Recovery Ratio',
+                                                           style=paragraph_styles),
+                                                    dcc.Graph(
+                                                        id='fareboxRecoveryRatioByTribal-table'),
+                                                    html.Br(),
+                                                ]
+                                            ),
                                         ], style=tabs_styles),
 
                                     ]

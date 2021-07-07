@@ -72,6 +72,27 @@ def init_data():
 
     dataPerformanceMeasuresMedianByState = preprocess('data/Table 54.csv')
 
+    dataAgencyPercentileRidershipByState = preprocess('data/Table 55Ridership.csv')
+    dataAgencyPercentileVrmByState = preprocess('data/Table 55VRM.csv')
+    dataAgencyPercentileVrhByState = preprocess('data/Table 55VRH.csv')
+
+    dataRidershipYearlyByTribal = preprocess('data/Table 57Ridership.csv')
+    dataVrmYearlyByTribal = preprocess('data/Table 57VRM.csv')
+    dataVrhYearlyByTribal = preprocess('data/Table 57VRM.csv')
+
+    dataVehiclesByTribal = preprocess('data/Table 58Vehicles.csv')
+    dataFleetStatisticsByTribal = preprocess('data/Table 58Fleet.csv')
+    dataTripsPerVehicleByTribal = preprocess('data/Table 58Trips.csv')
+    dataVRMPerVehicleByTribal = preprocess('data/Table 58VRM.csv')
+    dataVRHPerVehicleByTribal = preprocess('data/Table 58VRH.csv')
+
+    dataTripsPerVrmByTribal = preprocess('data/Table 59Trips_VRM.csv')
+    dataTripsPerVrhByTribal = preprocess('data/Table 59Trips_VRH.csv')
+    dataOperatingExpensePerTripByTribal = preprocess('data/Table 59OE_Trip.csv')
+    dataOperatingExpensePerVrmByTribal = preprocess('data/Table 59OE_VRM.csv')
+    dataOperatingExpensePerVrhByTribal = preprocess('data/Table 59OE_VRH.csv')
+    dataFareboxRecoveryRatioByTribal = preprocess('data/Table 59Farebox.csv')
+
     dataStatforAgenciesRankedByVRM = preprocess('data/Table 34.csv')
     datastatForDemandResponseRankedByVRM = preprocess('data/Table 40.csv')
     datastatForFixedRouteRankedByVRM = preprocess('data/Table 37.csv')
@@ -99,7 +120,12 @@ def init_data():
            dataFinancialOnOperationsByState, dataFinancialOnCapitalByState, \
            dataFleetStatisticsByState, \
            dataPerformanceMeasuresByState, \
-           dataPerformanceMeasuresMedianByState,\
+           dataPerformanceMeasuresMedianByState, \
+           dataAgencyPercentileRidershipByState, dataAgencyPercentileVrmByState, dataAgencyPercentileVrhByState, \
+           dataRidershipYearlyByTribal, dataVrmYearlyByTribal, dataVrhYearlyByTribal, \
+           dataVehiclesByTribal, dataFleetStatisticsByTribal, dataTripsPerVehicleByTribal, dataVRMPerVehicleByTribal, dataVRHPerVehicleByTribal, \
+           dataTripsPerVrmByTribal, dataTripsPerVrhByTribal, dataOperatingExpensePerTripByTribal, \
+           dataOperatingExpensePerVrmByTribal, dataOperatingExpensePerVrhByTribal, dataFareboxRecoveryRatioByTribal,\
            dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM,\
            dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH,\
            dataStatforAgenciesRankedByRidership, datastatForDemandResponseRankedByRidership, datastatForFixedRouteRankedByRidership
