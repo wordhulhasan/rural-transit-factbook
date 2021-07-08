@@ -24,6 +24,7 @@ def init_dashboard(server):
 
     tabs_styles = {
         'height': '65px',
+        'font-size': '.9em'
     }
 
     tabs_styles_main = {
@@ -34,7 +35,8 @@ def init_dashboard(server):
         'padding-right': '50px',
         'fontWeight': 'bold',
         'backgroundColor': '#FFFFFF',
-        "margin-bottom": "20px"
+        "margin-bottom": "20px",
+        'font-size': '.9em'
     }
 
     tab_style = {
@@ -42,7 +44,8 @@ def init_dashboard(server):
         'padding': '6px',
         'fontWeight': 'bold',
         'color': 'black',
-        'backgroundColor': '#969696'
+        'backgroundColor': '#969696',
+        'font-size': '.9em'
     }
 
     tab_style_sub = {
@@ -61,7 +64,8 @@ def init_dashboard(server):
         'backgroundColor': '#000000',
         'color': 'white',
         'padding': '6px',
-        'fontWeight': 'bold'
+        'fontWeight': 'bold',
+        'font-size': '.9em'
     }
 
     tab_selected_style_sub = {
