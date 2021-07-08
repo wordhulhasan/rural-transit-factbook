@@ -93,6 +93,8 @@ def init_data():
     dataOperatingExpensePerVrhByTribal = preprocess('data/Table 59OE_VRH.csv')
     dataFareboxRecoveryRatioByTribal = preprocess('data/Table 59Farebox.csv')
 
+    dataPerformanceMeasureMedianByTribal = preprocess('data/Table 60.csv')
+
     dataStatforAgenciesRankedByVRM = preprocess('data/Table 34.csv')
     datastatForDemandResponseRankedByVRM = preprocess('data/Table 40.csv')
     datastatForFixedRouteRankedByVRM = preprocess('data/Table 37.csv')
@@ -125,7 +127,8 @@ def init_data():
            dataRidershipYearlyByTribal, dataVrmYearlyByTribal, dataVrhYearlyByTribal, \
            dataVehiclesByTribal, dataFleetStatisticsByTribal, dataTripsPerVehicleByTribal, dataVRMPerVehicleByTribal, dataVRHPerVehicleByTribal, \
            dataTripsPerVrmByTribal, dataTripsPerVrhByTribal, dataOperatingExpensePerTripByTribal, \
-           dataOperatingExpensePerVrmByTribal, dataOperatingExpensePerVrhByTribal, dataFareboxRecoveryRatioByTribal,\
+           dataOperatingExpensePerVrmByTribal, dataOperatingExpensePerVrhByTribal, dataFareboxRecoveryRatioByTribal, \
+           dataPerformanceMeasureMedianByTribal,\
            dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM,\
            dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH,\
            dataStatforAgenciesRankedByRidership, datastatForDemandResponseRankedByRidership, datastatForFixedRouteRankedByRidership

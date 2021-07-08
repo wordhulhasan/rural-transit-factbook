@@ -115,42 +115,99 @@ def init_dashboard(server):
                             #          style={'padding-left': '47px'}
                             #          ),
                             dcc.Tabs([
+#                                dcc.Tab(
+#                                    label='National Rural Transit Fleet Information',
+##                                    style=tab_style,
+#                                    selected_style=tab_selected_style,
+#                                    children=[
+#                                        html.Br(),
+##                                        html.H2(
+##                                            'Small Urban & Rural Transit Systems Revenue Vehicles Fleet Information Reports'),
+#                                        html.P(
+#                                            '',
+#                                            style=paragraph_styles),
+#                                        html.Br(),
+#                                        html.H3('State'),
+#                                        dcc.Dropdown(
+#                                            id='state-selector',
+#                                            options=[{'label': states_dict[k], 'value': k} for k in res.keys()],
+#                                            value='All',
+#                                            placeholder='Select a state...',
+#                                            style = {'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
+#                                        ),
+#                                        html.H3('Transit Agency'),
+#                                        dcc.Dropdown(
+#                                            id='agency-dropdown',
+#                                            placeholder='Select a transit agency...',
+#                                            style={'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
+#                                        ),
+#                                        dcc.Graph(id='revenue-vehicles', config={'displayModeBar': False},
+#                                                  animate=True),
+#                                        dcc.Graph(id='fleet-composition')
+#                                    ]
+#                                ),
                                 dcc.Tab(
-                                    label='Rural Fleet Information',
+                                    label='National Rural Transit Fleet Information',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
-
                                     children=[
                                         html.Br(),
-                                        html.H2(
-                                            'Small Urban & Rural Transit Systems Revenue Vehicles Fleet Information Reports'),
-                                        html.P(
-                                            '',
-                                            style=paragraph_styles),
-                                        html.Br(),
+                                        dcc.Tab([
+                                            dcc.Tab(
+                                                label='Revenue Vehicles by Vehicle Type',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.H3('State'),
+                                                    dcc.Dropdown(
+                                                        id='state-selector',
+                                                        options=[{'label': states_dict[k], 'value': k} for k in res.keys()],
+                                                        value='All',
+                                                        placeholder='Select a state...',
+                                                        style={'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
+                                                    ),
+                                                    html.H3('Transit Agency'),
+                                                    dcc.Dropdown(
+                                                        id='agency-dropdown',
+                                                        placeholder='Select a transit agency...',
+                                                        style={'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
+                                                    ),
+                                                    dcc.Graph(id='revenue-vehicles', config={'displayModeBar': False}, animate=True),
+                                                ],
+                                            ),
+                                            dcc.Tab(
+                                                label='Percent of Revenue Vehicles by Vehicle Type',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.H3('State'),
+                                                    dcc.Dropdown(
+                                                        id='state-selector-percent',
+                                                        options=[{'label': states_dict[k], 'value': k} for k in
+                                                                 res.keys()],
+                                                        value='All',
+                                                        placeholder='Select a state...',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
+                                                    html.H3('Transit Agency'),
+                                                    dcc.Dropdown(
+                                                        id='agency-dropdown-percent',
+                                                        placeholder='Select a transit agency...',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
+                                                    dcc.Graph(id='fleet-composition')
+                                                ],
+                                            ),
+                                        ],style=tab_style),
 
-                                        html.H3('State'),
-                                        dcc.Dropdown(
-                                            id='state-selector',
-                                            options=[{'label': states_dict[k], 'value': k} for k in res.keys()],
-                                            value='All',
-                                            placeholder='Select a state...',
-                                            style={'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
-                                        ),
-                                        html.H3('Transit Agency'),
-                                        dcc.Dropdown(
-                                            id='agency-dropdown',
-                                            placeholder='Select a transit agency...',
-                                            style={'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
-                                        ),
-
-                                        dcc.Graph(id='revenue-vehicles', config={'displayModeBar': False},
-                                                  animate=True),
-                                        dcc.Graph(id='fleet-composition')
                                     ]
                                 ),
                                 dcc.Tab(
-                                    label=' Operating Statistics ',
+                                    label=' Rural Transit Operating Statistics ',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
@@ -162,7 +219,7 @@ def init_dashboard(server):
                                         html.Br(),
                                         dcc.Tabs([
                                             dcc.Tab(
-                                                label='Operating Statistics in 2019',
+                                                label='Operating Statistics',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
@@ -174,11 +231,6 @@ def init_dashboard(server):
                                                             style=tab_style_sub,
                                                             selected_style=tab_selected_style_sub,
                                                             children=[
-                                                                #                                                   html.H2(
-                                                                #                                                        ''),
-                                                                #                                                    html.P(
-                                                                #                                                        'Source: National Transit Database, 2019',
-                                                                #                                                        style=paragraph_styles),
                                                                 html.Br(),
                                                                 html.H3('State'),
                                                                 dcc.Dropdown(
@@ -220,10 +272,6 @@ def init_dashboard(server):
 
                                                                 dcc.Graph(
                                                                     id='op-stat'),
-                                                                # dcc.Graph(
-                                                                #     id='vehicle-revenue-hours'),
-                                                                # dcc.Graph(
-                                                                #     id='unlinked_passenger_trips'),
                                                             ]
                                                         ),
                                                         dcc.Tab(
@@ -231,11 +279,6 @@ def init_dashboard(server):
                                                             style=tab_style_sub,
                                                             selected_style=tab_selected_style_sub,
                                                             children=[
-                                                                #                                                    html.H2(
-                                                                #                                                        ''),
-                                                                #                                                    html.P(
-                                                                #                                                        'Source: National Transit Database, 2019',
-                                                                #                                                        style=paragraph_styles),
                                                                 html.Br(),
                                                                 html.H3('State'),
                                                                 dcc.Dropdown(
@@ -280,35 +323,33 @@ def init_dashboard(server):
                                                 ]
                                             ),
                                             dcc.Tab(
-                                                label=' Rural Transit Operating Statistics',
+                                                label='Operating Statistics (Yearly)',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
-                                                    #                                                    html.H2(
-                                                    #                                                        ''),
-                                                    #                                                    html.P(
-                                                    #                                                        'Source: National Transit Database, 2015–2019',
-                                                    #                                                        style=paragraph_styles),
                                                     html.Br(),
-                                                    html.P(
-                                                        'Ridership (millions)',
-                                                        style=paragraph_styles),
+                                                    dcc.Dropdown(
+                                                        id = 'operating-stat-dropdown-ridership',
+                                                        options=[
+                                                            {
+                                                                'label':'Ridership (millions)',
+                                                                'value':'ridership'},
+                                                            {'label':'Vehicle Revenue Miles (millions)',
+                                                             'value':'vrm'},
+                                                            {'label':'Vehicle Revenue Hours (millions)',
+                                                             'value':'vrh'}
+                                                        ],
+                                                        value='ridership',
+                                                        style={'width':'60%', 'margin':'0 0 0', 'padding-left':'100px'}
+                                                    ),
+                                                    html.Br(),
                                                     dcc.Graph(
                                                         id='ridership_by_year-table'),
                                                     html.Br(),
                                                     html.Br(),
                                                     html.P(
-                                                        'Vehicle Revenue Miles (millions)',
+                                                        'Source: National Transit Database',
                                                         style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='vrm_by_year-table'),
-                                                    html.Br(),
-                                                    html.Br(),
-                                                    html.P(
-                                                        'Vehicle Revenue Hours (millions)',
-                                                        style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='vrh_by_year-table')
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -316,38 +357,38 @@ def init_dashboard(server):
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
-                                                    #                                                    html.H2(
-                                                    #                                                        ''),
-                                                    #                                                    html.P(
-                                                    #                                                        'Source: National Transit Database, 2019',
-                                                    #                                                        style=paragraph_styles),
-                                                    html.Br(),
-                                                    html.P(
-                                                        'Ridership Percentile Rankings for Rural Transit Agencies',
-                                                        style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='ridership_by_rank-table'),
-                                                    html.Br(),
-                                                    #                                                    html.Br(),
-                                                    html.P(
-                                                        'Vehicle Miles Percentile Rankings for Rural Transit Agencies',
-                                                        style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='vrm_by_rank-table'),
-                                                    html.Br(),
-                                                    #                                                    html.Br(),
-                                                    html.P(
-                                                        'Vehicle Hours Percentile Rankings for Rural Transit Agencies',
-                                                        style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='vrh_by_rank-table')
-                                                ]
-                                            ),
-                                        ], style=tabs_styles),
+                                        html.Br(),
+                                        dcc.Dropdown(
+                                            id='operating-stat-per-rank-dropdown',
+                                            options=[
+                                                {
+                                                    'label': 'Ridership Percentile Rankings for Rural Transit Agencies',
+                                                    'value': 'ridership'},
+                                                {
+                                                    'label': 'Vehicle Miles Percentile Rankings for Rural Transit Agencies',
+                                                    'value': 'vrm'},
+                                                {
+                                                    'label': 'Vehicle Hours Percentile Rankings for Rural Transit Agencies',
+                                                    'value': 'vrh'}
+                                            ],
+                                            value='ridership',
+                                            style={'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
+                                        ),
+                                        html.Br(),
+                                        dcc.Graph(
+                                            id='ridership_by_rank-table'
+                                        ),
+                                        html.Br(),
+                                        html.P(
+                                            'Source: National Transit Database, 2019',
+                                            style=paragraph_styles),
                                     ]
-                                ),
+                                            ),
+                                      ], style=tabs_styles),
+                                 ]
+                               ),
                                 dcc.Tab(
-                                    label=' Fleet Statistics ',
+                                    label=' Rural Transit Fleet Statistics ',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
@@ -469,7 +510,7 @@ def init_dashboard(server):
                                     ]
                                 ),
                                 dcc.Tab(
-                                    label=' Performance Measures ',
+                                    label=' Rural Transit Performance Measures ',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
@@ -516,12 +557,11 @@ def init_dashboard(server):
                                                 selected_style=tab_selected_style,
                                                 children=[
                                                     html.Br(),
-                                                    html.P('Operating Expense per Trip', style=paragraph_styles),
+                                                    html.P('Operating Expense per Trip',style=paragraph_styles),
                                                     dcc.Graph(
                                                         id='operatingExpensePerTrip-table'),
                                                     html.Br(),
-                                                    html.P('Operating Expense per Vehicle Mile',
-                                                           style=paragraph_styles),
+                                                    html.P('Operating Expense per Vehicle Mile', style=paragraph_styles),
                                                     dcc.Graph(
                                                         id='operatingExpensePerVehicleMile-table'),
                                                     html.Br(),
@@ -558,9 +598,8 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     html.P('Note:',
                                                            style=paragraph_styles),
-                                                    html.P(
-                                                        'OE - Operating Expense, VRM - Vehicle Revenue Mile, VRH - Vehicle Revenue Hour, UPT - Unlinked Passenger Trips',
-                                                        style=paragraph_styles),
+                                                    html.P('OE - Operating Expense, VRM - Vehicle Revenue Mile, VRH - Vehicle Revenue Hour, UPT - Unlinked Passenger Trips',
+                                                           style=paragraph_styles),
 
                                                 ]
                                             ),
@@ -569,7 +608,7 @@ def init_dashboard(server):
                                     ]
                                 ),
                                 dcc.Tab(
-                                    label=' Percentile Rank',
+                                    label=' Rural Transit Percentile Rank',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
@@ -691,7 +730,7 @@ def init_dashboard(server):
                                     ]
                                 ),
                                 dcc.Tab(
-                                    label=' Regional Statistics ',
+                                    label=' Rural Transit Regional Statistics ',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
@@ -735,7 +774,7 @@ def init_dashboard(server):
                                                     html.P('Vehicle Revenue Miles',
                                                            style=paragraph_styles),
                                                     dcc.Graph(
-                                                        id='vrmByRegion-table'),
+                                                       id='vrmByRegion-table'),
                                                     html.Br(),
                                                     html.P('Vehicle Revenue Hours',
                                                            style=paragraph_styles),
@@ -789,9 +828,8 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='agencyPerformanceByRegion-table'),
                                                     html.Br(),
-                                                    html.P(
-                                                        'Note: VRM = Vehicle Revenue Miles, VRH = Vehicle Revenue Hours',
-                                                        style=paragraph_styles),
+                                                    html.P('Note: VRM = Vehicle Revenue Miles, VRH = Vehicle Revenue Hours',
+                                                           style=paragraph_styles),
                                                 ]
                                             ),
                                         ], style=tabs_styles),
@@ -799,7 +837,7 @@ def init_dashboard(server):
                                     ]
                                 ),
                                 dcc.Tab(
-                                    label=' State Statistics ',
+                                    label=' Rural Transit State Statistics ',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
@@ -892,8 +930,7 @@ def init_dashboard(server):
                                                 selected_style=tab_selected_style,
                                                 children=[
                                                     html.Br(),
-                                                    html.P('Funds Expended on Operations by Source',
-                                                           style=paragraph_styles),
+                                                    html.P('Funds Expended on Operations by Source', style=paragraph_styles),
                                                     dcc.Graph(
                                                         id='financialOnOperationsByState-table'),
                                                     html.Br(),
@@ -924,10 +961,9 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='performanceMeasuresByState-table'),
                                                     html.Br(),
-                                                    html.P('Note:', style=paragraph_styles),
-                                                    html.P(
-                                                        'VRM - Vehicle Revenue Mile,VRH - Vehicle Revenue Hour, FR - Fixed-Route, DR - Demand-Response, OE - Operating Expense',
-                                                        style=paragraph_styles),
+                                                    html.P('Note:',style=paragraph_styles),
+                                                    html.P('VRM - Vehicle Revenue Mile,VRH - Vehicle Revenue Hour, FR - Fixed-Route, DR - Demand-Response, OE - Operating Expense',
+                                                           style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -1086,6 +1122,17 @@ def init_dashboard(server):
                                                            style=paragraph_styles),
                                                     dcc.Graph(
                                                         id='fareboxRecoveryRatioByTribal-table'),
+                                                    html.Br(),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='Tribal Transit Performance Measures, Median Agency Values',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='performanceMeasureMedianByTribal-table'),
                                                     html.Br(),
                                                 ]
                                             ),

@@ -504,6 +504,11 @@ def statFareboxRecoveryRatioByTribal(dataframe):
 	df.columns = ['Farebox Recovery Ratio','2015','2016','2017','2018','2019']
 	return df
 
+def statPerformanceMeasureMedianByTribal(dataframe):
+	df = dataframe[['performance_measure','median_value']]
+	df.columns = ['Performance Measure','Median Value']
+	return df
+
 def statisticsForAgenciesRankedByVRM(dataframe):
     df = dataframe[['percentile_rank', 'minimum', 'maximum', 'average_ridership', 'avg_vrm', 'avg_vrh', 'avg_upt_vrm', 'avg_upt_vrh', 'avg_op_ex_upt', 'avg_op_ex_vrm', 'avg_op_ex_vrh']]
     df = df.dropna()
