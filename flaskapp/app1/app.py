@@ -277,31 +277,25 @@ def init_dashboard(server):
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
-#                                                    html.H2(
-#                                                        ''),
-#                                                    html.P(
-#                                                        'Source: National Transit Database, 2015–2019',
-#                                                        style=paragraph_styles),
                                                     html.Br(),
-                                                    html.P(
-                                                        'Ridership (millions)',
-                                                        style=paragraph_styles),
+                                                    dcc.Dropdown(
+                                                        id = 'operating-stat-dropdown-ridership',
+                                                        options=[
+                                                            {
+                                                                'label':'Ridership (millions)',
+                                                                'value':'ridership'},
+                                                            {'label':'Vehicle Revenue Miles (millions)',
+                                                             'value':'vrm'},
+                                                            {'label':'Vehicle Revenue Hours (millions)',
+                                                             'value':'vrh'}
+                                                        ],
+                                                        value='ridership',
+                                                        style={'width':'60%', 'margin':'0 0 0', 'padding-left':'100px'}
+                                                    ),
+                                                    html.Br(),
                                                     dcc.Graph(
                                                         id='ridership_by_year-table'),
                                                     html.Br(),
-                                                    html.Br(),
-                                                    html.P(
-                                                        'Vehicle Revenue Miles (millions)',
-                                                        style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='vrm_by_year-table'),
-                                                    html.Br(),
-                                                    html.Br(),
-                                                    html.P(
-                                                        'Vehicle Revenue Hours (millions)',
-                                                        style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='vrh_by_year-table')
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -309,11 +303,6 @@ def init_dashboard(server):
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
-#                                                    html.H2(
-#                                                        ''),
-#                                                    html.P(
-#                                                        'Source: National Transit Database, 2019',
-#                                                        style=paragraph_styles),
                                                     html.Br(),
                                                     html.P(
                                                         'Ridership Percentile Rankings for Rural Transit Agencies',

@@ -215,25 +215,17 @@ def init_callbacks(dash_app):
 
     @dash_app.callback(Output('ridership_by_year-table', 'figure'),
                        [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def rby(state, agency):
-        df = statRidershipByYear(dataRidershipByYear)
-        fig = ff.create_table(df)
-        return fig
-		
-    @dash_app.callback(Output('vrm_by_year-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def vrmby(state, agency):
-        df = statVrmByYear(dataVrmByYear)
-        fig = ff.create_table(df)
-        return fig
-		
-    @dash_app.callback(Output('vrh_by_year-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def vrhby(state, agency):
-        df = statVrhByYear(dataVrhByYear)
+                        Input('agency-dropdown', 'value'),
+                        Input('operating-stat-dropdown-ridership', 'value')]
+                       )
+    def statOperatingStatByYear(state, agency, statdropdown):
+        if statdropdown == "ridership":
+            df = statRidershipByYear(dataRidershipByYear)
+        elif statdropdown == "vrh":
+            df = statVrhByYear(dataVrhByYear)
+        else:
+            df = statVrmByYear(dataVrmByYear)
+
         fig = ff.create_table(df)
         return fig
 
