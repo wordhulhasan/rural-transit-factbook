@@ -758,32 +758,23 @@ def init_callbacks(dash_app):
         fig = ff.create_table(df)
         return fig
 
-    @dash_app.callback(Output('vehicle-revenue-miles-table', 'figure'),
-                       [Input('state-selector-3', 'value'),
-                        Input('agency-dropdown-3', 'value')])
-    def vrm(state, agency):
-        df = vehicle_revenue_miles(data3, state, agency)
-        df_sample = df[['mode', 'vehicle_revenue_miles']]
-        fig = ff.create_table(df_sample)
-        return fig
-
-    @dash_app.callback(Output('vehicle-revenue-hours-table', 'figure'),
-                       [Input('state-selector-3', 'value'),
-                        Input('agency-dropdown-3', 'value')])
-    def vrh(state, agency):
-        df = vehicle_revenue_hours(data3, state, agency)
-        df_sample = df[['mode', 'vehicle_revenue_hours']]
-        fig = ff.create_table(df_sample)
-        return fig
-
-    @dash_app.callback(Output('unlinked_passenger_trips-table', 'figure'),
-                       [Input('state-selector-3', 'value'),
-                        Input('agency-dropdown-3', 'value')])
-    def vrh(state, agency):
-        df = unlinked_passenger_trips(data3, state, agency)
-        df_sample = df[['mode', 'unlinked_passenger_trips']]
-        fig = ff.create_table(df_sample)
-        print(df_sample)
+    @dash_app.callback(Output('op-stat-table', 'figure'),
+                       [Input('state-selector-2', 'value'),
+                        Input('agency-dropdown-2', 'value'),
+                        Input('op-stat-dropdown', 'value')])
+    def vrm(state, agency, opStat):
+        if opStat == "vrm":
+            df = vehicle_revenue_miles(data3, state, agency)
+            df_sample = df[['mode', 'vehicle_revenue_miles']]
+            fig = ff.create_table(df_sample)
+        elif opStat == "vrh":
+            df = vehicle_revenue_hours(data3, state, agency)
+            df_sample = df[['mode', 'vehicle_revenue_hours']]
+            fig = ff.create_table(df_sample)
+        else:
+            df = unlinked_passenger_trips(data3, state, agency)
+            df_sample = df[['mode', 'unlinked_passenger_trips']]
+            fig = ff.create_table(df_sample)
         return fig
 
     @dash_app.callback(Output('statisticsRankedByMB-table', 'figure'),

@@ -52,7 +52,7 @@ def init_dashboard(server):
         'color': 'blue',
         'backgroundColor': '#969696',
         'height': '40px',
-        'width': '130px',
+        'width': '260px',
     }
 
     tab_selected_style = {
@@ -72,7 +72,7 @@ def init_dashboard(server):
         'padding': '6px',
         'fontWeight': 'bold',
         'height': '40px',
-        'width': '130px',
+        'width': '260px',
     }
 
     res = make_state_agency_dict()
@@ -190,6 +190,43 @@ def init_dashboard(server):
                                                 selected_style=tab_selected_style,
                                                 children=[
                                                     html.Br(),
+                                                    html.H3('State'),
+                                                    dcc.Dropdown(
+                                                        id='state-selector-2',
+                                                        options=[{'label': states_dict[k], 'value': k} for k
+                                                                 in
+                                                                 res.keys()],
+                                                        value='All',
+                                                        placeholder='Select a state...',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
+                                                    html.H3('Transit Agency'),
+                                                    dcc.Dropdown(
+                                                        id='agency-dropdown-2',
+                                                        placeholder='Select a transit agency...',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
+                                                    html.H3('Performance Measure'),
+                                                    dcc.Dropdown(
+                                                        id='op-stat-dropdown',
+                                                        options=[
+                                                            {
+                                                                'label': 'Vehicle Revenue Miles',
+                                                                'value': 'vrm'},
+                                                            {
+                                                                'label': 'Vehicle Revenue Hours',
+                                                                'value': 'vrh'},
+                                                            {
+                                                                'label': 'Unlinked Passenger Trips',
+                                                                'value': 'utp'}
+                                                        ],
+                                                        value='ridership',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
+                                                    html.Br(),
                                                     html.Br(),
                                                     dcc.Tabs([
                                                         dcc.Tab(
@@ -197,43 +234,6 @@ def init_dashboard(server):
                                                             style=tab_style_sub,
                                                             selected_style=tab_selected_style_sub,
                                                             children=[
-                                                                html.Br(),
-                                                                html.H3('State'),
-                                                                dcc.Dropdown(
-                                                                    id='state-selector-2',
-                                                                    options=[{'label': states_dict[k], 'value': k} for k
-                                                                             in
-                                                                             res.keys()],
-                                                                    value='All',
-                                                                    placeholder='Select a state...',
-                                                                    style={'width': '60%', 'margin': '0 0 0',
-                                                                           'padding-left': '100px'}
-                                                                ),
-                                                                html.H3('Transit Agency'),
-                                                                dcc.Dropdown(
-                                                                    id='agency-dropdown-2',
-                                                                    placeholder='Select a transit agency...',
-                                                                    style={'width': '60%', 'margin': '0 0 0',
-                                                                           'padding-left': '100px'}
-                                                                ),
-                                                                html.H3('Performance Measure'),
-                                                                dcc.Dropdown(
-                                                                    id='op-stat-dropdown',
-                                                                    options=[
-                                                                        {
-                                                                            'label': 'Vehicle Revenue Miles',
-                                                                            'value': 'vrm'},
-                                                                        {
-                                                                            'label': 'Vehicle Revenue Hours',
-                                                                            'value': 'vrh'},
-                                                                        {
-                                                                            'label': 'Unlinked Passenger Trips',
-                                                                            'value': 'utp'}
-                                                                    ],
-                                                                    value='ridership',
-                                                                    style={'width': '60%', 'margin': '0 0 0',
-                                                                           'padding-left': '100px'}
-                                                                ),
                                                                 html.Br(),
 
                                                                 dcc.Graph(
@@ -246,43 +246,22 @@ def init_dashboard(server):
                                                             selected_style=tab_selected_style_sub,
                                                             children=[
                                                                 html.Br(),
-                                                                html.H3('State'),
-                                                                dcc.Dropdown(
-                                                                    id='state-selector-3',
-                                                                    options=[{'label': states_dict[k], 'value': k} for k
-                                                                             in
-                                                                             res.keys()],
-                                                                    value='All',
-                                                                    placeholder='Select a state...',
-                                                                    style={'width': '60%', 'margin': '0 0 0',
-                                                                           'padding-left': '100px'}
-                                                                ),
-                                                                html.H3('Transit Agency'),
-                                                                dcc.Dropdown(
-                                                                    id='agency-dropdown-3',
-                                                                    placeholder='Select a transit agency...',
-                                                                    style={'width': '60%', 'margin': '0 0 0',
-                                                                           'padding-left': '100px'}
-                                                                ),
-                                                                html.P(
-                                                                    'Ridership',
-                                                                    style=paragraph_styles),
                                                                 dcc.Graph(
-                                                                    id='unlinked_passenger_trips-table'),
-                                                                html.P(
-                                                                    'Vehicle Revenue Miles',
-                                                                    style=paragraph_styles),
-                                                                dcc.Graph(
-                                                                    id='vehicle-revenue-miles-table'),
-                                                                html.Br(),
-                                                                html.Br(),
-                                                                html.P(
-                                                                    'Vehicle Revenue Hours',
-                                                                    style=paragraph_styles),
-                                                                dcc.Graph(
-                                                                    id='vehicle-revenue-hours-table'),
-                                                                html.Br(),
-                                                                html.Br(),
+                                                                    id='op-stat-table'),
+                                                                # html.P(
+                                                                #     'Vehicle Revenue Miles',
+                                                                #     style=paragraph_styles),
+                                                                # dcc.Graph(
+                                                                #     id='vehicle-revenue-miles-table'),
+                                                                # html.Br(),
+                                                                # html.Br(),
+                                                                # html.P(
+                                                                #     'Vehicle Revenue Hours',
+                                                                #     style=paragraph_styles),
+                                                                # dcc.Graph(
+                                                                #     id='vehicle-revenue-hours-table'),
+                                                                # html.Br(),
+                                                                # html.Br(),
                                                             ]
                                                         ),
                                                     ], style=tabs_styles),
