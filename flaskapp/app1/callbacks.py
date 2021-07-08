@@ -110,7 +110,7 @@ def init_callbacks(dash_app):
 
         fig = px.bar(df, x='vehicle_type', y='active_fleet_vehicles', text='active_fleet_vehicles',
                      color='vehicle_type',
-                     color_discrete_map=vehicle_colors, title='Number of Revenue Vehicles',
+                     color_discrete_map=vehicle_colors, title='Revenue Vehicles by Vehicle Type',
                      labels={"vehicle_type": "Vehicle Type", "active_fleet_vehicles": "Number of Revenue Vehicles"},
                      template='simple_white',
                      )
@@ -128,8 +128,8 @@ def init_callbacks(dash_app):
         return fig
 
     @dash_app.callback(Output('fleet-composition', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
+                       [Input('state-selector-percent', 'value'),
+                        Input('agency-dropdown-percent', 'value')])
     def update_fleet_composition(state, agency):
         df = fleet_composition(data1, state, agency)
 
@@ -231,25 +231,17 @@ def init_callbacks(dash_app):
 
     @dash_app.callback(Output('ridership_by_rank-table', 'figure'),
                        [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def rbr(state, agency):
-        df = statRidershipByRank(dataRidershipByRank)
-        fig = ff.create_table(df)
-        return fig
+                        Input('agency-dropdown', 'value'),
+                        Input('operating-stat-per-rank-dropdown', 'value')]
+                       )
+    def statOperatingStatPerByYear(state, agency, statdropdown):
+        if statdropdown == "ridership":
+            df = statRidershipByRank(dataRidershipByRank)
+        elif statdropdown == "vrh":
+            df = statVrhByRank(dataVrhByRank)
+        else:
+            df = statVrmByRank(dataVrmByRank)
 
-    @dash_app.callback(Output('vrm_by_rank-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def vrmbr(state, agency):
-        df = statVrmByRank(dataVrmByRank)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('vrh_by_rank-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def vrhbr(state, agency):
-        df = statVrhByRank(dataVrhByRank)
         fig = ff.create_table(df)
         return fig
 
