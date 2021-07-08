@@ -128,8 +128,8 @@ def init_callbacks(dash_app):
         return fig
 
     @dash_app.callback(Output('fleet-composition', 'figure'),
-                       [Input('state-selector-percent', 'value'),
-                        Input('agency-dropdown-percent', 'value')])
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
     def update_fleet_composition(state, agency):
         df = fleet_composition(data1, state, agency)
 

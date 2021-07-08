@@ -152,58 +152,24 @@ def init_dashboard(server):
                                     selected_style=tab_selected_style,
                                     children=[
                                         html.Br(),
-                                        dcc.Tab([
-                                            dcc.Tab(
-                                                label='Revenue Vehicles by Vehicle Type',
-                                                style=tab_style,
-                                                selected_style=tab_selected_style,
-                                                children=[
-                                                    html.Br(),
-                                                    html.H3('State'),
-                                                    dcc.Dropdown(
-                                                        id='state-selector',
-                                                        options=[{'label': states_dict[k], 'value': k} for k in res.keys()],
-                                                        value='All',
-                                                        placeholder='Select a state...',
-                                                        style={'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
-                                                    ),
-                                                    html.H3('Transit Agency'),
-                                                    dcc.Dropdown(
-                                                        id='agency-dropdown',
-                                                        placeholder='Select a transit agency...',
-                                                        style={'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
-                                                    ),
-                                                    dcc.Graph(id='revenue-vehicles', config={'displayModeBar': False}, animate=True),
-                                                ],
-                                            ),
-                                            dcc.Tab(
-                                                label='Percent of Revenue Vehicles by Vehicle Type',
-                                                style=tab_style,
-                                                selected_style=tab_selected_style,
-                                                children=[
-                                                    html.Br(),
-                                                    html.H3('State'),
-                                                    dcc.Dropdown(
-                                                        id='state-selector-percent',
-                                                        options=[{'label': states_dict[k], 'value': k} for k in
-                                                                 res.keys()],
-                                                        value='All',
-                                                        placeholder='Select a state...',
-                                                        style={'width': '60%', 'margin': '0 0 0',
-                                                               'padding-left': '100px'}
-                                                    ),
-                                                    html.H3('Transit Agency'),
-                                                    dcc.Dropdown(
-                                                        id='agency-dropdown-percent',
-                                                        placeholder='Select a transit agency...',
-                                                        style={'width': '60%', 'margin': '0 0 0',
-                                                               'padding-left': '100px'}
-                                                    ),
-                                                    dcc.Graph(id='fleet-composition')
-                                                ],
-                                            ),
-                                        ],style=tab_style),
-
+                                        html.Br(),
+                                        html.H3('State'),
+                                        dcc.Dropdown(
+                                            id='state-selector',
+                                            options=[{'label': states_dict[k], 'value': k} for k in res.keys()],
+                                            value='All',
+                                            placeholder='Select a state...',
+                                            style={'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
+                                        ),
+                                        html.H3('Transit Agency'),
+                                        dcc.Dropdown(
+                                            id='agency-dropdown',
+                                            placeholder='Select a transit agency...',
+                                            style={'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
+                                        ),
+                                        html.Br(),
+                                        dcc.Graph(id='revenue-vehicles', config={'displayModeBar': False},
+                                                  animate=True),
                                     ]
                                 ),
                                 dcc.Tab(
