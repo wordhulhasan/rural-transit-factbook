@@ -51,7 +51,7 @@ def init_dashboard(server):
         'fontWeight': 'bold',
         'color': 'blue',
         'backgroundColor': '#969696',
-        'height':'40px',
+        'height': '40px',
         'width': '130px',
     }
 
@@ -64,7 +64,6 @@ def init_dashboard(server):
         'fontWeight': 'bold'
     }
 
-
     tab_selected_style_sub = {
         'borderTop': '1px solid #d6d6d6',
         'borderBottom': '1px solid #d6d6d6',
@@ -72,7 +71,7 @@ def init_dashboard(server):
         'color': 'white',
         'padding': '6px',
         'fontWeight': 'bold',
-        'height':'40px',
+        'height': '40px',
         'width': '130px',
     }
 
@@ -84,8 +83,16 @@ def init_dashboard(server):
                 children=[
                     # dbc.Label("NDSU Upper Great Plains Transportation Institute",
                     #           style={"color": "white"}),
-                    dbc.NavLink("NDSU Upper Great Plains Transportation Institute   |    Small Urban and Rural Transit Center on Mobility", href="/",
-                                style={"align": "center", "color": "white"}),
+                    dbc.NavLink(
+                        "NDSU Upper Great Plains Transportation Institute   |    Small Urban and Rural Transit Center on Mobility",
+                        href="/",
+                        style={"align": "center", "color": "white"}),
+                    html.A('Home',
+                        className="w3-button w3-grey w3-round-xlarge w3-center",
+                        id='submit-val',
+                        style={'padding': '8px 65px','float':'right'},
+                        href="/",
+                    )
                 ],
                 style={"background-color": "#006400", "padding": "20px"}
 
@@ -97,16 +104,16 @@ def init_dashboard(server):
                         className='nine columns div-for-charts bg-grey',
                         children=[
                             html.Br(),
-                            html.Div(className='w3-xlarge w3-left',
-                                     children=[
-                                         html.A('Home',
-                                                className="w3-button w3-grey w3-round-xlarge w3-center",
-                                                id='submit-val',
-                                                style={'padding': '8px 65px'},
-                                                href='/')
-                                     ],
-                                     style={'padding-left': '47px'}
-                                     ),
+                            # html.Div(className='w3-xlarge w3-left',
+                            #          children=[
+                            #              html.A('Home',
+                            #                     className="w3-button w3-grey w3-round-xlarge w3-center",
+                            #                     id='submit-val',
+                            #                     style={'padding': '8px 65px'},
+                            #                     href='/')
+                            #          ],
+                            #          style={'padding-left': '47px'}
+                            #          ),
                             dcc.Tabs([
                                 dcc.Tab(
                                     label='Rural Fleet Information',
@@ -128,7 +135,7 @@ def init_dashboard(server):
                                             options=[{'label': states_dict[k], 'value': k} for k in res.keys()],
                                             value='All',
                                             placeholder='Select a state...',
-                                            style = {'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
+                                            style={'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
                                         ),
                                         html.H3('Transit Agency'),
                                         dcc.Dropdown(
@@ -277,11 +284,11 @@ def init_dashboard(server):
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
-#                                                    html.H2(
-#                                                        ''),
-#                                                    html.P(
-#                                                        'Source: National Transit Database, 2015–2019',
-#                                                        style=paragraph_styles),
+                                                    #                                                    html.H2(
+                                                    #                                                        ''),
+                                                    #                                                    html.P(
+                                                    #                                                        'Source: National Transit Database, 2015–2019',
+                                                    #                                                        style=paragraph_styles),
                                                     html.Br(),
                                                     html.P(
                                                         'Ridership (millions)',
@@ -309,11 +316,11 @@ def init_dashboard(server):
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
-#                                                    html.H2(
-#                                                        ''),
-#                                                    html.P(
-#                                                        'Source: National Transit Database, 2019',
-#                                                        style=paragraph_styles),
+                                                    #                                                    html.H2(
+                                                    #                                                        ''),
+                                                    #                                                    html.P(
+                                                    #                                                        'Source: National Transit Database, 2019',
+                                                    #                                                        style=paragraph_styles),
                                                     html.Br(),
                                                     html.P(
                                                         'Ridership Percentile Rankings for Rural Transit Agencies',
@@ -321,14 +328,14 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='ridership_by_rank-table'),
                                                     html.Br(),
-#                                                    html.Br(),
+                                                    #                                                    html.Br(),
                                                     html.P(
                                                         'Vehicle Miles Percentile Rankings for Rural Transit Agencies',
                                                         style=paragraph_styles),
                                                     dcc.Graph(
                                                         id='vrm_by_rank-table'),
                                                     html.Br(),
-#                                                    html.Br(),
+                                                    #                                                    html.Br(),
                                                     html.P(
                                                         'Vehicle Hours Percentile Rankings for Rural Transit Agencies',
                                                         style=paragraph_styles),
@@ -509,11 +516,12 @@ def init_dashboard(server):
                                                 selected_style=tab_selected_style,
                                                 children=[
                                                     html.Br(),
-                                                    html.P('Operating Expense per Trip',style=paragraph_styles),
+                                                    html.P('Operating Expense per Trip', style=paragraph_styles),
                                                     dcc.Graph(
                                                         id='operatingExpensePerTrip-table'),
                                                     html.Br(),
-                                                    html.P('Operating Expense per Vehicle Mile', style=paragraph_styles),
+                                                    html.P('Operating Expense per Vehicle Mile',
+                                                           style=paragraph_styles),
                                                     dcc.Graph(
                                                         id='operatingExpensePerVehicleMile-table'),
                                                     html.Br(),
@@ -550,8 +558,9 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     html.P('Note:',
                                                            style=paragraph_styles),
-                                                    html.P('OE - Operating Expense, VRM - Vehicle Revenue Mile, VRH - Vehicle Revenue Hour, UPT - Unlinked Passenger Trips',
-                                                           style=paragraph_styles),
+                                                    html.P(
+                                                        'OE - Operating Expense, VRM - Vehicle Revenue Mile, VRH - Vehicle Revenue Hour, UPT - Unlinked Passenger Trips',
+                                                        style=paragraph_styles),
 
                                                 ]
                                             ),
@@ -726,7 +735,7 @@ def init_dashboard(server):
                                                     html.P('Vehicle Revenue Miles',
                                                            style=paragraph_styles),
                                                     dcc.Graph(
-                                                       id='vrmByRegion-table'),
+                                                        id='vrmByRegion-table'),
                                                     html.Br(),
                                                     html.P('Vehicle Revenue Hours',
                                                            style=paragraph_styles),
@@ -780,8 +789,9 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='agencyPerformanceByRegion-table'),
                                                     html.Br(),
-                                                    html.P('Note: VRM = Vehicle Revenue Miles, VRH = Vehicle Revenue Hours',
-                                                           style=paragraph_styles),
+                                                    html.P(
+                                                        'Note: VRM = Vehicle Revenue Miles, VRH = Vehicle Revenue Hours',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                         ], style=tabs_styles),
@@ -882,7 +892,8 @@ def init_dashboard(server):
                                                 selected_style=tab_selected_style,
                                                 children=[
                                                     html.Br(),
-                                                    html.P('Funds Expended on Operations by Source', style=paragraph_styles),
+                                                    html.P('Funds Expended on Operations by Source',
+                                                           style=paragraph_styles),
                                                     dcc.Graph(
                                                         id='financialOnOperationsByState-table'),
                                                     html.Br(),
@@ -913,9 +924,10 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='performanceMeasuresByState-table'),
                                                     html.Br(),
-                                                    html.P('Note:',style=paragraph_styles),
-                                                    html.P('VRM - Vehicle Revenue Mile,VRH - Vehicle Revenue Hour, FR - Fixed-Route, DR - Demand-Response, OE - Operating Expense',
-                                                           style=paragraph_styles),
+                                                    html.P('Note:', style=paragraph_styles),
+                                                    html.P(
+                                                        'VRM - Vehicle Revenue Mile,VRH - Vehicle Revenue Hour, FR - Fixed-Route, DR - Demand-Response, OE - Operating Expense',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
