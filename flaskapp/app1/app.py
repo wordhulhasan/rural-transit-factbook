@@ -1077,6 +1077,17 @@ def init_dashboard(server):
                                                     html.Br(),
                                                 ]
                                             ),
+                                            dcc.Tab(
+                                                label='Tribal Transit Performance Measures, Median Agency Values',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='performanceMeasureMedianByTribal-table'),
+                                                    html.Br(),
+                                                ]
+                                            ),
                                         ], style=tabs_styles),
 
                                     ]

@@ -30,7 +30,8 @@ from util import vehicle_colors, revenue_vehicles, fleet_composition, \
     statRidershipYearlyByTribal, statVrmYearlyByTribal, statVrhYearlyByTribal, \
     statVehiclesByTribal, statFleetStatisticsByTribal, statTripsPerVehicleByTribal, statVRMPerVehicleByTribal, statVRHPerVehicleByTribal, \
     statTripsPerVrmByTribal, statTripsPerVrhByTribal, statOperatingExpensePerTripByTribal, \
-    statOperatingExpensePerVrmByTribal, statOperatingExpensePerVrhByTribal, statFareboxRecoveryRatioByTribal
+    statOperatingExpensePerVrmByTribal, statOperatingExpensePerVrhByTribal, statFareboxRecoveryRatioByTribal, \
+    statPerformanceMeasureMedianByTribal
 
 from .data import init_data
 
@@ -56,7 +57,8 @@ def init_callbacks(dash_app):
     dataRidershipYearlyByTribal, dataVrmYearlyByTribal, dataVrhYearlyByTribal, \
     dataVehiclesByTribal,dataFleetStatisticsByTribal,dataTripsPerVehicleByTribal, dataVRMPerVehicleByTribal, dataVRHPerVehicleByTribal,\
     dataTripsPerVrmByTribal, dataTripsPerVrhByTribal, dataOperatingExpensePerTripByTribal, \
-    dataOperatingExpensePerVrmByTribal, dataOperatingExpensePerVrhByTribal, dataFareboxRecoveryRatioByTribal,\
+    dataOperatingExpensePerVrmByTribal, dataOperatingExpensePerVrhByTribal, dataFareboxRecoveryRatioByTribal, \
+    dataPerformanceMeasureMedianByTribal,\
     dataStatforAgenciesRankedByVRM, datastatForDemandResponseRankedByVRM, datastatForFixedRouteRankedByVRM, \
     dataStatforAgenciesRankedByVRH, datastatForDemandResponseRankedByVRH, datastatForFixedRouteRankedByVRH, \
     dataStatforAgenciesRankedByRidership, datastatForDemandResponseRankedByRidership, datastatForFixedRouteRankedByRidership \
@@ -761,6 +763,14 @@ def init_callbacks(dash_app):
                         Input('agency-dropdown', 'value')])
     def frrbt(state, agency):
         df = statFareboxRecoveryRatioByTribal(dataFareboxRecoveryRatioByTribal)
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('performanceMeasureMedianByTribal-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value')])
+    def pmmbt(state, agency):
+        df = statPerformanceMeasureMedianByTribal(dataPerformanceMeasureMedianByTribal)
         fig = ff.create_table(df)
         return fig
 
