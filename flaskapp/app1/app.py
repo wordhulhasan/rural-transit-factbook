@@ -88,7 +88,7 @@ def init_dashboard(server):
                     # dbc.Label("NDSU Upper Great Plains Transportation Institute",
                     #           style={"color": "white"}),
                     dbc.NavLink(
-                        "NDSU Upper Great Plains Transportation Institute   |    Small Urban and Rural Transit Center on Mobility",
+                        "NDSU Upper Great Plains Transportation Institute   |    Small Urban and Rural Transit Center on Mobility (SURCOM)",
                         href="/",
                         style={"align": "center", "color": "white"}),
                     html.A('Home',
@@ -174,6 +174,51 @@ def init_dashboard(server):
                                         html.Br(),
                                         dcc.Graph(id='revenue-vehicles', config={'displayModeBar': False},
                                                   animate=True),
+                                    ]
+                                ),
+                                dcc.Tab(
+                                    label=' Rural Transit Financial Statistics',
+                                    style=tab_style,
+                                    selected_style=tab_selected_style,
+                                    children=[
+                                        html.H3(
+                                            ''),
+                                        html.P(
+                                            '',
+                                            style=paragraph_styles),
+                                        html.Br(),
+
+                                        dcc.Tabs([
+                                            dcc.Tab(
+                                                label='Rural Transit Financial Statistics',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Dropdown(
+                                                        id='source-of-funding-dropdown',
+                                                        options=[
+                                                            {
+                                                                'label': 'Capital Funding',
+                                                                'value': 'capital'},
+                                                            {
+                                                                'label': 'Operating Funding',
+                                                                'value': 'operating'}
+                                                        ],
+                                                        value='capital',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='source_of_funding-table'),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2015-2019',
+                                                        style=paragraph_styles),
+                                                ]
+                                            ),
+                                        ], style=tabs_styles),
                                     ]
                                 ),
                                 dcc.Tab(
@@ -600,7 +645,7 @@ def init_dashboard(server):
                                                         'Source: National Transit Database, 2019',
                                                         style=paragraph_styles),
                                                     html.P(
-                                                        'Note: VRH - Vehicle Revenue Hours, VRM - Vehicle Revenue Miles, UPT - Unlinked Passenger Trips, OE - Operating Expenses',
+                                                        'Note: VRH - Vehicle Revenue Hours, VRM - Vehicle Revenue Miles, UPT - Unlinked Passenger Trips, OE - Operating Expenses, Avg-Average',
                                                         style=paragraph_styles),
                                                 ]
                                             ),
@@ -803,20 +848,27 @@ def init_dashboard(server):
                                                 selected_style=tab_selected_style,
                                                 children=[
                                                     html.Br(),
-                                                    html.P('Ridership', style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='ridershipByState-table'),
+                                                    dcc.Dropdown(
+                                                        id='operating-statistics-dropdown',
+                                                        options=[
+                                                            {
+                                                                'label':'Ridership',
+                                                                'value':'ridership'},
+                                                            {
+                                                                'label': 'Vehicle Revenue Miles',
+                                                                'value': 'vrm'},
+                                                            {
+                                                                'label': 'Vehicle Revenue Hours',
+                                                                'value': 'vrh'},
+                                                        ],
+                                                        value='ridership',
+                                                        style={'width': '60%', 'margin': '0 0 0','padding-left': '100px'}
+                                                    ),
                                                     html.Br(),
-                                                    html.P('Vehicle Revenue Miles',
-                                                           style=paragraph_styles),
                                                     dcc.Graph(
-                                                        id='vrmByState-table'),
+                                                        id='operating-statistics-table'),
                                                     html.Br(),
-                                                    html.P('Vehicle Revenue Hours',
-                                                           style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='vrhByState-table'),
-                                                    html.Br(),
+                                                    html.P('Source: National Transit Database', style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(

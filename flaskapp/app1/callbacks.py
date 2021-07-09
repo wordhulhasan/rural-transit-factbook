@@ -15,6 +15,7 @@ from util import vehicle_colors, revenue_vehicles, fleet_composition, \
     statisticsForFixedRouteRankedByRidership, statVehiclesByMode, statFleetByMode, statAdaAccessible, statVehicleAge,\
 	statVehicleLength, statSeatingCapacity, statVehicleOwnership, statFundingSource, \
 	statRidershipByYear, statVrmByYear, statVrhByYear, statRidershipByRank, statVrmByRank, statVrhByRank, \
+    statCapitalFunding, statOperatingFunding,\
     statTripsPerMile, statTripsPerHour, statTripsMilesHoursPerVehicle, statOperatingExpensePerTrip, \
     statOperatingExpensePerVehicleMile, statOperatingExpensePerVehicleHour, statFareboxRecoveryRatio, \
     statPercentileTotal, statPercentileFixedRoute, statPercentileDemandResponse, \
@@ -39,6 +40,7 @@ from .data import init_data
 def init_callbacks(dash_app):
     # callbacks
     data1, data2, data3, dataRidershipByYear, dataVrmByYear, dataVrhByYear, dataRidershipByRank, dataVrmByRank, dataVrhByRank, \
+    dataCapitalFunding, dataOperatingFunding,\
 	dataVehiclesByMode, dataFleetByMode, dataAdaAccessible, dataVehicleAge, dataVehicleLength, \
 	dataSeatingCapacity, dataVehicleOwnership, dataFundingSource, dataTripsPerMile, dataTripsPerHour, dataTripsMilesHoursPerVehicle, \
     dataOperatingExpensePerTrip, dataOperatingExpensePerVehicleMile, dataOperatingExpensePerVehicleHour, dataFareboxRecoveryRatio, \
@@ -158,8 +160,8 @@ def init_callbacks(dash_app):
             df = vehicle_revenue_miles(data3, state, agency)
             fig = px.bar(df, x='mode', y='vehicle_revenue_miles', text='vehicle_revenue_miles',
                          color='mode',
-                         color_discrete_map=mode_colors, title='Vehicle Revenue Miles',
-                         labels={"mode": "mode", "vehicle_revenue_miles": "Vehicle Revenue Miles"},
+                         color_discrete_map=mode_colors, title='Vehicle Revenue Miles by Vehicle Mode',
+                         labels={"mode": "Vehicle Mode", "vehicle_revenue_miles": "Vehicle Revenue Miles"},
                          template='simple_white',
                          )
 
@@ -177,8 +179,8 @@ def init_callbacks(dash_app):
             df = vehicle_revenue_hours(data3, state, agency)
             fig = px.bar(df, x='mode', y='vehicle_revenue_hours', text='vehicle_revenue_hours',
                          color='mode',
-                         color_discrete_map=mode_colors, title='Vehicle Revenue Hours',
-                         labels={"mode": "mode", "vehicle_revenue_hours": "Vehicle Revenue Hours"},
+                         color_discrete_map=mode_colors, title='Vehicle Revenue Hours by Vehicle Mode',
+                         labels={"mode": "Vehicle Mode", "vehicle_revenue_hours": "Vehicle Revenue Hours"},
                          template='simple_white',
                          )
 
@@ -196,8 +198,8 @@ def init_callbacks(dash_app):
             df = unlinked_passenger_trips(data3, state, agency)
             fig = px.bar(df, x='mode', y='unlinked_passenger_trips', text='unlinked_passenger_trips',
                          color='mode',
-                         color_discrete_map=mode_colors, title='Unlinked Passenger Trips',
-                         labels={"mode": "mode", "unlinked_passenger_trips": "unlinked_passenger_trips"},
+                         color_discrete_map=mode_colors, title='Ridership by Vehicle Mode',
+                         labels={"mode": "Vehicle Mode", "unlinked_passenger_trips": "Ridership"},
                          template='simple_white',
                          )
 
@@ -241,6 +243,22 @@ def init_callbacks(dash_app):
             df = statVrhByRank(dataVrhByRank)
         else:
             df = statVrmByRank(dataVrmByRank)
+
+        fig = ff.create_table(df)
+        return fig
+
+    @dash_app.callback(Output('source_of_funding-table', 'figure'),
+                       [Input('state-selector', 'value'),
+                        Input('agency-dropdown', 'value'),
+                        Input('source-of-funding-dropdown', 'value')]
+                       )
+    def statSourceOfFunding(state, agency, statdropdown):
+        if statdropdown == "capital":
+            df = statCapitalFunding(dataCapitalFunding)
+#        elif statdropdown == "operating":
+#            df = statOperatingFunding(dataOperatingFunding)
+        else:
+            df = statOperatingFunding(dataOperatingFunding)
 
         fig = ff.create_table(df)
         return fig
@@ -486,27 +504,19 @@ def init_callbacks(dash_app):
         fig = ff.create_table(df)
         return fig
 
-    @dash_app.callback(Output('ridershipByState-table', 'figure'),
+    @dash_app.callback(Output('operating-statistics-table', 'figure'),
                        [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def rbs(state, agency):
-        df = statRidershipByState(dataRidershipByState)
-        fig = ff.create_table(df)
-        return fig
+                        Input('agency-dropdown', 'value'),
+                        Input('operating-statistics-dropdown', 'value')]
+                       )
+    def statOperatingStatisticsByState(state, agency, statdropdown):
+        if statdropdown == "ridership":
+            df = statRidershipByState(dataRidershipByState)
+        elif statdropdown == "vrm":
+            df = statVrmByState(dataVrmByState)
+        else:
+            df = statVrhByState(dataVrhByState)
 
-    @dash_app.callback(Output('vrmByState-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def rbvrm(state, agency):
-        df = statVrmByState(dataVrmByState)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('vrhByState-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def rbvrh(state, agency):
-        df = statVrhByState(dataVrhByState)
         fig = ff.create_table(df)
         return fig
 

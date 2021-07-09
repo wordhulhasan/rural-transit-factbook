@@ -132,6 +132,16 @@ def statVrhByRank(dataframe):
 	df.columns = ['Percentile','Fixed-Route','Demand-response','Total']
 	return df
 
+def statCapitalFunding(dataframe):
+	df = dataframe[['funding_source','2015','2016','2017','2018','2019','change_2018_2019']]
+	df.columns = ['Funding Source','2015','2016','2017','2018','2019','% Change 2018-2019']
+	return df
+
+def statOperatingFunding(dataframe):
+	df = dataframe[['funding_source','2015','2016','2017','2018','2019','change_2018_2019']]
+	df.columns = ['Funding Source','2015','2016','2017','2018','2019','% Change 2018-2019']
+	return df
+
 def statVehiclesByMode(dataframe):
 	df = dataframe[['vehicle_type','demand_response','fixed_route','commuter_bus','vanpool','demand_response_taxi','total']]
 	df = df.dropna()
@@ -314,19 +324,16 @@ def statAgencyPerformanceByRegion(dataframe):
 
 def statRidershipByState(dataframe):
 	df = dataframe[['state','total','fixed_route','demand_response','other']]
-	df = df.dropna()
 	df.columns = ['State','Total','Fixed-Route','Demand-Response','Other']
 	return df
 
 def statVrmByState(dataframe):
 	df = dataframe[['state','total','fixed_route','demand_response','other']]
-	df = df.dropna()
 	df.columns = ['State','Total','Fixed-Route','Demand-Response','Other']
 	return df
 
 def statVrhByState(dataframe):
 	df = dataframe[['state','total','fixed_route','demand_response','other']]
-	df = df.dropna()
 	df.columns = ['State','Total','Fixed-Route','Demand-Response','Other']
 	return df
 
