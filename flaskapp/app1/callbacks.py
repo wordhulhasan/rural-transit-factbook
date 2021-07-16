@@ -415,28 +415,41 @@ def init_callbacks(dash_app):
         df = statAgenciesByRegion(dataAgenciesByRegion)
         fig = ff.create_table(df)
         return fig
-
-    @dash_app.callback(Output('ridershipByRegion-table', 'figure'),
+    @dash_app.callback(Output('region-operating-table', 'figure'),
                        [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def rbr(state, agency):
-        df = statRidershipByRegion(dataRidershipByRegion)
+                        Input('agency-dropdown', 'value'),
+                        Input('region-operating-dropdown', 'value')]
+                       )
+    def statRegionOperating(state, agency, statdropdown):
+        if statdropdown == "ridership":
+            df = statRidershipByRegion(dataRidershipByRegion)
+        elif statdropdown == "vrm":
+            df = statVrmByRegion(dataVrmByRegion)
+        else:
+            df = statVrhByRegion(dataVrhByRegion)
+
         fig = ff.create_table(df)
         return fig
 
-    @dash_app.callback(Output('vrmByRegion-table', 'figure'),
+    @dash_app.callback(Output('region-performance-measures-table', 'figure'),
                        [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def vrmbr(state, agency):
-        df = statVrmByRegion(dataVrmByRegion)
-        fig = ff.create_table(df)
-        return fig
+                        Input('agency-dropdown', 'value'),
+                        Input('region-performance-measures-dropdown', 'value')]
+                       )
+    def statRegionPerformanceMeasure(state, agency, statdropdown):
+        if statdropdown == "kpm":
+            df = statPerformanceByRegion(dataPerformanceByRegion)
+        elif statdropdown == "trip_vrm":
+            df = statTripsPerVRMByRegion(dataTripsPerVRMByRegion)
+        elif statdropdown == "trip_vrh":
+            df = statTripsPerVRHByRegion(dataTripsPerVRHByRegion)
+        elif statdropdown == "oe_trip":
+            df = statOperatingPerTripByRegion(dataOperatingPerTripByRegion)
+        elif statdropdown == "oe_vrm":
+            df = statOperatingPerVRMByRegion(dataOperatingPerVRMByRegion)
+        else:
+            df = statOperatingPerVRHByRegion(dataOperatingPerVRHByRegion)
 
-    @dash_app.callback(Output('vrhByRegion-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def vrhbr(state, agency):
-        df = statVrhByRegion(dataVrhByRegion)
         fig = ff.create_table(df)
         return fig
 
@@ -445,54 +458,6 @@ def init_callbacks(dash_app):
                         Input('agency-dropdown', 'value')])
     def vbr(state, agency):
         df = statVehiclesByRegion(dataVehiclesByRegion)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('performanceByRegion-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def pbr(state, agency):
-        df = statPerformanceByRegion(dataPerformanceByRegion)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('tripsPerVRMByRegion-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def tpvrmbr(state, agency):
-        df = statTripsPerVRMByRegion(dataTripsPerVRMByRegion)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('tripsPerVRHByRegion-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def tpvrhbr(state, agency):
-        df = statTripsPerVRHByRegion(dataTripsPerVRHByRegion)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('operatingPerTripByRegion-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def optbr(state, agency):
-        df = statOperatingPerTripByRegion(dataOperatingPerTripByRegion)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('operatingPerVRMByRegion-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def opvrmbr(state, agency):
-        df = statOperatingPerVRMByRegion(dataOperatingPerVRMByRegion)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('operatingPerVRHByRegion-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def opvrhbr(state, agency):
-        df = statOperatingPerVRHByRegion(dataOperatingPerVRHByRegion)
         fig = ff.create_table(df)
         return fig
 
@@ -679,54 +644,6 @@ def init_callbacks(dash_app):
 
         fig = ff.create_table(df)
         return fig
-
-#    @dash_app.callback(Output('tripsPerVrmByTribal-table', 'figure'),
-#                       [Input('state-selector', 'value'),
-#                        Input('agency-dropdown', 'value')])
-#    def tpvrmbt(state, agency):
-#        df = statTripsPerVrmByTribal(dataTripsPerVrmByTribal)
-#        fig = ff.create_table(df)
-#        return fig
-
-#    @dash_app.callback(Output('tripsPerVrhByTribal-table', 'figure'),
-#                       [Input('state-selector', 'value'),
-#                        Input('agency-dropdown', 'value')])
-#    def tpvrhbt(state, agency):
-#        df = statTripsPerVrhByTribal(dataTripsPerVrhByTribal)
-#        fig = ff.create_table(df)
-#        return fig
-
-#    @dash_app.callback(Output('operatingExpensePerTripByTribal-table', 'figure'),
-#                       [Input('state-selector', 'value'),
-#                        Input('agency-dropdown', 'value')])
-#    def oeptbt(state, agency):
-#        df = statOperatingExpensePerTripByTribal(dataOperatingExpensePerTripByTribal)
-#        fig = ff.create_table(df)
-#        return fig
-
-#    @dash_app.callback(Output('operatingExpensePerVrmByTribal-table', 'figure'),
-#                       [Input('state-selector', 'value'),
-#                        Input('agency-dropdown', 'value')])
-#    def oepvrmbt(state, agency):
-#        df = statOperatingExpensePerVrmByTribal(dataOperatingExpensePerVrmByTribal)
-#        fig = ff.create_table(df)
-#        return fig
-
-#    @dash_app.callback(Output('operatingExpensePerVrhByTribal-table', 'figure'),
-#                       [Input('state-selector', 'value'),
-#                        Input('agency-dropdown', 'value')])
-#    def oepvrhbt(state, agency):
-#        df = statOperatingExpensePerVrhByTribal(dataOperatingExpensePerVrhByTribal)
-#        fig = ff.create_table(df)
-#        return fig
-
-#    @dash_app.callback(Output('fareboxRecoveryRatioByTribal-table', 'figure'),
-#                       [Input('state-selector', 'value'),
-#                        Input('agency-dropdown', 'value')])
-#    def frrbt(state, agency):
-#        df = statFareboxRecoveryRatioByTribal(dataFareboxRecoveryRatioByTribal)
-#        fig = ff.create_table(df)
-#        return fig
 
     @dash_app.callback(Output('performanceMeasureMedianByTribal-table', 'figure'),
                        [Input('state-selector', 'value'),

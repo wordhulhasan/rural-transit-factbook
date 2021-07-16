@@ -761,20 +761,29 @@ def init_dashboard(server):
                                                 selected_style=tab_selected_style,
                                                 children=[
                                                     html.Br(),
-                                                    html.P('Ridership', style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='ridershipByRegion-table'),
+                                                    dcc.Dropdown(
+                                                        id='region-operating-dropdown',
+                                                        options=[
+                                                            {
+                                                                'label': 'Ridership',
+                                                                'value': 'ridership'},
+                                                            {
+                                                                'label': 'Vehicle Revenue Miles',
+                                                                'value': 'vrm'},
+                                                            {
+                                                                'label': 'Vehicle Revenue Hours',
+                                                                'value': 'vrh'},
+                                                        ],
+                                                        value='ridership',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
                                                     html.Br(),
-                                                    html.P('Vehicle Revenue Miles',
+                                                    dcc.Graph(
+                                                        id='region-operating-table'),
+                                                    html.Br(),
+                                                    html.P('Source: National Transit Database',
                                                            style=paragraph_styles),
-                                                    dcc.Graph(
-                                                       id='vrmByRegion-table'),
-                                                    html.Br(),
-                                                    html.P('Vehicle Revenue Hours',
-                                                           style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='vrhByRegion-table'),
-                                                    html.Br(),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -783,34 +792,38 @@ def init_dashboard(server):
                                                 selected_style=tab_selected_style,
                                                 children=[
                                                     html.Br(),
-                                                    html.P('Key Performance Measures', style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='performanceByRegion-table'),
+                                                    dcc.Dropdown(
+                                                        id='region-performance-measures-dropdown',
+                                                        options=[
+                                                            {
+                                                                'label': 'Key Performance Measures',
+                                                                'value': 'kpm'},
+                                                            {
+                                                                'label': 'Trips per Vehicle Revenue Miles',
+                                                                'value': 'trip_vrm'},
+                                                            {
+                                                                'label': 'Trips per Vehicle Revenue Hours',
+                                                                'value': 'trips_vrh'},
+                                                            {
+                                                                'label': 'Operating Expense per Trip',
+                                                                'value': 'oe_trip'},
+                                                            {
+                                                                'label': 'Operating Expense per Vehicle Revenue Miles',
+                                                                'value': 'oe_vrm'},
+                                                            {
+                                                                'label': 'Operating Expense per Vehicle Revenue Hours',
+                                                                'value': 'oe_vrh'},
+                                                        ],
+                                                        value='kpm',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
                                                     html.Br(),
-                                                    html.P('Trips per Vehicle Revenue Miles',
-                                                           style=paragraph_styles),
                                                     dcc.Graph(
-                                                        id='tripsPerVRMByRegion-table'),
+                                                        id='region-performance-measures-table'),
                                                     html.Br(),
-                                                    html.P('Trips per Vehicle Revenue Hours',
+                                                    html.P('Source: National Transit Database',
                                                            style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='tripsPerVRHByRegion-table'),
-                                                    html.Br(),
-                                                    html.P('Operating Expense per Trip',
-                                                           style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='operatingPerTripByRegion-table'),
-                                                    html.Br(),
-                                                    html.P('Operating Expense per Vehicle Revenue Miles',
-                                                           style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='operatingPerVRMByRegion-table'),
-                                                    html.Br(),
-                                                    html.P('Operating Expense per Vehicle Revenue Hours',
-                                                           style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='operatingPerVRHByRegion-table'),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -1171,44 +1184,6 @@ def init_dashboard(server):
                                                     html.P('Source: National Transit Database', style=paragraph_styles),
                                                 ]
                                             ),
-#                                            dcc.Tab(
-#                                                label='Tribal Transit Performance Measures',
-#                                                style=tab_style,
-#                                                selected_style=tab_selected_style,
-#                                                children=[
-#                                                    html.Br(),
-#                                                    html.P('Trips per Vehicle Revenue Mile',
-#                                                           style=paragraph_styles),
-#                                                    dcc.Graph(
-#                                                        id='tripsPerVrmByTribal-table'),
-#                                                    html.Br(),
-#                                                    html.P('Trips per Vehicle Revenue Hour',
-#                                                           style=paragraph_styles),
-#                                                    dcc.Graph(
-#                                                        id='tripsPerVrhByTribal-table'),
-#                                                    html.Br(),
-#                                                    html.P('Operating Expense Per Trip',
-#                                                           style=paragraph_styles),
-#                                                    dcc.Graph(
-#                                                        id='operatingExpensePerTripByTribal-table'),
-#                                                    html.Br(),
-#                                                    html.P('Operating Expense per Vehicle Revenue Mile',
-#                                                           style=paragraph_styles),
-#                                                    dcc.Graph(
-#                                                        id='operatingExpensePerVrmByTribal-table'),
-#                                                    html.Br(),
-#                                                    html.P('Operating Expense per Vehicle Revenue Hour',
-#                                                           style=paragraph_styles),
-#                                                    dcc.Graph(
-#                                                        id='operatingExpensePerVrhByTribal-table'),
-#                                                    html.Br(),
-#                                                    html.P('Farebox Recovery Ratio',
-#                                                           style=paragraph_styles),
-#                                                    dcc.Graph(
-#                                                        id='fareboxRecoveryRatioByTribal-table'),
-#                                                    html.Br(),
-#                                                ]
-#                                            ),
                                             dcc.Tab(
                                                 label='Tribal Transit Performance Measures, Median Agency Values',
                                                 style=tab_style,
