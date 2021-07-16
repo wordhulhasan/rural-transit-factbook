@@ -520,83 +520,53 @@ def init_callbacks(dash_app):
         fig = ff.create_table(df)
         return fig
 
-    @dash_app.callback(Output('ridershipTotalYearlyByState-table', 'figure'),
+    @dash_app.callback(Output('state-ridership-table', 'figure'),
                        [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def rtybs(state, agency):
-        df = statRidershipTotalYearlyByState(dataRidershipTotalYearlyByState)
+                        Input('agency-dropdown', 'value'),
+                        Input('state-ridership-dropdown', 'value')]
+                       )
+    def statOperatingStatisticsByState(state, agency, statdropdown):
+        if statdropdown == "total":
+            df = statRidershipTotalYearlyByState(dataRidershipTotalYearlyByState)
+        elif statdropdown == "fr":
+            df = statRidershipFRYearlyByState(dataRidershipFRYearlyByState)
+        elif statdropdown == "dr":
+            df = statRidershipDRYearlyByState(dataRidershipDRYearlyByState)
+        else:
+            df = statRidershipOtherYearlyByState(dataRidershipOtherYearlyByState)
+
         fig = ff.create_table(df)
         return fig
 
-    @dash_app.callback(Output('ridershipFRYearlyByState-table', 'figure'),
+    @dash_app.callback(Output('state-vrm-table', 'figure'),
                        [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def rfrybs(state, agency):
-        df = statRidershipFRYearlyByState(dataRidershipFRYearlyByState)
+                        Input('agency-dropdown', 'value'),
+                        Input('state-vrm-dropdown', 'value')]
+                       )
+    def statOperatingStatisticsByState(state, agency, statdropdown):
+        if statdropdown == "total":
+            df = statVrmTotalYearlyByState(dataVrmTotalYearlyByState)
+        elif statdropdown == "fr":
+            df = statVrmFrsYearlyByState(dataVrmFrsYearlyByState)
+        elif statdropdown == "dr":
+            df = statVrmDrsYearlyByState(dataVrmDrsYearlyByState)
+        else:
+            df = statVrmOtherYearlyByState(dataVrmOtherYearlyByState)
+
         fig = ff.create_table(df)
         return fig
 
-    @dash_app.callback(Output('ridershipDRYearlyByState-table', 'figure'),
+    @dash_app.callback(Output('state-financial-table', 'figure'),
                        [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def rdrybs(state, agency):
-        df = statRidershipDRYearlyByState(dataRidershipDRYearlyByState)
-        fig = ff.create_table(df)
-        return fig
+                        Input('agency-dropdown', 'value'),
+                        Input('state-financial-dropdown', 'value')]
+                       )
+    def statOperatingStatisticsByState(state, agency, statdropdown):
+        if statdropdown == "operations":
+            df = statFinancialOnOperationsByState(dataFinancialOnOperationsByState)
+        else:
+            df = statFinancialOnCapitalByState(dataFinancialOnCapitalByState)
 
-    @dash_app.callback(Output('ridershipOtherYearlyByState-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def rorybs(state, agency):
-        df = statRidershipOtherYearlyByState(dataRidershipOtherYearlyByState)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('vrmTotalYearlyByState-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def vtybs(state, agency):
-        df = statVrmTotalYearlyByState(dataVrmTotalYearlyByState)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('vrmFrsYearlyByState-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def vfybs(state, agency):
-        df = statVrmFrsYearlyByState(dataVrmFrsYearlyByState)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('vrmDrsYearlyByState-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def vdybs(state, agency):
-        df = statVrmDrsYearlyByState(dataVrmDrsYearlyByState)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('vrmOtherYearlyByState-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def voybs(state, agency):
-        df = statVrmOtherYearlyByState(dataVrmOtherYearlyByState)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('financialOnOperationsByState-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def foobs(state, agency):
-        df = statFinancialOnOperationsByState(dataFinancialOnOperationsByState)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('financialOnCapitalByState-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def focbs(state, agency):
-        df = statFinancialOnCapitalByState(dataFinancialOnCapitalByState)
         fig = ff.create_table(df)
         return fig
 
@@ -624,27 +594,19 @@ def init_callbacks(dash_app):
         fig = ff.create_table(df)
         return fig
 
-    @dash_app.callback(Output('agencyPercentileRidershipByState-table', 'figure'),
+    @dash_app.callback(Output('state-percentile-table', 'figure'),
                        [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def aprbs(state, agency):
-        df = statAgencyPercentileRidershipByState(dataAgencyPercentileRidershipByState)
-        fig = ff.create_table(df)
-        return fig
+                        Input('agency-dropdown', 'value'),
+                        Input('state-percentile-dropdown', 'value')]
+                       )
+    def statOperatingStatisticsByState(state, agency, statdropdown):
+        if statdropdown == "ridership":
+            df = statAgencyPercentileRidershipByState(dataAgencyPercentileRidershipByState)
+        elif statdropdown == "vrm":
+            df = statAgencyPercentileVrmByState(dataAgencyPercentileVrmByState)
+        else:
+            df = statAgencyPercentileVrhByState(dataAgencyPercentileVrhByState)
 
-    @dash_app.callback(Output('agencyPercentileVrmByState-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def apvrmbs(state, agency):
-        df = statAgencyPercentileVrmByState(dataAgencyPercentileVrmByState)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('agencyPercentileVrhByState-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def apvrhbs(state, agency):
-        df = statAgencyPercentileVrhByState(dataAgencyPercentileVrhByState)
         fig = ff.create_table(df)
         return fig
 
