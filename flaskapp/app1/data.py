@@ -81,7 +81,7 @@ def init_data():
 
     dataRidershipYearlyByTribal = preprocess('data/Table 57Ridership.csv')
     dataVrmYearlyByTribal = preprocess('data/Table 57VRM.csv')
-    dataVrhYearlyByTribal = preprocess('data/Table 57VRM.csv')
+    dataVrhYearlyByTribal = preprocess('data/Table 57VRH.csv')
 
     dataVehiclesByTribal = preprocess('data/Table 58Vehicles.csv')
     dataFleetStatisticsByTribal = preprocess('data/Table 58Fleet.csv')
