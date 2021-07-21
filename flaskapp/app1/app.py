@@ -273,7 +273,7 @@ def init_dashboard(server):
                                                         ],
                                                         value='ridership',
                                                         style={'width': '60%', 'margin': '0 0 0',
-                                                               'padding-left': '100px'}
+                                                               'padding-left': '100px'},
                                                     ),
                                                     html.Br(),
                                                     html.Br(),
@@ -401,6 +401,10 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     dcc.Graph(
                                                         id='vehicle_by_mode-table'),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2019',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -411,6 +415,10 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     dcc.Graph(
                                                         id='fleet_by_mode-table'),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2019',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -421,6 +429,10 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     dcc.Graph(
                                                         id='adaAccessible-table'),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2019',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -431,6 +443,10 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     dcc.Graph(
                                                         id='vehicleAge-table'),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2019',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -441,6 +457,10 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     dcc.Graph(
                                                         id='vehicleLenght-table'),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2019',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -451,6 +471,10 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     dcc.Graph(
                                                         id='seatingCapacity-table'),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2019',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -461,6 +485,10 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     dcc.Graph(
                                                         id='vehicleOwnership-table'),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2019',
+                                                        style=paragraph_styles),
                                                     html.Br(),
                                                     html.P(
                                                         'Note:',
@@ -497,6 +525,29 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     dcc.Graph(
                                                         id='fundingSource-table'),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2019',
+                                                        style=paragraph_styles),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Note:',
+                                                        style=paragraph_styles),
+                                                    html.P(
+                                                        'RAFP - Rural Area Formula Program',
+                                                        style=paragraph_styles),
+                                                    html.P(
+                                                        'EMSID - Enhanced Mobility of Seniors & Individuals with Disabilities',
+                                                        style=paragraph_styles),
+                                                    html.P(
+                                                        'OFF - Other Federal Funds',
+                                                        style=paragraph_styles),
+                                                    html.P(
+                                                        'NFPF - Non-Federal Public Funds',
+                                                        style=paragraph_styles),
+                                                    html.P(
+                                                        'NFPRF - Non-Federal Private Funds',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                         ], style=tabs_styles),
@@ -523,6 +574,10 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     dcc.Graph(
                                                         id='tripsPerMile-table'),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2015-2019',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -533,6 +588,10 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     dcc.Graph(
                                                         id='tripsPerHour-table'),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2015-2019',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -543,6 +602,10 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     dcc.Graph(
                                                         id='tripsMilesHoursPerVehicle-table'),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2019',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -551,23 +614,33 @@ def init_dashboard(server):
                                                 selected_style=tab_selected_style,
                                                 children=[
                                                     html.Br(),
-                                                    html.P('Operating Expense per Trip',style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='operatingExpensePerTrip-table'),
+                                                    dcc.Dropdown(
+                                                        id='kpm-by-year-dropdown',
+                                                        options=[
+                                                            {
+                                                                'label': 'Operating Expense per Trip',
+                                                                'value': 'operating_trip'},
+                                                            {
+                                                                'label': 'Operating Expense per Vehicle Mile',
+                                                                'value': 'operating_mile'},
+                                                            {
+                                                                'label': 'Operating Expense per Vehicle Hour',
+                                                                'value': 'operating_hour'},
+                                                            {
+                                                                'label': 'Farebox Recovery Ratio',
+                                                                'value': 'frr'}
+                                                        ],
+                                                        value='operating_trip',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
                                                     html.Br(),
-                                                    html.P('Operating Expense per Vehicle Mile', style=paragraph_styles),
                                                     dcc.Graph(
-                                                        id='operatingExpensePerVehicleMile-table'),
+                                                        id='kpm-by-year-table'),
                                                     html.Br(),
-                                                    html.P('Operating Expense per Vehicle Hour',
-                                                           style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='operatingExpensePerVehicleHour-table'),
-                                                    html.Br(),
-                                                    html.P('Farebox Recovery Ratio',
-                                                           style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='fareboxRecoveryRatio-table'),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2016-2019',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -576,25 +649,36 @@ def init_dashboard(server):
                                                 selected_style=tab_selected_style,
                                                 children=[
                                                     html.Br(),
-                                                    html.P('Total', style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='percentileTotal-table'),
+                                                    dcc.Dropdown(
+                                                        id='performance-percentile-dropdown',
+                                                        options=[
+                                                            {
+                                                                'label': 'Total',
+                                                                'value': 'total'},
+                                                            {
+                                                                'label': 'Fixed-route',
+                                                                'value': 'fr'},
+                                                            {
+                                                                'label': 'Demand-response',
+                                                                'value': 'dr'},
+                                                        ],
+                                                        value='total',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
                                                     html.Br(),
-                                                    html.P('Fixed-route',
-                                                           style=paragraph_styles),
                                                     dcc.Graph(
-                                                        id='percentileFixedRoute-table'),
+                                                        id='performance-percentile-table'),
                                                     html.Br(),
-                                                    html.P('Demand-response',
-                                                           style=paragraph_styles),
-                                                    dcc.Graph(
-                                                        id='percentileDemandResponse-table'),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2019',
+                                                        style=paragraph_styles),
                                                     html.Br(),
                                                     html.P('Note:',
                                                            style=paragraph_styles),
-                                                    html.P('OE - Operating Expense, VRM - Vehicle Revenue Mile, VRH - Vehicle Revenue Hour, UPT - Unlinked Passenger Trips',
-                                                           style=paragraph_styles),
-
+                                                    html.P(
+                                                        'OE - Operating Expense, VRM - Vehicle Revenue Mile, VRH - Vehicle Revenue Hour, UPT - Unlinked Passenger Trips',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                         ], style=tabs_styles),
@@ -743,6 +827,10 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     dcc.Graph(
                                                         id='agenciesByRegion-table'),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2019',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -753,6 +841,10 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     dcc.Graph(
                                                         id='vehiclesByRegion-table'),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2019',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -782,7 +874,7 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='region-operating-table'),
                                                     html.Br(),
-                                                    html.P('Source: National Transit Database',
+                                                    html.P('Source: National Transit Database, 2019',
                                                            style=paragraph_styles),
                                                 ]
                                             ),
@@ -822,7 +914,7 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='region-performance-measures-table'),
                                                     html.Br(),
-                                                    html.P('Source: National Transit Database',
+                                                    html.P('Source: National Transit Database, 2019',
                                                            style=paragraph_styles),
                                                 ]
                                             ),
@@ -835,7 +927,10 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='agencyPerformanceByRegion-table'),
                                                     html.Br(),
-                                                    html.P('Note: VRM = Vehicle Revenue Miles, VRH = Vehicle Revenue Hours',
+                                                    html.P(
+                                                        'Source: National Transit Database, 2019',
+                                                        style=paragraph_styles),
+                                                    html.P('Note: VRM - Vehicle Revenue Miles, VRH - Vehicle Revenue Hours, OE - Operating Expense, FRR - Farebox Recovery Ratio',
                                                            style=paragraph_styles),
                                                 ]
                                             ),
@@ -881,7 +976,7 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='operating-statistics-table'),
                                                     html.Br(),
-                                                    html.P('Source: National Transit Database', style=paragraph_styles),
+                                                    html.P('Source: National Transit Database, 2019', style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -914,7 +1009,7 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='state-ridership-table'),
                                                     html.Br(),
-                                                    html.P('Source: National Transit Database', style=paragraph_styles),
+                                                    html.P('Source: National Transit Database, 2016-2019', style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -947,7 +1042,7 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='state-vrm-table'),
                                                     html.Br(),
-                                                    html.P('Source: National Transit Database', style=paragraph_styles),
+                                                    html.P('Source: National Transit Database, 2016-2019', style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -974,7 +1069,7 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='state-financial-table'),
                                                     html.Br(),
-                                                    html.P('Source: National Transit Database', style=paragraph_styles),
+                                                    html.P('Source: National Transit Database, 2019', style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -986,6 +1081,8 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='fleetStatisticsByState-table'),
                                                     html.Br(),
+                                                    html.P('Source: National Transit Database, 2019',
+                                                           style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -997,8 +1094,9 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='performanceMeasuresByState-table'),
                                                     html.Br(),
-                                                    html.P('Note:',style=paragraph_styles),
-                                                    html.P('VRM - Vehicle Revenue Mile,VRH - Vehicle Revenue Hour, FR - Fixed-Route, DR - Demand-Response, OE - Operating Expense',
+                                                    html.P('Source: National Transit Database, 2019',
+                                                           style=paragraph_styles),
+                                                    html.P('Note: VRM - Vehicle Revenue Mile,VRH - Vehicle Revenue Hour, FR - Fixed-Route, DR - Demand-Response, OE - Operating Expense',
                                                            style=paragraph_styles),
                                                 ]
                                             ),
@@ -1011,9 +1109,9 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='performanceMeasuresMedianByState-table'),
                                                     html.Br(),
-                                                    html.P('Note:', style=paragraph_styles),
-                                                    html.P(
-                                                        'VRM - Vehicle Revenue Mile,VRH - Vehicle Revenue Hour, FR - Fixed-Route, DR - Demand-Response, OE - Operating Expense',
+                                                    html.P('Source: National Transit Database, 2019',
+                                                           style=paragraph_styles),
+                                                    html.P('Note: VRM - Vehicle Revenue Mile,VRH - Vehicle Revenue Hour, FR - Fixed-Route, DR - Demand-Response, OE - Operating Expense',
                                                         style=paragraph_styles),
                                                 ]
                                             ),
@@ -1044,7 +1142,7 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='state-percentile-table'),
                                                     html.Br(),
-                                                    html.P('Source: National Transit Database', style=paragraph_styles),
+                                                    html.P('Source: National Transit Database, 2019', style=paragraph_styles),
                                                 ]
                                             ),
                                         ], style=tabs_styles),
@@ -1090,7 +1188,8 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='tribal-operating-table'),
                                                     html.Br(),
-                                                    html.P('Source: National Transit Database', style=paragraph_styles),
+                                                    html.P('Source: National Transit Database, 2015-2019',
+                                                           style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -1102,6 +1201,8 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='vehiclesByTribal-table'),
                                                     html.Br(),
+                                                    html.P('Source: National Transit Database, 2019',
+                                                           style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -1113,6 +1214,8 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='fleetStatisticsByTribal-table'),
                                                     html.Br(),
+                                                    html.P('Source: National Transit Database, 2019',
+                                                           style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -1142,7 +1245,7 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='tribal-operatingByMode-table'),
                                                     html.Br(),
-                                                    html.P('Source: National Transit Database', style=paragraph_styles),
+                                                    html.P('Source: National Transit Database, 2019', style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -1181,7 +1284,7 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='tribal-performance-table'),
                                                     html.Br(),
-                                                    html.P('Source: National Transit Database', style=paragraph_styles),
+                                                    html.P('Source: National Transit Database, 2015-2019', style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -1193,6 +1296,8 @@ def init_dashboard(server):
                                                     dcc.Graph(
                                                         id='performanceMeasureMedianByTribal-table'),
                                                     html.Br(),
+                                                    html.P('Source: National Transit Database, 2019',
+                                                           style=paragraph_styles),
                                                 ]
                                             ),
                                         ], style=tabs_styles),

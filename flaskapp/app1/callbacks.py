@@ -352,59 +352,37 @@ def init_callbacks(dash_app):
         fig = ff.create_table(df)
         return fig
 
-    @dash_app.callback(Output('operatingExpensePerTrip-table', 'figure'),
+    @dash_app.callback(Output('kpm-by-year-table', 'figure'),
                        [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def oept(state, agency):
-        df = statOperatingExpensePerTrip(dataOperatingExpensePerTrip)
+                        Input('agency-dropdown', 'value'),
+                        Input('kpm-by-year-dropdown', 'value')]
+                       )
+    def statKPMByYear(state, agency, statdropdown):
+        if statdropdown == "operating_trip":
+            df = statOperatingExpensePerTrip(dataOperatingExpensePerTrip)
+        elif statdropdown == "operating_mile":
+            df = statOperatingExpensePerVehicleMile(dataOperatingExpensePerVehicleMile)
+        elif statdropdown == "operating_hour":
+            df = statOperatingExpensePerVehicleHour(dataOperatingExpensePerVehicleHour)
+        else:
+            df = statFareboxRecoveryRatio(dataFareboxRecoveryRatio)
+
         fig = ff.create_table(df)
         return fig
 
-    @dash_app.callback(Output('operatingExpensePerVehicleMile-table', 'figure'),
+    @dash_app.callback(Output('performance-percentile-table', 'figure'),
                        [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def oepvm(state, agency):
-        df = statOperatingExpensePerVehicleMile(dataOperatingExpensePerVehicleMile)
-        fig = ff.create_table(df)
-        return fig
+                        Input('agency-dropdown', 'value'),
+                        Input('performance-percentile-dropdown', 'value')]
+                       )
+    def statPerformancePercentile(state, agency, statdropdown):
+        if statdropdown == "total":
+            df = statPercentileTotal(dataPercentileTotal)
+        elif statdropdown == "fr":
+            df = statPercentileFixedRoute(dataPercentileFixedRoute)
+        else:
+            df = statPercentileDemandResponse(dataPercentileDemandResponse)
 
-    @dash_app.callback(Output('operatingExpensePerVehicleHour-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def oepvh(state, agency):
-        df = statOperatingExpensePerVehicleHour(dataOperatingExpensePerVehicleHour)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('fareboxRecoveryRatio-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def frr(state, agency):
-        df = statFareboxRecoveryRatio(dataFareboxRecoveryRatio)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('percentileTotal-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def pt(state, agency):
-        df = statPercentileTotal(dataPercentileTotal)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('percentileFixedRoute-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def pfr(state, agency):
-        df = statPercentileFixedRoute(dataPercentileFixedRoute)
-        fig = ff.create_table(df)
-        return fig
-
-    @dash_app.callback(Output('percentileDemandResponse-table', 'figure'),
-                       [Input('state-selector', 'value'),
-                        Input('agency-dropdown', 'value')])
-    def pdr(state, agency):
-        df = statPercentileDemandResponse(dataPercentileDemandResponse)
         fig = ff.create_table(df)
         return fig
 
@@ -415,6 +393,7 @@ def init_callbacks(dash_app):
         df = statAgenciesByRegion(dataAgenciesByRegion)
         fig = ff.create_table(df)
         return fig
+
     @dash_app.callback(Output('region-operating-table', 'figure'),
                        [Input('state-selector', 'value'),
                         Input('agency-dropdown', 'value'),
