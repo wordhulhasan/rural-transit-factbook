@@ -199,10 +199,10 @@ def init_dashboard(server):
                                                         id='source-of-funding-dropdown',
                                                         options=[
                                                             {
-                                                                'label': 'Capital Funding',
+                                                                'label': 'Capital Funding (million)',
                                                                 'value': 'capital'},
                                                             {
-                                                                'label': 'Operating Funding',
+                                                                'label': 'Operating Funding (million)',
                                                                 'value': 'operating'}
                                                         ],
                                                         value='capital',
