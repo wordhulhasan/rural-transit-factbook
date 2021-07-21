@@ -1191,6 +1191,54 @@ def init_dashboard(server):
                                                 ]
                                             ),
                                             dcc.Tab(
+                                                label='Tribal Operating Statistics',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.H3('State'),
+                                                    dcc.Dropdown(
+                                                        id='state-selector-tribe-2',
+                                                        options=[{'label': states_dict[k], 'value': k} for k
+                                                                 in
+                                                                 res.keys()],
+                                                        value='All',
+                                                        placeholder='Select a state...',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
+                                                    html.H3('Transit Agency'),
+                                                    dcc.Dropdown(
+                                                        id='agency-dropdown-tribe-2',
+                                                        placeholder='Select a transit agency...',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
+                                                    html.H3('Performance Measure'),
+                                                    dcc.Dropdown(
+                                                        id='op-stat-dropdown-tribe',
+                                                        options=[
+                                                            {
+                                                                'label': 'Vehicle Revenue Miles',
+                                                                'value': 'vrm'},
+                                                            {
+                                                                'label': 'Vehicle Revenue Hours',
+                                                                'value': 'vrh'},
+                                                            {
+                                                                'label': 'Unlinked Passenger Trips',
+                                                                'value': 'utp'}
+                                                        ],
+                                                        value='ridership',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'},
+                                                    ),
+                                                    html.Br(),
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='op-stat-tribe'),
+                                                ]
+                                            ),
+                                            dcc.Tab(
                                                 label='Tribal Transit Operating Statistics',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
