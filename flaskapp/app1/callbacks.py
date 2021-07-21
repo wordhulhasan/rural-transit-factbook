@@ -704,7 +704,7 @@ def init_callbacks(dash_app):
     @dash_app.callback(Output('op-stat-tribe', 'figure'),
                        [Input('state-selector-tribe-2', 'value'),
                         Input('agency-dropdown-tribe-2', 'value'),
-                        Input('op-stat-dropdown', 'value')])
+                        Input('op-stat-dropdown-tribe', 'value')])
     def vrm(state, agency, opStat):
         tribe = "Tribe"
         dataTribe = data3.query("organization_type == @tribe")
