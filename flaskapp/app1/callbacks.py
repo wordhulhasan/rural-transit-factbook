@@ -12,15 +12,15 @@ from util import vehicle_colors, revenue_vehicles, fleet_composition, \
     statisticsForAgenciesRankedByVRM, statisticsForDemandResponseRankedByVRM, statisticsForFixedRouteRankedByVRM, \
     statisticsForAgenciesRankedByVRH, statisticsForDemandResponseRankedByVRH, statisticsForFixedRouteRankedByVRH, \
     statisticsForAgenciesRankedByRidership, statisticsForDemandResponseRankedByRidership, \
-    statisticsForFixedRouteRankedByRidership, statVehiclesByMode, statFleetByMode, statAdaAccessible, statVehicleAge,\
-	statVehicleLength, statSeatingCapacity, statVehicleOwnership, statFundingSource, \
-	statRidershipByYear, statVrmByYear, statVrhByYear, statRidershipByRank, statVrmByRank, statVrhByRank, \
-    statCapitalFunding, statOperatingFunding,\
+    statisticsForFixedRouteRankedByRidership, statVehiclesByMode, statFleetByMode, statAdaAccessible, statVehicleAge, \
+    statVehicleLength, statSeatingCapacity, statVehicleOwnership, statFundingSource, \
+    statRidershipByYear, statVrmByYear, statVrhByYear, statRidershipByRank, statVrmByRank, statVrhByRank, \
+    statCapitalFunding, statOperatingFunding, \
     statTripsPerMile, statTripsPerHour, statTripsMilesHoursPerVehicle, statOperatingExpensePerTrip, \
     statOperatingExpensePerVehicleMile, statOperatingExpensePerVehicleHour, statFareboxRecoveryRatio, \
     statPercentileTotal, statPercentileFixedRoute, statPercentileDemandResponse, \
     statAgenciesByRegion, statRidershipByRegion, statVrmByRegion, statVrhByRegion, statVehiclesByRegion, \
-    statPerformanceByRegion, statTripsPerVRMByRegion,  statTripsPerVRHByRegion, statOperatingPerTripByRegion, \
+    statPerformanceByRegion, statTripsPerVRMByRegion, statTripsPerVRHByRegion, statOperatingPerTripByRegion, \
     statOperatingPerVRMByRegion, statOperatingPerVRHByRegion, statAgencyPerformanceByRegion, \
     statRidershipByState, statVrmByState, statVrhByState, statRidershipTotalYearlyByState, \
     statRidershipFRYearlyByState, statRidershipDRYearlyByState, statRidershipOtherYearlyByState, \
@@ -29,10 +29,11 @@ from util import vehicle_colors, revenue_vehicles, fleet_composition, \
     statPerformanceMeasuresByState, statPerformanceMeasuresMedianByState, \
     statAgencyPercentileRidershipByState, statAgencyPercentileVrmByState, statAgencyPercentileVrhByState, \
     statRidershipYearlyByTribal, statVrmYearlyByTribal, statVrhYearlyByTribal, \
-    statVehiclesByTribal, statFleetStatisticsByTribal, statTripsPerVehicleByTribal, statVRMPerVehicleByTribal, statVRHPerVehicleByTribal, \
+    statVehiclesByTribal, statFleetStatisticsByTribal, statTripsPerVehicleByTribal, statVRMPerVehicleByTribal, \
+    statVRHPerVehicleByTribal, \
     statTripsPerVrmByTribal, statTripsPerVrhByTribal, statOperatingExpensePerTripByTribal, \
     statOperatingExpensePerVrmByTribal, statOperatingExpensePerVrhByTribal, statFareboxRecoveryRatioByTribal, \
-    statPerformanceMeasureMedianByTribal
+    statPerformanceMeasureMedianByTribal, revenue_vehicles_tribe, make_state_agency_dict2
 
 from .data import init_data
 
@@ -67,7 +68,7 @@ def init_callbacks(dash_app):
         = init_data()
 
     res = make_state_agency_dict()
-
+    res2 = make_state_agency_dict2()
     @dash_app.callback(
         Output('agency-dropdown', 'options'),
         [Input('state-selector', 'value')])
@@ -87,6 +88,12 @@ def init_callbacks(dash_app):
         return [{'label': i, 'value': i} for i in res[selected_state]]
 
     @dash_app.callback(
+        Output('agency-dropdown-tribe', 'options'),
+        [Input('state-selector-tribe', 'value')])
+    def set_cities_options(selected_state):
+        return [{'label': i, 'value': i} for i in res2[selected_state]]
+
+    @dash_app.callback(
         Output('agency-dropdown', 'value'),
         [Input('agency-dropdown', 'options')])
     def set_cities_value(available_options):
@@ -104,11 +111,42 @@ def init_callbacks(dash_app):
     def set_cities_value(available_options):
         return available_options[0]['value']
 
+    @dash_app.callback(
+        Output('agency-dropdown-tribe', 'value'),
+        [Input('agency-dropdown-tribe', 'options')])
+    def set_cities_value(available_options):
+        return available_options[0]['value']
+
     @dash_app.callback(Output('revenue-vehicles', 'figure'),
                        [Input('state-selector', 'value'),
                         Input('agency-dropdown', 'value')])
     def update_revenue_vehicles(state, agency):
         df = revenue_vehicles(data1, state, agency)
+
+        fig = px.bar(df, x='vehicle_type', y='active_fleet_vehicles', text='active_fleet_vehicles',
+                     color='vehicle_type',
+                     color_discrete_map=vehicle_colors, title='Revenue Vehicles by Vehicle Type',
+                     labels={"vehicle_type": "Vehicle Type", "active_fleet_vehicles": "Number of Revenue Vehicles"},
+                     template='simple_white',
+                     )
+
+        fig.update_traces(textposition='outside')
+        fig.update_layout(
+            font_color="black",
+            title_font_color="black",
+            legend_title_font_color="black",
+            margin=dict(l=100, r=50, t=150, b=50),
+            height=600,
+            hovermode='x',
+            autosize=True
+        )
+        return fig
+
+    @dash_app.callback(Output('revenue-vehicles-tribe', 'figure'),
+                       [Input('state-selector-tribe', 'value'),
+                        Input('agency-dropdown-tribe', 'value')])
+    def update_revenue_vehicles_tribe(state, agency):
+        df = revenue_vehicles_tribe(data1, state, agency)
 
         fig = px.bar(df, x='vehicle_type', y='active_fleet_vehicles', text='active_fleet_vehicles',
                      color='vehicle_type',

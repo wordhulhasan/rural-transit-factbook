@@ -1162,6 +1162,35 @@ def init_dashboard(server):
                                         html.Br(),
                                         dcc.Tabs([
                                             dcc.Tab(
+                                                label='Tribal Transit Fleet Information',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.Br(),
+                                                    html.H3('State'),
+                                                    dcc.Dropdown(
+                                                        id='state-selector-tribe',
+                                                        options=[{'label': states_dict[k], 'value': k} for k in
+                                                                 res.keys()],
+                                                        value='All',
+                                                        placeholder='Select a state...',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
+                                                    html.H3('Tribal Transit Agency'),
+                                                    dcc.Dropdown(
+                                                        id='agency-dropdown-tribe',
+                                                        placeholder='Select a transit agency...',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
+                                                    html.Br(),
+                                                    dcc.Graph(id='revenue-vehicles-tribe', config={'displayModeBar': False},
+                                                              animate=True),
+                                                ]
+                                            ),
+                                            dcc.Tab(
                                                 label='Tribal Transit Operating Statistics',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
