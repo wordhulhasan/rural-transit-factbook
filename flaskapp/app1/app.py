@@ -151,7 +151,7 @@ def init_dashboard(server):
 #                                    ]
 #                                ),
                                 dcc.Tab(
-                                    label='National Rural Transit Fleet Information',
+                                    label='Revenue Vehicles by Vehicle Type',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
@@ -174,215 +174,12 @@ def init_dashboard(server):
                                         html.Br(),
                                         dcc.Graph(id='revenue-vehicles', config={'displayModeBar': False},
                                                   animate=True),
+                                        html.Br(),
+                                        html.P('Source: National Transit Database, 2019', style=paragraph_styles)
                                     ]
                                 ),
                                 dcc.Tab(
-                                    label=' Rural Transit Financial Statistics',
-                                    style=tab_style,
-                                    selected_style=tab_selected_style,
-                                    children=[
-                                        html.H3(
-                                            ''),
-                                        html.P(
-                                            '',
-                                            style=paragraph_styles),
-                                        html.Br(),
-
-                                        dcc.Tabs([
-                                            dcc.Tab(
-                                                label='Rural Transit Financial Statistics',
-                                                style=tab_style,
-                                                selected_style=tab_selected_style,
-                                                children=[
-                                                    html.Br(),
-                                                    dcc.Dropdown(
-                                                        id='source-of-funding-dropdown',
-                                                        options=[
-                                                            {
-                                                                'label': 'Capital Funding (million)',
-                                                                'value': 'capital'},
-                                                            {
-                                                                'label': 'Operating Funding (million)',
-                                                                'value': 'operating'}
-                                                        ],
-                                                        value='capital',
-                                                        style={'width': '60%', 'margin': '0 0 0',
-                                                               'padding-left': '100px'}
-                                                    ),
-                                                    html.Br(),
-                                                    dcc.Graph(
-                                                        id='source_of_funding-table'),
-                                                    html.Br(),
-                                                    html.P(
-                                                        'Source: National Transit Database, 2015-2019',
-                                                        style=paragraph_styles),
-                                                ]
-                                            ),
-                                        ], style=tabs_styles),
-                                    ]
-                                ),
-                                dcc.Tab(
-                                    label=' Rural Transit Operating Statistics ',
-                                    style=tab_style,
-                                    selected_style=tab_selected_style,
-                                    children=[
-                                        html.H2(
-                                            ''),
-                                        html.P(
-                                            '',
-                                            style=paragraph_styles),
-                                        html.Br(),
-                                        dcc.Tabs([
-                                            dcc.Tab(
-                                                label='Operating Statistics',
-                                                style=tab_style,
-                                                selected_style=tab_selected_style,
-                                                children=[
-                                                    html.Br(),
-                                                    html.H3('State'),
-                                                    dcc.Dropdown(
-                                                        id='state-selector-2',
-                                                        options=[{'label': states_dict[k], 'value': k} for k
-                                                                 in
-                                                                 res.keys()],
-                                                        value='All',
-                                                        placeholder='Select a state...',
-                                                        style={'width': '60%', 'margin': '0 0 0',
-                                                               'padding-left': '100px'}
-                                                    ),
-                                                    html.H3('Transit Agency'),
-                                                    dcc.Dropdown(
-                                                        id='agency-dropdown-2',
-                                                        placeholder='Select a transit agency...',
-                                                        style={'width': '60%', 'margin': '0 0 0',
-                                                               'padding-left': '100px'}
-                                                    ),
-                                                    html.H3('Performance Measure'),
-                                                    dcc.Dropdown(
-                                                        id='op-stat-dropdown',
-                                                        options=[
-                                                            {
-                                                                'label': 'Vehicle Revenue Miles',
-                                                                'value': 'vrm'},
-                                                            {
-                                                                'label': 'Vehicle Revenue Hours',
-                                                                'value': 'vrh'},
-                                                            {
-                                                                'label': 'Unlinked Passenger Trips',
-                                                                'value': 'utp'}
-                                                        ],
-                                                        value='ridership',
-                                                        style={'width': '60%', 'margin': '0 0 0',
-                                                               'padding-left': '100px'},
-                                                    ),
-                                                    html.Br(),
-                                                    html.Br(),
-                                                    dcc.Tabs([
-                                                        dcc.Tab(
-                                                            label=' Chart ',
-                                                            style=tab_style_sub,
-                                                            selected_style=tab_selected_style_sub,
-                                                            children=[
-                                                                html.Br(),
-
-                                                                dcc.Graph(
-                                                                    id='op-stat'),
-                                                            ]
-                                                        ),
-                                                        dcc.Tab(
-                                                            label=' Table ',
-                                                            style=tab_style_sub,
-                                                            selected_style=tab_selected_style_sub,
-                                                            children=[
-                                                                html.Br(),
-                                                                dcc.Graph(
-                                                                    id='op-stat-table'),
-                                                                # html.P(
-                                                                #     'Vehicle Revenue Miles',
-                                                                #     style=paragraph_styles),
-                                                                # dcc.Graph(
-                                                                #     id='vehicle-revenue-miles-table'),
-                                                                # html.Br(),
-                                                                # html.Br(),
-                                                                # html.P(
-                                                                #     'Vehicle Revenue Hours',
-                                                                #     style=paragraph_styles),
-                                                                # dcc.Graph(
-                                                                #     id='vehicle-revenue-hours-table'),
-                                                                # html.Br(),
-                                                                # html.Br(),
-                                                            ]
-                                                        ),
-                                                    ], style=tabs_styles),
-                                                ]
-                                            ),
-                                            dcc.Tab(
-                                                label='Operating Statistics (Yearly)',
-                                                style=tab_style,
-                                                selected_style=tab_selected_style,
-                                                children=[
-                                                    html.Br(),
-                                                    dcc.Dropdown(
-                                                        id = 'operating-stat-dropdown-ridership',
-                                                        options=[
-                                                            {
-                                                                'label':'Ridership (millions)',
-                                                                'value':'ridership'},
-                                                            {'label':'Vehicle Revenue Miles (millions)',
-                                                             'value':'vrm'},
-                                                            {'label':'Vehicle Revenue Hours (millions)',
-                                                             'value':'vrh'}
-                                                        ],
-                                                        value='ridership',
-                                                        style={'width':'60%', 'margin':'0 0 0', 'padding-left':'100px'}
-                                                    ),
-                                                    html.Br(),
-                                                    dcc.Graph(
-                                                        id='ridership_by_year-table'),
-                                                    html.Br(),
-                                                    html.Br(),
-                                                    html.P(
-                                                        'Source: National Transit Database',
-                                                        style=paragraph_styles),
-                                                ]
-                                            ),
-                                            dcc.Tab(
-                                                label=' Operating Statistics Percentile Rankings',
-                                                style=tab_style,
-                                                selected_style=tab_selected_style,
-                                                children=[
-                                        html.Br(),
-                                        dcc.Dropdown(
-                                            id='operating-stat-per-rank-dropdown',
-                                            options=[
-                                                {
-                                                    'label': 'Ridership Percentile Rankings for Rural Transit Agencies',
-                                                    'value': 'ridership'},
-                                                {
-                                                    'label': 'Vehicle Miles Percentile Rankings for Rural Transit Agencies',
-                                                    'value': 'vrm'},
-                                                {
-                                                    'label': 'Vehicle Hours Percentile Rankings for Rural Transit Agencies',
-                                                    'value': 'vrh'}
-                                            ],
-                                            value='ridership',
-                                            style={'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
-                                        ),
-                                        html.Br(),
-                                        dcc.Graph(
-                                            id='ridership_by_rank-table'
-                                        ),
-                                        html.Br(),
-                                        html.P(
-                                            'Source: National Transit Database, 2019',
-                                            style=paragraph_styles),
-                                    ]
-                                            ),
-                                      ], style=tabs_styles),
-                                 ]
-                               ),
-                                dcc.Tab(
-                                    label=' Rural Transit Fleet Statistics ',
+                                    label=' Fleet Statistics ',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
@@ -431,7 +228,7 @@ def init_dashboard(server):
                                                         id='adaAccessible-table'),
                                                     html.Br(),
                                                     html.P(
-                                                        'Source: National Transit Database, 2019',
+                                                        'Source: National Transit Database, 2015-2019',
                                                         style=paragraph_styles),
                                                 ]
                                             ),
@@ -445,7 +242,7 @@ def init_dashboard(server):
                                                         id='vehicleAge-table'),
                                                     html.Br(),
                                                     html.P(
-                                                        'Source: National Transit Database, 2019',
+                                                        'Source: National Transit Database, 2015-2019',
                                                         style=paragraph_styles),
                                                 ]
                                             ),
@@ -459,7 +256,7 @@ def init_dashboard(server):
                                                         id='vehicleLenght-table'),
                                                     html.Br(),
                                                     html.P(
-                                                        'Source: National Transit Database, 2019',
+                                                        'Source: National Transit Database, 2015-2019',
                                                         style=paragraph_styles),
                                                 ]
                                             ),
@@ -473,7 +270,7 @@ def init_dashboard(server):
                                                         id='seatingCapacity-table'),
                                                     html.Br(),
                                                     html.P(
-                                                        'Source: National Transit Database, 2019',
+                                                        'Source: National Transit Database, 2015-2019',
                                                         style=paragraph_styles),
                                                 ]
                                             ),
@@ -555,7 +352,223 @@ def init_dashboard(server):
                                     ]
                                 ),
                                 dcc.Tab(
-                                    label=' Rural Transit Performance Measures ',
+                                    label=' Financial Statistics',
+                                    style=tab_style,
+                                    selected_style=tab_selected_style,
+                                    children=[
+                                        html.H3(
+                                            ''),
+                                        html.P(
+                                            '',
+                                            style=paragraph_styles),
+                                        html.Br(),
+
+                                        dcc.Tabs([
+                                            dcc.Tab(
+                                                label='Rural Transit Financial Statistics',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Dropdown(
+                                                        id='source-of-funding-dropdown',
+                                                        options=[
+                                                            {
+                                                                'label': 'Capital Funding (million)',
+                                                                'value': 'capital'},
+                                                            {
+                                                                'label': 'Operating Funding (million)',
+                                                                'value': 'operating'}
+                                                        ],
+                                                        value='capital',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='source_of_funding-table'),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2015-2019',
+                                                        style=paragraph_styles),
+                                                ]
+                                            ),
+                                        ], style=tabs_styles),
+                                    ]
+                                ),
+                                dcc.Tab(
+                                    label=' Operating Statistics ',
+                                    style=tab_style,
+                                    selected_style=tab_selected_style,
+                                    children=[
+                                        html.H2(
+                                            ''),
+                                        html.P(
+                                            '',
+                                            style=paragraph_styles),
+                                        html.Br(),
+                                        dcc.Tabs([
+                                            dcc.Tab(
+                                                label='Operating Statistics',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.H3('State'),
+                                                    dcc.Dropdown(
+                                                        id='state-selector-2',
+                                                        options=[{'label': states_dict[k], 'value': k} for k
+                                                                 in
+                                                                 res.keys()],
+                                                        value='All',
+                                                        placeholder='Select a state...',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
+                                                    html.H3('Transit Agency'),
+                                                    dcc.Dropdown(
+                                                        id='agency-dropdown-2',
+                                                        placeholder='Select a transit agency...',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'}
+                                                    ),
+                                                    html.H3('Performance Measure'),
+                                                    dcc.Dropdown(
+                                                        id='op-stat-dropdown',
+                                                        options=[
+                                                            {
+                                                                'label': 'Vehicle Revenue Miles',
+                                                                'value': 'vrm'},
+                                                            {
+                                                                'label': 'Vehicle Revenue Hours',
+                                                                'value': 'vrh'},
+                                                            {
+                                                                'label': 'Unlinked Passenger Trips',
+                                                                'value': 'utp'}
+                                                        ],
+                                                        value='ridership',
+                                                        style={'width': '60%', 'margin': '0 0 0',
+                                                               'padding-left': '100px'},
+                                                    ),
+                                                    html.Br(),
+                                                    html.Br(),
+                                                    dcc.Tabs([
+                                                        dcc.Tab(
+                                                            label=' Chart ',
+                                                            style=tab_style_sub,
+                                                            selected_style=tab_selected_style_sub,
+                                                            children=[
+                                                                html.Br(),
+
+                                                                dcc.Graph(
+                                                                    id='op-stat'),
+#                                                                html.Br(),
+#                                                                html.P('Source: National Transit Database, 2019',
+#                                                                       style=paragraph_styles),
+                                                            ]
+                                                        ),
+                                                        dcc.Tab(
+                                                            label=' Table ',
+                                                            style=tab_style_sub,
+                                                            selected_style=tab_selected_style_sub,
+                                                            children=[
+                                                                html.Br(),
+                                                                dcc.Graph(
+                                                                    id='op-stat-table'),
+                                                                # html.P(
+                                                                #     'Vehicle Revenue Miles',
+                                                                #     style=paragraph_styles),
+                                                                # dcc.Graph(
+                                                                #     id='vehicle-revenue-miles-table'),
+                                                                # html.Br(),
+                                                                # html.Br(),
+                                                                # html.P(
+                                                                #     'Vehicle Revenue Hours',
+                                                                #     style=paragraph_styles),
+                                                                # dcc.Graph(
+                                                                #     id='vehicle-revenue-hours-table'),
+                                                                # html.Br(),
+                                                                # html.Br(),
+#                                                                html.Br(),
+#                                                                html.P('Source: National Transit Database, 2019',
+#                                                                       style=paragraph_styles),
+                                                            ]
+                                                        ),
+                                                    ], style=tabs_styles),
+                                                    html.Br(),
+                                                    html.P('Source: National Transit Database, 2019',
+                                                           style=paragraph_styles),
+                                                    html.P('Note: CB - Commuter Bus, DR - Demand Response, DT - Demand Taxi, FB - Ferryboat, MB - Bus, RB - Bus Rapid Transit, TR - Aerial Tramway, VP - Vanpool',
+                                                           style=paragraph_styles),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label='Operating Statistics (Yearly)',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    dcc.Dropdown(
+                                                        id = 'operating-stat-dropdown-ridership',
+                                                        options=[
+                                                            {
+                                                                'label':'Ridership (millions)',
+                                                                'value':'ridership'},
+                                                            {'label':'Vehicle Revenue Miles (millions)',
+                                                             'value':'vrm'},
+                                                            {'label':'Vehicle Revenue Hours (millions)',
+                                                             'value':'vrh'}
+                                                        ],
+                                                        value='ridership',
+                                                        style={'width':'60%', 'margin':'0 0 0', 'padding-left':'100px'}
+                                                    ),
+                                                    html.Br(),
+                                                    dcc.Graph(
+                                                        id='ridership_by_year-table'),
+                                                    html.Br(),
+                                                    html.Br(),
+                                                    html.P(
+                                                        'Source: National Transit Database, 2015-2019',
+                                                        style=paragraph_styles),
+                                                ]
+                                            ),
+                                            dcc.Tab(
+                                                label=' Operating Statistics Percentile Rankings',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                        html.Br(),
+                                        dcc.Dropdown(
+                                            id='operating-stat-per-rank-dropdown',
+                                            options=[
+                                                {
+                                                    'label': 'Ridership Percentile Rankings for Rural Transit Agencies',
+                                                    'value': 'ridership'},
+                                                {
+                                                    'label': 'Vehicle Miles Percentile Rankings for Rural Transit Agencies',
+                                                    'value': 'vrm'},
+                                                {
+                                                    'label': 'Vehicle Hours Percentile Rankings for Rural Transit Agencies',
+                                                    'value': 'vrh'}
+                                            ],
+                                            value='ridership',
+                                            style={'width': '60%', 'margin': '0 0 0', 'padding-left': '100px'}
+                                        ),
+                                        html.Br(),
+                                        dcc.Graph(
+                                            id='ridership_by_rank-table'
+                                        ),
+                                        html.Br(),
+                                        html.P(
+                                            'Source: National Transit Database, 2019',
+                                            style=paragraph_styles),
+                                    ]
+                                            ),
+                                      ], style=tabs_styles),
+                                 ]
+                               ),
+                                dcc.Tab(
+                                    label=' Performance Measures ',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
@@ -674,11 +687,8 @@ def init_dashboard(server):
                                                         'Source: National Transit Database, 2019',
                                                         style=paragraph_styles),
                                                     html.Br(),
-                                                    html.P('Note:',
+                                                    html.P('Note: OE - Operating Expense, VRM - Vehicle Revenue Mile, VRH - Vehicle Revenue Hour, UPT - Unlinked Passenger Trips',
                                                            style=paragraph_styles),
-                                                    html.P(
-                                                        'OE - Operating Expense, VRM - Vehicle Revenue Mile, VRH - Vehicle Revenue Hour, UPT - Unlinked Passenger Trips',
-                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                         ], style=tabs_styles),
@@ -686,7 +696,7 @@ def init_dashboard(server):
                                     ]
                                 ),
                                 dcc.Tab(
-                                    label=' Rural Transit Percentile Rank',
+                                    label=' Percentile Rank',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
@@ -808,7 +818,7 @@ def init_dashboard(server):
                                     ]
                                 ),
                                 dcc.Tab(
-                                    label=' Rural Transit Regional Statistics ',
+                                    label=' Regional Statistics ',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
@@ -819,6 +829,16 @@ def init_dashboard(server):
                                             style=paragraph_styles),
                                         html.Br(),
                                         dcc.Tabs([
+                                            dcc.Tab(
+                                                label='Map of FTA Region',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.Img(
+                                                        src='/static/img/FTA Region.png', style={'width':'1000px'}),
+                                                ]
+                                            ),
                                             dcc.Tab(
                                                 label='Transit Agencies by Region',
                                                 style=tab_style,
@@ -939,7 +959,7 @@ def init_dashboard(server):
                                     ]
                                 ),
                                 dcc.Tab(
-                                    label=' Rural Transit State Statistics ',
+                                    label=' State Statistics ',
                                     style=tab_style,
                                     selected_style=tab_selected_style,
                                     children=[
@@ -980,7 +1000,7 @@ def init_dashboard(server):
                                                 ]
                                             ),
                                             dcc.Tab(
-                                                label='Rural Transit Ridership by State (Yearly)',
+                                                label='Ridership by State (Yearly)',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
@@ -989,16 +1009,16 @@ def init_dashboard(server):
                                                         id='state-ridership-dropdown',
                                                         options=[
                                                             {
-                                                                'label': 'Total (million trips)',
+                                                                'label': 'Total Trips',
                                                                 'value': 'total'},
                                                             {
-                                                                'label': 'Fixed-Route Service (million trips)',
+                                                                'label': 'Fixed-Route Service Trips',
                                                                 'value': 'fr'},
                                                             {
-                                                                'label': 'Demand-Response Service (million trips)',
+                                                                'label': 'Demand-Response Service Trips',
                                                                 'value': 'dr'},
                                                             {
-                                                                'label': 'Other Service (million trips)',
+                                                                'label': 'Other Service Trips',
                                                                 'value': 'other'},
                                                         ],
                                                         value='total',
@@ -1013,7 +1033,7 @@ def init_dashboard(server):
                                                 ]
                                             ),
                                             dcc.Tab(
-                                                label='Rural Transit Vehicle Revenue Miles of Service by State (Yearly)',
+                                                label='Vehicle Revenue Miles of Service by State (Yearly)',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
@@ -1022,16 +1042,16 @@ def init_dashboard(server):
                                                         id='state-vrm-dropdown',
                                                         options=[
                                                             {
-                                                                'label': 'Total (million miles)',
+                                                                'label': 'Total Miles',
                                                                 'value': 'total'},
                                                             {
-                                                                'label': 'Fixed-Route Service (million miles)',
+                                                                'label': 'Fixed-Route Service Miles',
                                                                 'value': 'fr'},
                                                             {
-                                                                'label': 'Demand-Response Service (million miles)',
+                                                                'label': 'Demand-Response Service Miles',
                                                                 'value': 'dr'},
                                                             {
-                                                                'label': 'Other Service (million miles)',
+                                                                'label': 'Other Service Miles',
                                                                 'value': 'other'},
                                                         ],
                                                         value='total',
@@ -1188,6 +1208,9 @@ def init_dashboard(server):
                                                     html.Br(),
                                                     dcc.Graph(id='revenue-vehicles-tribe', config={'displayModeBar': False},
                                                               animate=True),
+                                                    html.Br(),
+                                                    html.P('Source: National Transit Database, 2019',
+                                                           style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -1233,9 +1256,13 @@ def init_dashboard(server):
                                                                'padding-left': '100px'},
                                                     ),
                                                     html.Br(),
-                                                    html.Br(),
                                                     dcc.Graph(
                                                         id='op-stat-tribe'),
+                                                    html.Br(),
+                                                    html.P('Source: National Transit Database, 2019',
+                                                           style=paragraph_styles),
+                                                    html.P('Note: CB - Commuter Bus, DR - Demand Response, FB - Ferryboat, MB - Bus, VP - Vanpool',
+                                                        style=paragraph_styles),
                                                 ]
                                             ),
                                             dcc.Tab(
