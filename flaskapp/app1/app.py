@@ -836,7 +836,7 @@ def init_dashboard(server):
                                                 children=[
                                                     html.Br(),
                                                     html.Img(
-                                                        src='/static/img/FTA Region.png', style={'width':'1000px'}),
+                                                        src='/static/img/FTA_Region.png', style={'width':'1000px'}),
                                                 ]
                                             ),
                                             dcc.Tab(
