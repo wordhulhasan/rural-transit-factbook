@@ -836,7 +836,7 @@ def init_dashboard(server):
                                                 children=[
                                                     html.Br(),
                                                     html.Img(
-                                                        src='/static/img/FTA Region.png', style={'width':'1000px'}),
+                                                        src='/static/img/FTA_Region.png', style={'width':'1000px'}),
                                                 ]
                                             ),
                                             dcc.Tab(
@@ -1181,6 +1181,16 @@ def init_dashboard(server):
                                             style=paragraph_styles),
                                         html.Br(),
                                         dcc.Tabs([
+                                            dcc.Tab(
+                                                label='Map of Counties with Tribal Transit Service',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.Img(
+                                                        src='/static/img/tribal.png', style={'width': '1000px'}),
+                                                ]
+                                            ),
                                             dcc.Tab(
                                                 label='Tribal Transit Fleet Information',
                                                 style=tab_style,
