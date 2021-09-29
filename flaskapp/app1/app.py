@@ -1276,7 +1276,7 @@ def init_dashboard(server):
                                                 ]
                                             ),
                                             dcc.Tab(
-                                                label='Tribal Transit Operating Statistics',
+                                                label='Tribal Transit Operating Statistics (Yearly)',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
