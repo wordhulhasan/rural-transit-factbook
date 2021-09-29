@@ -1182,6 +1182,16 @@ def init_dashboard(server):
                                         html.Br(),
                                         dcc.Tabs([
                                             dcc.Tab(
+                                                label='Map of Counties with Tribal Transit Service',
+                                                style=tab_style,
+                                                selected_style=tab_selected_style,
+                                                children=[
+                                                    html.Br(),
+                                                    html.Img(
+                                                        src='/static/img/tribal.png', style={'width': '1000px'}),
+                                                ]
+                                            ),
+                                            dcc.Tab(
                                                 label='Tribal Transit Fleet Information',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
@@ -1266,7 +1276,7 @@ def init_dashboard(server):
                                                 ]
                                             ),
                                             dcc.Tab(
-                                                label='Tribal Transit Operating Statistics',
+                                                label='Tribal Transit Operating Statistics (Yearly)',
                                                 style=tab_style,
                                                 selected_style=tab_selected_style,
                                                 children=[
