@@ -1,0 +1,8 @@
+﻿Vehicle Mode,2015,2016,2017,2018,2019,2020
+Fixed-route,340,319,361,371,338,218
+Demand-response,545,504,511,547,504,365
+Vanpool,7,7,4,2,7,5
+Commuter bus,44,35,35,38,40,23
+Demand-response taxi,1,0,0,0,0,0
+Ferryboat,12,19,13,14,13,8
+Total,950,885,925,971,903,619

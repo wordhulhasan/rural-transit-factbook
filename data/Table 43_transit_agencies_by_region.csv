@@ -1,0 +1,10 @@
+﻿Vehicle Mode,FTA Region 1,FTA Region 2,FTA Region 3,FTA Region 4,FTA Region 5,FTA Region 6,FTA Region 7,FTA Region 8,FTA Region 9,FTA Region 10
+Fixed-route,22,40,33,55,77,23,21,52,67,74
+Demand-response,27,15,48,223,256,109,168,137,75,78
+Commuter bus,6,5,1,1,1,5,0,8,14,17
+Vanpool,0,0,1,2,0,1,1,2,0,11
+Ferryboat,3,0,0,1,1,0,0,0,3,3
+Demand-response taxi,0,0,0,0,0,0,0,0,0,0
+Bus rapid transit,0,0,0,0,0,0,0,1,0,0
+Aerial tramway,0,0,0,0,0,0,0,1,0,0
+Total,33,44,55,237,265,114,173,160,105,100

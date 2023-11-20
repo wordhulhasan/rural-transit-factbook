@@ -117,23 +117,23 @@ def unlinked_passenger_trips(dataframe, state='All', agency=None):
 
 
 def statRidershipByYear(dataframe):
-    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019', 'change_2018_2019']]
+    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019','2020', 'change_2019_2020']]
     df = df.dropna()
-    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019', '% Change 2018-2019']
+    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019','2019', '% Change 2019-2020']
     return df
 
 
 def statVrmByYear(dataframe):
-    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019', 'change_2018_2019']]
+    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019','2020', 'change_2019_2020']]
     df = df.dropna()
-    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019', '% Change 2018-2019']
+    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019','2020', '% Change 2019-2020']
     return df
 
 
 def statVrhByYear(dataframe):
-    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019', 'change_2018_2019']]
+    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019','2020', 'change_2019_2020']]
     df = df.dropna()
-    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019', '% Change 2018-2019']
+    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019','2020', '% Change 2019-2020']
     return df
 
 
@@ -159,14 +159,14 @@ def statVrhByRank(dataframe):
 
 
 def statCapitalFunding(dataframe):
-    df = dataframe[['funding_source', '2015', '2016', '2017', '2018', '2019', 'change_2018_2019']]
-    df.columns = ['Funding Source', '2015', '2016', '2017', '2018', '2019', '% Change 2018-2019']
+    df = dataframe[['funding_source', '2015', '2016', '2017', '2018', '2019','2020', 'change_2019_2020']]
+    df.columns = ['Funding Source', '2015', '2016', '2017', '2018', '2019','2020', '% Change 2019-2020']
     return df
 
 
 def statOperatingFunding(dataframe):
-    df = dataframe[['funding_source', '2015', '2016', '2017', '2018', '2019', 'change_2018_2019']]
-    df.columns = ['Funding Source', '2015', '2016', '2017', '2018', '2019', '% Change 2018-2019']
+    df = dataframe[['funding_source', '2015', '2016', '2017', '2018', '2019','2020', 'change_2019_2020']]
+    df.columns = ['Funding Source', '2015', '2016', '2017', '2018', '2019','2020', '% Change 2019-2020']
     return df
 
 
@@ -187,30 +187,30 @@ def statFleetByMode(dataframe):
 
 
 def statAdaAccessible(dataframe):
-    df = dataframe[['vehicle_type', '2015', '2016', '2017', '2018', '2019']]
+    df = dataframe[['vehicle_type', '2015', '2016', '2017', '2018', '2019','2020']]
     df = df.dropna()
-    df.columns = ['Vehicle Type', '2015', '2016', '2017', '2018', '2019']
+    df.columns = ['Vehicle Type', '2015', '2016', '2017', '2018', '2019','2020']
     return df
 
 
 def statVehicleAge(dataframe):
-    df = dataframe[['vehicle_type', '2015', '2016', '2017', '2018', '2019']]
+    df = dataframe[['vehicle_type', '2015', '2016', '2017', '2018', '2019','2020']]
     df = df.dropna()
-    df.columns = ['Vehicle Type', '2015', '2016', '2017', '2018', '2019']
+    df.columns = ['Vehicle Type', '2015', '2016', '2017', '2018', '2019','2020']
     return df
 
 
 def statVehicleLength(dataframe):
-    df = dataframe[['vehicle_type', '2015', '2016', '2017', '2018', '2019']]
+    df = dataframe[['vehicle_type', '2015', '2016', '2017', '2018', '2019','2020']]
     df = df.dropna()
-    df.columns = ['Vehicle Type', '2015', '2016', '2017', '2018', '2019']
+    df.columns = ['Vehicle Type', '2015', '2016', '2017', '2018', '2019','2020']
     return df
 
 
 def statSeatingCapacity(dataframe):
-    df = dataframe[['vehicle_type', '2015', '2016', '2017', '2018', '2019']]
+    df = dataframe[['vehicle_type', '2015', '2016', '2017', '2018', '2019','2020']]
     df = df.dropna()
-    df.columns = ['Vehicle Type', '2015', '2016', '2017', '2018', '2019']
+    df.columns = ['Vehicle Type', '2015', '2016', '2017', '2018', '2019','2020']
     return df
 
 
@@ -233,16 +233,16 @@ def statFundingSource(dataframe):
 
 
 def statTripsPerMile(dataframe):
-    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019', 'change_2018_2019']]
+    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019','2020', 'change_2019_2020']]
     df = df.dropna()
-    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019', '% Change 2018-2019']
+    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019','2020', '% Change 2019-2020']
     return df
 
 
 def statTripsPerHour(dataframe):
-    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019', 'change_2018_2019']]
+    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019','2020','change_2019_2020']]
     df = df.dropna()
-    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019', '% Change 2018-2019']
+    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019','2020','% Change 2019-2020']
     return df
 
 
@@ -254,30 +254,30 @@ def statTripsMilesHoursPerVehicle(dataframe):
 
 
 def statOperatingExpensePerTrip(dataframe):
-    df = dataframe[['mode', '2016', '2017', '2018', '2019', 'change_2018_2019']]
+    df = dataframe[['mode', '2016', '2017', '2018', '2019','2020', 'change_2019_2020']]
     df = df.dropna()
-    df.columns = ['Mode', '2016', '2017', '2018', '2019', '% Change 2018-2019']
+    df.columns = ['Mode', '2016', '2017', '2018', '2019', '2020','% Change 2019-2020']
     return df
 
 
 def statOperatingExpensePerVehicleMile(dataframe):
-    df = dataframe[['mode', '2016', '2017', '2018', '2019', 'change_2018_2019']]
+    df = dataframe[['mode', '2016', '2017', '2018', '2019','2020', 'change_2019_2020']]
     df = df.dropna()
-    df.columns = ['Mode', '2016', '2017', '2018', '2019', '% Change 2018-2019']
+    df.columns = ['Mode', '2016', '2017', '2018', '2019','2020', '% Change 2019-2020']
     return df
 
 
 def statOperatingExpensePerVehicleHour(dataframe):
-    df = dataframe[['mode', '2016', '2017', '2018', '2019', 'change_2018_2019']]
+    df = dataframe[['mode', '2016', '2017', '2018', '2019','2020', 'change_2019_2020']]
     df = df.dropna()
-    df.columns = ['Mode', '2016', '2017', '2018', '2019', '% Change 2018-2019']
+    df.columns = ['Mode', '2016', '2017', '2018', '2019','2020', '% Change 2019-2020']
     return df
 
 
 def statFareboxRecoveryRatio(dataframe):
-    df = dataframe[['mode', '2016', '2017', '2018', '2019', 'change_2018_2019']]
+    df = dataframe[['mode', '2016', '2017', '2018', '2019','2020', 'change_2019_2020']]
     df = df.dropna()
-    df.columns = ['Mode', '2016', '2017', '2018', '2019', '% Change 2018-2019']
+    df.columns = ['Mode', '2016', '2017', '2018', '2019','2020', '% Change 2019-2020']
     return df
 
 
@@ -447,58 +447,58 @@ def statVrhByState(dataframe):
 
 
 def statRidershipTotalYearlyByState(dataframe):
-    df = dataframe[['state', '2016', '2017', '2018', '2019']]
+    df = dataframe[['state', '2016', '2017', '2018', '2019','2020']]
     df = df.dropna()
-    df.columns = ['State', '2016', '2017', '2018', '2019']
+    df.columns = ['State', '2016', '2017', '2018', '2019','2020']
     return df
 
 
 def statRidershipFRYearlyByState(dataframe):
-    df = dataframe[['state', '2016', '2017', '2018', '2019']]
+    df = dataframe[['state', '2016', '2017', '2018', '2019','2020']]
     df = df.dropna()
-    df.columns = ['State', '2016', '2017', '2018', '2019']
+    df.columns = ['State', '2016', '2017', '2018', '2019','2020']
     return df
 
 
 def statRidershipDRYearlyByState(dataframe):
-    df = dataframe[['state', '2016', '2017', '2018', '2019']]
+    df = dataframe[['state', '2016', '2017', '2018', '2019','2020']]
     df = df.dropna()
-    df.columns = ['State', '2016', '2017', '2018', '2019']
+    df.columns = ['State', '2016', '2017', '2018', '2019','2020']
     return df
 
 
 def statRidershipOtherYearlyByState(dataframe):
-    df = dataframe[['state', '2016', '2017', '2018', '2019']]
+    df = dataframe[['state', '2016', '2017', '2018', '2019','2020']]
     df = df.dropna()
-    df.columns = ['State', '2016', '2017', '2018', '2019']
+    df.columns = ['State', '2016', '2017', '2018', '2019','2020']
     return df
 
 
 def statVrmTotalYearlyByState(dataframe):
-    df = dataframe[['state', '2016', '2017', '2018', '2019']]
+    df = dataframe[['state', '2016', '2017', '2018', '2019','2020']]
     df = df.dropna()
-    df.columns = ['State', '2016', '2017', '2018', '2019']
+    df.columns = ['State', '2016', '2017', '2018', '2019','2020']
     return df
 
 
 def statVrmFrsYearlyByState(dataframe):
-    df = dataframe[['state', '2016', '2017', '2018', '2019']]
+    df = dataframe[['state', '2016', '2017', '2018', '2019','2020']]
     df = df.dropna()
-    df.columns = ['State', '2016', '2017', '2018', '2019']
+    df.columns = ['State', '2016', '2017', '2018', '2019','2020']
     return df
 
 
 def statVrmDrsYearlyByState(dataframe):
-    df = dataframe[['state', '2016', '2017', '2018', '2019']]
+    df = dataframe[['state', '2016', '2017', '2018', '2019','2020']]
     df = df.dropna()
-    df.columns = ['State', '2016', '2017', '2018', '2019']
+    df.columns = ['State', '2016', '2017', '2018', '2019','2020']
     return df
 
 
 def statVrmOtherYearlyByState(dataframe):
-    df = dataframe[['state', '2016', '2017', '2018', '2019']]
+    df = dataframe[['state', '2016', '2017', '2018', '2019','2020']]
     df = df.dropna()
-    df.columns = ['State', '2016', '2017', '2018', '2019']
+    df.columns = ['State', '2016', '2017', '2018', '2019','2020']
     return df
 
 
@@ -574,23 +574,23 @@ def statAgencyPercentileVrhByState(dataframe):
 
 
 def statRidershipYearlyByTribal(dataframe):
-    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019']]
+    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019','2020']]
     #	df = df.dropna()
-    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019']
+    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019','2020']
     return df
 
 
 def statVrmYearlyByTribal(dataframe):
-    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019']]
+    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019','2020']]
     #	df = df.dropna()
-    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019']
+    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019','2020']
     return df
 
 
 def statVrhYearlyByTribal(dataframe):
-    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019']]
+    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019','2020']]
     #	df = df.dropna()
-    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019']
+    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019','2020']
     return df
 
 
@@ -632,38 +632,38 @@ def statVRHPerVehicleByTribal(dataframe):
 
 
 def statTripsPerVrmByTribal(dataframe):
-    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019']]
-    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019']
+    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019','2020']]
+    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019','2020']
     return df
 
 
 def statTripsPerVrhByTribal(dataframe):
-    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019']]
-    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019']
+    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019','2020']]
+    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019','2020']
     return df
 
 
 def statOperatingExpensePerTripByTribal(dataframe):
-    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019']]
-    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019']
+    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019','2020']]
+    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019','2020']
     return df
 
 
 def statOperatingExpensePerVrmByTribal(dataframe):
-    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019']]
-    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019']
+    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019','2020']]
+    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019','2020']
     return df
 
 
 def statOperatingExpensePerVrhByTribal(dataframe):
-    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019']]
-    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019']
+    df = dataframe[['vehicle_mode', '2015', '2016', '2017', '2018', '2019','2020']]
+    df.columns = ['Vehicle Mode', '2015', '2016', '2017', '2018', '2019','2020']
     return df
 
 
 def statFareboxRecoveryRatioByTribal(dataframe):
-    df = dataframe[['frr', '2015', '2016', '2017', '2018', '2019']]
-    df.columns = ['Farebox Recovery Ratio', '2015', '2016', '2017', '2018', '2019']
+    df = dataframe[['frr', '2015', '2016', '2017', '2018', '2019','2020']]
+    df.columns = ['Farebox Recovery Ratio', '2015', '2016', '2017', '2018', '2019','2020']
     return df
 
 
@@ -858,7 +858,7 @@ def backlog(dataframe, state='All', agency=None):
         else:
             dataframe = dataframe.query("state == @state and agency_name==@agency")
 
-    df = dataframe.loc[dataframe.projected_retired_year < 2021].groupby(['vehicle_type'])[
+    df = dataframe.loc[dataframe.projected_retired_year < 2022].groupby(['vehicle_type'])[
         'active_fleet_vehicles'].sum().reset_index()
     df.columns = ['vehicle_type', 'count']
     return df
@@ -871,7 +871,7 @@ def backlog_cost(dataframe, state='All', agency=None):
         else:
             dataframe = dataframe.query("state == @state and agency_name==@agency")
 
-    df = dataframe.loc[dataframe.projected_retired_year < 2021].groupby(['vehicle_type'])[
+    df = dataframe.loc[dataframe.projected_retired_year < 2022].groupby(['vehicle_type'])[
         'total_fleet_cost'].sum().reset_index()
     return df
 
